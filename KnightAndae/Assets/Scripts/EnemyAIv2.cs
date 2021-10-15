@@ -88,11 +88,11 @@ public class EnemyAIv2 : MonoBehaviour
         //Change sprite orientation based on movement direction.
         if(rb.velocity.x >= 0.01f)
         {
-            sprite.localScale = new Vector3(-1f, 1f, 1f);
+            sprite.localScale = new Vector3(1f, 1f, 1f);
         }
         else if(rb.velocity.x < 0f)
         {
-            sprite.localScale = new Vector3(1f, 1f, 1f);
+            sprite.localScale = new Vector3(-1f, 1f, 1f);
         }
     }
 }

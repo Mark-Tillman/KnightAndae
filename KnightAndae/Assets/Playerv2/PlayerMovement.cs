@@ -14,7 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     //Animator variables
     public Animator animator;
-    float lastX, lastY;
+    float lastX;
+    float lastY;
 
     void Start()
     {
@@ -24,18 +25,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
-    }
-
-    void FixedUpdate()
-    {
-        animator.SetFloat("lastX", horizontal);
-        animator.SetFloat("lastY", vertical);
-
         // Gives a value between -1 and 1
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
         AnimationUpdate();
+    }
+
+    void FixedUpdate()
+    {  
 
         if (horizontal != 0 && vertical != 0) // Check for diagonal movement
         {
@@ -44,23 +41,36 @@ public class PlayerMovement : MonoBehaviour
             vertical *= moveLimiter;
         }
 
-
-
         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.x >= 0.01f)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 0f)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
     }
 
     void AnimationUpdate()
     {
-        animator.SetFloat("xSpeed", horizontal);
-        animator.SetFloat("ySpeed", horizontal);
+        
 
-        if(horizontal == 0 && vertical == 0)
+        if (horizontal == 0f && vertical == 0f)
         {
+            animator.SetFloat("lastX", lastX);
+            animator.SetFloat("lastY", lastY);
             animator.SetBool("Moving", false);
         }
         else
         {
+            lastX = Mathf.Abs(horizontal);
+            lastY = vertical;
             animator.SetBool("Moving", true);
         }
+
+        animator.SetFloat("xSpeed", Mathf.Abs(horizontal));
+        animator.SetFloat("ySpeed", vertical);
     }
 }
