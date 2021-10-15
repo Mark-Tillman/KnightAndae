@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: b3d98b1c6e277b544b5502b6b333d825
+guid: b5f764f19d30e614db4baff0a63b55d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1164448986418671947
-    second: Goblins_Sprite_0
+      213: -1421742329678449555
+    second: IdleDownSword_0
   - first:
-      213: -4691998305102881394
-    second: Goblins_Sprite_1
+      213: -3084814658884206591
+    second: IdleDownSword_1
+  - first:
+      213: 9222631308968013919
+    second: IdleDownSword_2
+  - first:
+      213: 930883660707100882
+    second: IdleDownSword_3
+  - first:
+      213: 5285533828864572866
+    second: IdleDownSword_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -38,7 +47,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -53,7 +62,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
-  spriteBorder: {x: 5, y: 185, z: 200, w: 5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -74,7 +83,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -86,7 +95,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,7 +107,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +119,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,7 +131,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -134,7 +143,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -145,43 +154,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goblins_Sprite_0
+      name: IdleDownSword_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 185
-        width: 145
-        height: 165
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 30
+        y: 820
+        width: 135
+        height: 160
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b417c820f24f82010800000000000000
-      internalID: 1164448986418671947
+      spriteID: d64316542e4f44ce0800000000000000
+      internalID: -1421742329678449555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblins_Sprite_1
+      name: IdleDownSword_1
       rect:
         serializedVersion: 2
-        x: 25
-        y: 15
-        width: 145
-        height: 165
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 30
+        y: 620
+        width: 135
+        height: 160
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8d9b99966ca2eeb0800000000000000
-      internalID: -4691998305102881394
+      spriteID: 1000a4b69698035d0800000000000000
+      internalID: -3084814658884206591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleDownSword_2
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 420
+        width: 135
+        height: 160
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f503f69df4e5dff70800000000000000
+      internalID: 9222631308968013919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleDownSword_3
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 220
+        width: 135
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d879a3e1c92bec00800000000000000
+      internalID: 930883660707100882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleDownSword_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 20
+        width: 140
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd78cd630df95940800000000000000
+      internalID: 5285533828864572866
       vertices: []
       indices: 
       edges: []
