@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         //    TakeDamage(-1);
         //}
     }
-    void OnTriggerEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
