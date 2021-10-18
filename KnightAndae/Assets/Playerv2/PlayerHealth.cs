@@ -32,7 +32,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.SendMessage("TakeDamage", 1);
+            //collision.gameObject.SendMessage("TakeDamage", 1);
+            TakeDamage(1);
         }
     }
 

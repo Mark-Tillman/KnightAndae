@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     float vertical;
     float moveLimiter = 0.7f;
 
-    public float runSpeed = 20.0f;
+    public float runSpeed = 15.0f;
 
     //Animator variables
     public Animator animator;
@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         // Gives a value between -1 and 1
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+
         AnimationUpdate();
     }
 

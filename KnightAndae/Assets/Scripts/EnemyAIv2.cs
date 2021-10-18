@@ -9,7 +9,7 @@ public class EnemyAIv2 : MonoBehaviour
     Transform target;
 
     //Speed
-    public float speed = 200f;
+    public float speed = 400f;
     public float nextWaypointDistance = 1f;
 
     public Transform sprite;    
@@ -21,7 +21,7 @@ public class EnemyAIv2 : MonoBehaviour
 
     //Seeker componenet of enemy and rigidbody
     Seeker seeker;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     //Player detection
     Transform player;
@@ -32,10 +32,20 @@ public class EnemyAIv2 : MonoBehaviour
     bool checkedLastPosition = false;
     bool firstDetected = false;
     public float detectBubble = 5;
-    public float minimumDistance = 1;
+    public float minimumDistance = 3;
     public float playerHeight = 1.5f;
 
+    public bool attacked = false;
+
+    bool stunned = false;
     
+    IEnumerator stun()
+    {
+        //NOT USED RIGHT NOW 
+        stunned = true;
+        yield return new WaitForSeconds(2);
+        stunned = false;
+    }
 
     void Start()
     {
@@ -84,7 +94,7 @@ public class EnemyAIv2 : MonoBehaviour
 
         detectPlayer();
 
-        if (!reachedEndOfPath)
+        if (!reachedEndOfPath && !stunned)
         {
             pathFind();
         }
@@ -101,7 +111,7 @@ public class EnemyAIv2 : MonoBehaviour
         if (currentWaypoint >= path.vectorPath.Count || playerDistance < minimumDistance)
         {
             //Check if the end of the path has been reached
-            rb.velocity = new Vector2(0, 0);
+            //rb.velocity = new Vector2(0, 0);
             reachedEndOfPath = true;
             checkedLastPosition = true;
             return;
@@ -176,5 +186,12 @@ public class EnemyAIv2 : MonoBehaviour
             //target = lastKnownPosition;
         }
 
+    }
+
+    public void getAttacked(float knockback, Vector2 direction)
+    {
+        //StartCoroutine("stun");
+        //rb.AddForce(direction * knockback);
+        Destroy(gameObject);
     }
 }

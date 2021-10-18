@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class Player_Combat : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    GameObject player;
+    public float knockBack = 500000;
+    Vector2 oppositeDirection;
+
+
+    void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("The enemy has been hit! Huzzah!");
+            oppositeDirection = (player.transform.position - other.transform.position).normalized;
+            other.gameObject.GetComponent<EnemyAIv2>().getAttacked(knockBack, oppositeDirection);
         }
     }
 }
