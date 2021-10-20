@@ -8,36 +8,37 @@ public class EnemyAIv2 : MonoBehaviour
     //Target that the enemy will track
     Transform target;
 
-    //Speed
-    public float speed = 400f;
-    public float nextWaypointDistance = 1f;
+    public float speed = 400f; //Enemy Speed
+    public float nextWaypointDistance = 1f; //Distance before enemy moves to next waypoint
 
-    public Transform sprite;    
+    public Transform sprite; //Enemy sprite reference
 
-    Path path;
-    int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
-    Vector3 originalPosition;
+    Path path; //Stores the path that the enemy is to follow
+    int currentWaypoint = 0; //Current waypoint in path the enemy is following
+    bool reachedEndOfPath = false; //Bool for if the end of the path has been reached
+
+    Vector3 originalPosition; //Save original position to pathfind home
+    Vector3 lastKnownPosition; //Save last known position of player
 
     //Seeker componenet of enemy and rigidbody
-    Seeker seeker;
-    public Rigidbody2D rb;
+    Seeker seeker; //Seeker script from A* attached to enemy
+    public Rigidbody2D rb; //Reference to enemy rigid body
 
-    //Player detection
-    Transform player;
-    bool playerDetected = false;
-    float playerDistance = 0f;
-    public float detectRange = 10f;
-    Vector3 lastKnownPosition;
-    bool checkedLastPosition = false;
-    bool firstDetected = false;
-    public float detectBubble = 5;
-    public float minimumDistance = 3;
-    public float playerHeight = 1.5f;
+    Transform player; //Player position reference
+    bool playerDetected = false; //Bool for if the player is detected or not
+    float playerDistance = 0f; //Stores distance from enemy to player
+    public float detectRange = 10f; //Range between enemy and player in which player can be detected
+    bool firstDetected = false; //Bool for if the player has just been detected
 
-    public bool attacked = false;
+    bool checkLastPosition = false; //Bool to tell the enemy to check the last known position or not
+    bool chase = false; //Bool to tell the enemy to chase the player
+    bool atHome = false; //Bool to tell the enemy if it is at home or not
+    
+    public float playerHeight = 1.5f; //Player height gets added to player position so enemy tracks towards center of player instead of the bottom
 
-    bool stunned = false;
+    public bool attacked = false; //Bool for if the enemy has been attacked
+
+    bool stunned = false; //WIP
     
     IEnumerator stun()
     {
@@ -45,39 +46,40 @@ public class EnemyAIv2 : MonoBehaviour
         stunned = true;
         yield return new WaitForSeconds(2);
         stunned = false;
-    }
+    }//WIP
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
-        seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player").GetComponent<Transform>(); //Find the player and get transform
+        seeker = GetComponent<Seeker>(); //Get seeker component from enemy
+        rb = GetComponent<Rigidbody2D>(); //Get rigidbody component from enemy
 
-        originalPosition = rb.transform.position;
-        lastKnownPosition = originalPosition;
+        originalPosition = rb.transform.position; //Set original position to the starting position
 
-        InvokeRepeating("UpdatePath", 0f, 0.2f);
+        InvokeRepeating("UpdatePath", 0f, 0.2f); //Continuously update the enemy path
     }
 
     void UpdatePath()
     {
         if(seeker.IsDone() && playerDetected)
         {
-            //Start path at current position and point it to player. OnPathComplete is called when path is done being drawn
+            //Start path towards player if detected
             seeker.StartPath(rb.position, new Vector2(player.position.x, player.position.y + playerHeight), OnPathComplete);
         }
-        else if(seeker.IsDone() && !checkedLastPosition)
+        else if(seeker.IsDone() && checkLastPosition)
         {
+            //Start path towards lastKnownPosition is the player was detected but then lost
             seeker.StartPath(rb.position, lastKnownPosition, OnPathComplete);
-            //checkedLastPosition = true;
         }
-        else
+        else if(seeker.IsDone())
         {
-            //Start path at current position and point it to player. OnPathComplete is called when path is done being drawn
+            //Start path towards originalPosition if no where else to go
             seeker.StartPath(rb.position, originalPosition, OnPathComplete);
+            
         }
     }
 
+    //When path is done being drawn, assign it to the enemy and set current waypoint at the start
     void OnPathComplete(Path p)
     {
         if(!p.error)
@@ -90,13 +92,13 @@ public class EnemyAIv2 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        playerDistance = Vector2.Distance(rb.position, player.position);
+        playerDistance = Vector2.Distance(rb.position, player.position); //Always keep track of distance between enemy and player
 
-        detectPlayer();
+        detectPlayer(); //Attempt to detect the player
 
-        if (!reachedEndOfPath && !stunned)
+        if (chase || !atHome) //If player is detected, chase will be true, and if the enemy is not at original position, atHome will be false
         {
-            pathFind();
+            pathFind(); //Move
         }
     }
 
@@ -105,15 +107,16 @@ public class EnemyAIv2 : MonoBehaviour
         if (path == null)
         {
             //Do nothing if there is no path
+            Debug.Log("No Path");
             return;
         }
 
-        if (currentWaypoint >= path.vectorPath.Count || playerDistance < minimumDistance)
+        if (currentWaypoint >= path.vectorPath.Count)
         {
             //Check if the end of the path has been reached
-            //rb.velocity = new Vector2(0, 0);
             reachedEndOfPath = true;
-            checkedLastPosition = true;
+            checkLastPosition = false;
+            chase = false;
             return;
         }
         else
@@ -122,18 +125,16 @@ public class EnemyAIv2 : MonoBehaviour
             reachedEndOfPath = false;
         }
 
+
         //Set direction to next way point and set a force at the correct speed
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
-
         //Set the velocity so it moves along the path
         rb.velocity = force;
 
-
         //Calculate distance from current position to the current waypoint 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-
         if (distance < nextWaypointDistance)
         {
             //When close enough to the waypoint, start moving to the next one
@@ -164,26 +165,31 @@ public class EnemyAIv2 : MonoBehaviour
         //Check if enemy sees the player unobstructed and within range
         if ((hit && hit.collider.gameObject.tag == "Player" && playerDistance <= detectRange))
         {
-            playerDetected = true;
-            target = player;
-            checkedLastPosition = false;
-            reachedEndOfPath = false;
-            firstDetected = true;
-            lastKnownPosition = player.transform.position;
+            playerDetected = true; //Player has been detected
+            checkLastPosition = false; //Enemy does not need to check last known position while the player is detected
+            chase = true; //Enemy should chase the player while detected
+            firstDetected = true; //The enemy has just detected the player
+            atHome = false; //The enemy will start chasing the player and will no longer be at home
+            lastKnownPosition = player.transform.position; //Whereever the player is detected is the last known position
         }
-        else if(playerDistance <= detectBubble && firstDetected)
+        else //Player is out of range or has been obstructed
         {
-            playerDetected = true;
-            target = player;
-            checkedLastPosition = false;
-            reachedEndOfPath = false;
+            playerDetected = false; //Player no longer detected
         }
-        else
+
+        if(firstDetected && !playerDetected) //If the player was detected but is no longer detected
         {
-            //Debug.Log("Player out of range or obstructed");
-            //rb.velocity = new Vector2(0, 0);
-            playerDetected = false;
-            //target = lastKnownPosition;
+            checkLastPosition = true; //The enemy should check the last known position
+            firstDetected = false; //Enemies original detection is false now
+        }
+
+        if(!playerDetected && !checkLastPosition && !atHome) //Player not detected, and Enemy not going to check the last position, and Enemy is not at home (original position)
+        {
+            float distance = Vector2.Distance(rb.position, originalPosition); //Determine distance from enemy to original position
+            if (distance <= 0.1f) //Enemy is at original position
+            {
+                atHome = true; //Enemy is considered atHome and should no longer move
+            }
         }
 
     }
