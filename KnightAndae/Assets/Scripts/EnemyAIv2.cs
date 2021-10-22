@@ -38,6 +38,8 @@ public class EnemyAIv2 : MonoBehaviour
 
     public bool attacked = false; //Bool for if the enemy has been attacked
 
+    public Animator animator; //Animation control
+
     bool stunned = false; //WIP
     
     IEnumerator stun()
@@ -53,6 +55,7 @@ public class EnemyAIv2 : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<Transform>(); //Find the player and get transform
         seeker = GetComponent<Seeker>(); //Get seeker component from enemy
         rb = GetComponent<Rigidbody2D>(); //Get rigidbody component from enemy
+        animator = GetComponentInChildren<Animator>();
 
         originalPosition = rb.transform.position; //Set original position to the starting position
 
@@ -99,6 +102,11 @@ public class EnemyAIv2 : MonoBehaviour
         if (chase || !atHome) //If player is detected, chase will be true, and if the enemy is not at original position, atHome will be false
         {
             pathFind(); //Move
+            animator.SetBool("Moving", true);
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
         }
     }
 
@@ -142,13 +150,15 @@ public class EnemyAIv2 : MonoBehaviour
         }
 
         //Change sprite orientation based on movement direction.
-        if (rb.velocity.x >= 0.01f)
+        if (rb.velocity.x > 0f && sprite.localScale != new Vector3(-0.4f, 0.4f, 1f))
         {
-            sprite.localScale = new Vector3(-1f, 1f, 1f);
+            sprite.localScale = new Vector3(-0.4f, 0.4f, 1f);
+            Debug.Log("FLIP");
         }
-        else if (rb.velocity.x < 0f)
+        else if (rb.velocity.x < 0f && sprite.localScale != new Vector3(0.4f, 0.4f, 1f))
         {
-            sprite.localScale = new Vector3(1f, 1f, 1f);
+            sprite.localScale = new Vector3(0.4f, 0.4f, 1f);
+            Debug.Log("FLIP");
         }
     }
 
