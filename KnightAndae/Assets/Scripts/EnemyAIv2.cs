@@ -27,14 +27,16 @@ public class EnemyAIv2 : MonoBehaviour
     Transform player; //Player position reference
     bool playerDetected = false; //Bool for if the player is detected or not
     float playerDistance = 0f; //Stores distance from enemy to player
+    float playerYDistance = 0f;
     public float detectRange = 10f; //Range between enemy and player in which player can be detected
     bool firstDetected = false; //Bool for if the player has just been detected
+    public float attackDistance = 1f; //Closest that enemy can get to the player
 
     bool checkLastPosition = false; //Bool to tell the enemy to check the last known position or not
     bool chase = false; //Bool to tell the enemy to chase the player
     bool atHome = false; //Bool to tell the enemy if it is at home or not
     
-    public float playerHeight = 1.5f; //Player height gets added to player position so enemy tracks towards center of player instead of the bottom
+    float playerHeight = 0.2f; //Player height gets added to player position so enemy tracks towards center of player instead of the bottom
 
     public bool attacked = false; //Bool for if the enemy has been attacked
 
@@ -42,7 +44,7 @@ public class EnemyAIv2 : MonoBehaviour
 
     bool stunned = false; //WIP
     
-    IEnumerator stun()
+    IEnumerator attackSequence()
     {
         //NOT USED RIGHT NOW 
         stunned = true;
@@ -96,10 +98,11 @@ public class EnemyAIv2 : MonoBehaviour
     void FixedUpdate()
     {
         playerDistance = Vector2.Distance(rb.position, player.position); //Always keep track of distance between enemy and player
+        playerYDistance = Mathf.Abs(rb.position.y - (player.position.y + playerHeight));
 
         detectPlayer(); //Attempt to detect the player
 
-        if (chase || !atHome) //If player is detected, chase will be true, and if the enemy is not at original position, atHome will be false
+        if ((chase || !atHome) && (playerDistance >= attackDistance)) //If player is detected, chase will be true, and if the enemy is not at original position, atHome will be false
         {
             pathFind(); //Move
             animator.SetBool("Moving", true);
@@ -153,12 +156,10 @@ public class EnemyAIv2 : MonoBehaviour
         if (rb.velocity.x > 0f && sprite.localScale != new Vector3(-0.4f, 0.4f, 1f))
         {
             sprite.localScale = new Vector3(-0.4f, 0.4f, 1f);
-            Debug.Log("FLIP");
         }
         else if (rb.velocity.x < 0f && sprite.localScale != new Vector3(0.4f, 0.4f, 1f))
         {
             sprite.localScale = new Vector3(0.4f, 0.4f, 1f);
-            Debug.Log("FLIP");
         }
     }
 
@@ -206,7 +207,7 @@ public class EnemyAIv2 : MonoBehaviour
 
     public void getAttacked(float knockback, Vector2 direction)
     {
-        //StartCoroutine("stun");
+        //StartCoroutine("attackSequence");
         //rb.AddForce(direction * knockback);
         Destroy(gameObject);
     }

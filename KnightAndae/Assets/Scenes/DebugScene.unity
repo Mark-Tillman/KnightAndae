@@ -155,8 +155,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1788262062}
     - target: {fileID: 4900829489530914632, guid: 49d7df2d0d43d344eb0f7cb184dc07ff, type: 3}
+      propertyPath: minDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900829489530914632, guid: 49d7df2d0d43d344eb0f7cb184dc07ff, type: 3}
       propertyPath: playerHeight
-      value: 1.25
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900829489530914632, guid: 49d7df2d0d43d344eb0f7cb184dc07ff, type: 3}
+      propertyPath: attackDistance
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4900829489530914632, guid: 49d7df2d0d43d344eb0f7cb184dc07ff, type: 3}
       propertyPath: nextWaypointDistance
