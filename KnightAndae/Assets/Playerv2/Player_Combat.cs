@@ -18,7 +18,7 @@ public class Player_Combat : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             oppositeDirection = (player.transform.position - other.transform.position).normalized;
-            other.gameObject.GetComponent<EnemyAIv2>().getAttacked(knockBack, oppositeDirection);
+            //other.gameObject.GetComponent<EnemyAIv2>().getAttacked(knockBack, oppositeDirection);
         }
     }
 }

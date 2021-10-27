@@ -148,36 +148,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gob_attack_0
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 585
-        width: 145
-        height: 165
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6af52651c18c9d8f0800000000000000
-      internalID: -515160659413803098
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Gob_attack_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 360
-        width: 260
+        x: 90
+        y: 180
+        width: 255
         height: 165
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.66461885, y: 0.41069263}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,12 +172,12 @@ TextureImporter:
       name: Gob_attack_2
       rect:
         serializedVersion: 2
-        x: 50
-        y: 110
-        width: 260
+        x: 54
+        y: 10
+        width: 270
         height: 165
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.726547, y: 0.40705794}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

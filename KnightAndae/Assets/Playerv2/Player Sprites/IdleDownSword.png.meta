@@ -178,8 +178,8 @@ TextureImporter:
       name: IdleDownSword_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 620
+        x: 29
+        y: 619
         width: 135
         height: 160
       alignment: 7
@@ -200,7 +200,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 30
-        y: 420
+        y: 421
         width: 135
         height: 160
       alignment: 7

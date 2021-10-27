@@ -30,27 +30,17 @@ public class EnemyAIv2 : MonoBehaviour
     float playerYDistance = 0f;
     public float detectRange = 10f; //Range between enemy and player in which player can be detected
     bool firstDetected = false; //Bool for if the player has just been detected
-    public float attackDistance = 1f; //Closest that enemy can get to the player
 
     bool checkLastPosition = false; //Bool to tell the enemy to check the last known position or not
     bool chase = false; //Bool to tell the enemy to chase the player
     bool atHome = false; //Bool to tell the enemy if it is at home or not
     
-    float playerHeight = 0.2f; //Player height gets added to player position so enemy tracks towards center of player instead of the bottom
+    float playerHeight = 1f; //Player height gets added to player position so enemy tracks towards center of player instead of the bottom
+    public float minDistance = 2.5f; //Minimum distance that the enemy can get to the player
+    public float minYDistance = 1f;
+    public bool canAttack = false;
 
-    public bool attacked = false; //Bool for if the enemy has been attacked
-
-    public Animator animator; //Animation control
-
-    bool stunned = false; //WIP
-    
-    IEnumerator attackSequence()
-    {
-        //NOT USED RIGHT NOW 
-        stunned = true;
-        yield return new WaitForSeconds(2);
-        stunned = false;
-    }//WIP
+    Animator animator; //Animation control 
 
     void Start()
     {
@@ -97,12 +87,12 @@ public class EnemyAIv2 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        playerDistance = Vector2.Distance(rb.position, player.position); //Always keep track of distance between enemy and player
-        playerYDistance = Mathf.Abs(rb.position.y - (player.position.y + playerHeight));
+        playerDistance = Vector2.Distance(rb.position, new Vector2(player.position.x, player.position.y + playerHeight)); //Always keep track of distance between enemy and player
+        playerYDistance = (rb.position.y - (player.position.y + playerHeight));
 
         detectPlayer(); //Attempt to detect the player
 
-        if ((chase || !atHome) && (playerDistance >= attackDistance)) //If player is detected, chase will be true, and if the enemy is not at original position, atHome will be false
+        if ((chase || !atHome) && (playerDistance >= minDistance)) //If player is detected, chase will be true, and if the enemy is not at original position, atHome will be false
         {
             pathFind(); //Move
             animator.SetBool("Moving", true);
@@ -110,6 +100,37 @@ public class EnemyAIv2 : MonoBehaviour
         else
         {
             animator.SetBool("Moving", false);
+        }
+
+        if(playerDistance <= minDistance)
+        {
+            if (Mathf.Abs(playerYDistance) <= minYDistance)
+            {
+                animator.SetBool("Moving", false);
+                canAttack = true; //Can attack if within distance
+            }
+            else
+            {
+                animator.SetBool("Moving", true);
+                canAttack = false;
+
+                if (playerYDistance < 0f)
+                    rb.velocity = Vector2.up * speed * Time.deltaTime;
+                else if(playerYDistance > 0f)
+                    rb.velocity = Vector2.down * speed * Time.deltaTime;
+
+
+            }
+
+            //Change sprite orientation to be facing player
+            if (rb.position.x - player.position.x < 0f && sprite.localScale != new Vector3(-0.4f, 0.4f, 1f))
+            {
+                sprite.localScale = new Vector3(-0.4f, 0.4f, 1f);
+            }
+            else if (rb.position.x - player.position.x > 0f && sprite.localScale != new Vector3(0.4f, 0.4f, 1f))
+            {
+                sprite.localScale = new Vector3(0.4f, 0.4f, 1f);
+            }
         }
     }
 
@@ -163,6 +184,8 @@ public class EnemyAIv2 : MonoBehaviour
         }
     }
 
+
+
     void detectPlayer()
     {
         //Mask for the enemy to ignore - so that raycast doesn't collide with enemy casting it.
@@ -203,12 +226,5 @@ public class EnemyAIv2 : MonoBehaviour
             }
         }
 
-    }
-
-    public void getAttacked(float knockback, Vector2 direction)
-    {
-        //StartCoroutine("attackSequence");
-        //rb.AddForce(direction * knockback);
-        Destroy(gameObject);
     }
 }
