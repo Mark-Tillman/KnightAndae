@@ -95,55 +95,54 @@ public class EnemyAIv2 : MonoBehaviour
         playerYDistance = (rb.position.y - (player.position.y + playerHeight));
 
         detectPlayer(); //Attempt to detect the player
-<<<<<<< Updated upstream
 
-       if(!stunned)
-=======
         if (!stunned)
->>>>>>> Stashed changes
         {
-            if ((chase || !atHome) && (playerDistance >= minDistance)) //If player is detected, chase will be true, and if the enemy is not at original position, atHome will be false
+            if (!stunned)
             {
-                pathFind(); //Move
-                animator.SetBool("Moving", true);
-            }
-            else
-            {
-                animator.SetBool("Moving", false);
-            }
-
-            if (playerDistance <= minDistance)
-            {
-                if (Mathf.Abs(playerYDistance) <= minYDistance)
+                if ((chase || !atHome) && (playerDistance >= minDistance)) //If player is detected, chase will be true, and if the enemy is not at original position, atHome will be false
                 {
-                    animator.SetBool("Moving", false);
-                    canAttack = true; //Can attack if within distance
+                    pathFind(); //Move
+                    animator.SetBool("Moving", true);
                 }
                 else
                 {
-                    animator.SetBool("Moving", true);
+                    animator.SetBool("Moving", false);
+                }
+
+                if (playerDistance <= minDistance)
+                {
+                    if (Mathf.Abs(playerYDistance) <= minYDistance)
+                    {
+                        animator.SetBool("Moving", false);
+                        canAttack = true; //Can attack if within distance
+                    }
+                    else
+                    {
+                        animator.SetBool("Moving", true);
+                        canAttack = false;
+
+                        if (playerYDistance < 0f)
+                            rb.velocity = Vector2.up * speed * Time.deltaTime;
+                        else if (playerYDistance > 0f)
+                            rb.velocity = Vector2.down * speed * Time.deltaTime;
+
+
+                    }
+
+                    //Change sprite orientation to be facing player
+                    if (rb.position.x - player.position.x < 0f && sprite.localScale != new Vector3(-0.4f, 0.4f, 1f))
+                    {
+                        sprite.localScale = new Vector3(-0.4f, 0.4f, 1f);
+                    }
+                    else if (rb.position.x - player.position.x > 0f && sprite.localScale != new Vector3(0.4f, 0.4f, 1f))
+                    {
+                        sprite.localScale = new Vector3(0.4f, 0.4f, 1f);
+                    }
+                }
+                else
                     canAttack = false;
-
-                    if (playerYDistance < 0f)
-                        rb.velocity = Vector2.up * speed * Time.deltaTime;
-                    else if (playerYDistance > 0f)
-                        rb.velocity = Vector2.down * speed * Time.deltaTime;
-
-
-                }
-
-                //Change sprite orientation to be facing player
-                if (rb.position.x - player.position.x < 0f && sprite.localScale != new Vector3(-0.4f, 0.4f, 1f))
-                {
-                    sprite.localScale = new Vector3(-0.4f, 0.4f, 1f);
-                }
-                else if (rb.position.x - player.position.x > 0f && sprite.localScale != new Vector3(0.4f, 0.4f, 1f))
-                {
-                    sprite.localScale = new Vector3(0.4f, 0.4f, 1f);
-                }
             }
-            else
-                canAttack = false;
         }
     }
 
@@ -249,24 +248,6 @@ public class EnemyAIv2 : MonoBehaviour
         rb.AddForce(knockBack * oppositeDirection, ForceMode2D.Impulse);
         totalHealth -= damageTaken;
         if (totalHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-        yield return new WaitForSeconds(stunDuration);
-        stunned = false;
-    }
-
-    public void startGetAttacked(float knockBack, Vector3 oppositeDirection, int damageTaken)
-    {
-        StartCoroutine(GetAttacked(knockBack, oppositeDirection, damageTaken));
-    }
-
-    IEnumerator GetAttacked(float knockBack, Vector3 oppositeDirection, int damageTaken)
-    {
-        stunned = true;
-        rb.AddForce(knockBack * oppositeDirection, ForceMode2D.Impulse);
-        totalHealth -= damageTaken;
-        if(totalHealth <= 0)
         {
             Destroy(gameObject);
         }
