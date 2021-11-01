@@ -220,6 +220,8 @@ MonoBehaviour:
   maxHealth: 4
   currentHealth: 0
   healthBar: {fileID: 0}
+  invincibilityDurationSeconds: 1.5
+  delayBetweenInvincibilityFlashes: 0.15
 --- !u!1 &3397462947396657146
 GameObject:
   m_ObjectHideFlags: 0
