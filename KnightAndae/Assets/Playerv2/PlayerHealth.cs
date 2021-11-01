@@ -47,11 +47,11 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             //collision.gameObject.SendMessage("TakeDamage", 1);
-            TakeDamage(1);
+            //TakeDamage(1);
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         if (isInvincible) return;
         
@@ -64,7 +64,7 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator BecomeTemporarilyInvincible()
     {
-        Debug.Log("Player turned invincible!");
+        //Debug.Log("Player turned invincible!");
         isInvincible = true;
         int timesLooped = 0;
         // Flash on and off for roughly invincibilityDurationSeconds seconds
@@ -84,7 +84,7 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForSeconds(delayBetweenInvincibilityFlashes);
         }
         player.GetComponent<SpriteRenderer>().enabled = true;
-        Debug.Log("Player is no longer invincible!");
+        //Debug.Log("Player is no longer invincible!");
         isInvincible = false;
     }
 }

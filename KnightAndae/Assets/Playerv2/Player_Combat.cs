@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player_Combat : MonoBehaviour
 {
     GameObject player;
-    public float knockBack = 500000;
+    public float knockBack = 10000f;
     Vector2 oppositeDirection;
 
 
@@ -15,10 +15,12 @@ public class Player_Combat : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.name);
         if (other.CompareTag("Enemy"))
         {
-            oppositeDirection = (player.transform.position - other.transform.position).normalized;
-            //other.gameObject.GetComponent<EnemyAIv2>().getAttacked(knockBack, oppositeDirection);
+            //Debug.Log("HIT");
+            oppositeDirection = (other.transform.position - player.transform.position).normalized;
+            other.gameObject.GetComponent<EnemyAIv2>().startGetAttacked(knockBack, oppositeDirection, 1);
         }
     }
 }
