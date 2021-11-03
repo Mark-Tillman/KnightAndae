@@ -44,10 +44,10 @@ public class PlayerHealth : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Hazard")
         {
             //collision.gameObject.SendMessage("TakeDamage", 1);
-            //TakeDamage(1);
+            TakeDamage(1);
         }
     }
 
