@@ -42,7 +42,8 @@ public class EnemyAIv2 : MonoBehaviour
     public float minYDistance = 1f;
     public bool canAttack = false;
 
-    public int totalHealth = 2;
+    public int maxHealth = 2;
+    public int totalHealth;
 
     Animator animator; //Animation control 
 
@@ -52,6 +53,8 @@ public class EnemyAIv2 : MonoBehaviour
         seeker = GetComponent<Seeker>(); //Get seeker component from enemy
         rb = GetComponent<Rigidbody2D>(); //Get rigidbody component from enemy
         animator = GetComponentInChildren<Animator>();
+
+        totalHealth = maxHealth;
 
         originalPosition = rb.transform.position; //Set original position to the starting position
 

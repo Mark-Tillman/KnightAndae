@@ -15,7 +15,7 @@ public class Player_Combat : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
+        //Debug.Log(other.name);
         if (other.CompareTag("Enemy"))
         {
             //Debug.Log("HIT");
