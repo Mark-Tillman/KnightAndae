@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player_Combat : MonoBehaviour
 {
+    public Animator animator;
     GameObject player;
     public float knockBack = 10000f;
     Vector2 oppositeDirection;
@@ -12,6 +13,14 @@ public class Player_Combat : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetTrigger("Attack");
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {

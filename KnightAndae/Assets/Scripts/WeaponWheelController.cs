@@ -3,10 +3,16 @@ using UnityEngine.UI;
 
 public class WeaponWheelController : MonoBehaviour
 {
+    PlayerMovement player;
     public Animator anim;
     private bool weaponWheelSelected = false;
     public Sprite noImage;
     public static int weaponID;
+
+    void Start()
+    {
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -26,7 +32,7 @@ public class WeaponWheelController : MonoBehaviour
         {
             anim.SetBool("OpenWeaponWheel", false);
         }
-
+        
         // select the weapon
         switch (weaponID)
         {
@@ -34,19 +40,25 @@ public class WeaponWheelController : MonoBehaviour
                 break;
             case 1:
                 Debug.Log("Sword");
+                player.changeWeapon(weaponID);
                 break;
             case 2:
                 Debug.Log("Spear");
+                player.changeWeapon(weaponID);
                 break;
             case 3:
                 Debug.Log("Bow");
+                player.changeWeapon(weaponID);
                 break;
             case 4:
                 Debug.Log("Hammer");
+                player.changeWeapon(weaponID);
                 break;
             case 5:
                 Debug.Log("Magic");
+                player.changeWeapon(weaponID);
                 break;
         }
+        
     }
 }

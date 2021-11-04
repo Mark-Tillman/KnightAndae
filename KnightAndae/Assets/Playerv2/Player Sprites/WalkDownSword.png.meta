@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a60b0ff4a8f29e54483e61cb76e20efe
+guid: 8a868a578b0444542b687ced01db1612
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 2667948723720173523
     second: WalkDownSword_1
+  - first:
+      213: 7241330170351987752
+    second: WalkDownSword_2
+  - first:
+      213: 3910456340162042251
+    second: WalkDownSword_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -74,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -86,7 +92,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,7 +104,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +116,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,7 +128,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -134,7 +140,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -148,8 +154,8 @@ TextureImporter:
       name: WalkDownSword_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 565
+        x: 40
+        y: 630
         width: 135
         height: 160
       alignment: 7
@@ -169,8 +175,8 @@ TextureImporter:
       name: WalkDownSword_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 365
+        x: 40
+        y: 430
         width: 135
         height: 160
       alignment: 7
@@ -182,6 +188,48 @@ TextureImporter:
       bones: []
       spriteID: 3d73c449a35760520800000000000000
       internalID: 2667948723720173523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkDownSword_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 230
+        width: 135
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c26297c6f5e7460800000000000000
+      internalID: 7241330170351987752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkDownSword_3
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 30
+        width: 135
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b895809a25bb44630800000000000000
+      internalID: 3910456340162042251
       vertices: []
       indices: 
       edges: []

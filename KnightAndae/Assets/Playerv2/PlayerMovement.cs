@@ -16,11 +16,13 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     float lastX;
     float lastY;
+    int currentWeaponID;
 
     void Start()
     {
         //thisAnim = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
+        currentWeaponID = 1;
     }
 
     void Update()
@@ -52,6 +54,14 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
+    }
+
+    public void changeWeapon(int nextWeaponID)
+    {
+        animator.SetLayerWeight(currentWeaponID, 0);
+        animator.SetLayerWeight(nextWeaponID , 1);
+        currentWeaponID = nextWeaponID;
+        Debug.Log(nextWeaponID);
     }
 
     void AnimationUpdate()

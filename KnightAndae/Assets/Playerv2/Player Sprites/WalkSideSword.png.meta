@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b05a2fe85477dbf4a92a399b486547b8
+guid: 88301cf2d78305247aa5080f760d2bb9
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 2108006909917980546
     second: WalkSideSword_1
+  - first:
+      213: 6184943892799081530
+    second: WalkSideSword_2
+  - first:
+      213: 8929652486423033446
+    second: WalkSideSword_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -74,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -86,7 +92,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,7 +104,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +116,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,7 +128,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -134,7 +140,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -148,8 +154,8 @@ TextureImporter:
       name: WalkSideSword_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 565
+        x: 40
+        y: 630
         width: 140
         height: 160
       alignment: 7
@@ -169,8 +175,8 @@ TextureImporter:
       name: WalkSideSword_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 365
+        x: 40
+        y: 430
         width: 140
         height: 160
       alignment: 7
@@ -182,6 +188,48 @@ TextureImporter:
       bones: []
       spriteID: 287eab9ad15214d10800000000000000
       internalID: 2108006909917980546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkSideSword_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 230
+        width: 140
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3cc20683b555d550800000000000000
+      internalID: 6184943892799081530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkSideSword_3
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 30
+        width: 140
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666bde400af7ceb70800000000000000
+      internalID: 8929652486423033446
       vertices: []
       indices: 
       edges: []

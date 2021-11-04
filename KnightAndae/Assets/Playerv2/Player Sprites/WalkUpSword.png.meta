@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e75ea0362640e8642b758c0878013b68
+guid: 41b4a4cc2b67ee44bb0fb1953010c4c7
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 2923977084129483126
     second: WalkUpSword_1
+  - first:
+      213: -6859484405307383038
+    second: WalkUpSword_2
+  - first:
+      213: 7195154449756302914
+    second: WalkUpSword_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -74,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -86,7 +92,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,7 +104,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +116,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,7 +128,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -134,7 +140,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -148,8 +154,8 @@ TextureImporter:
       name: WalkUpSword_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 520
+        x: 40
+        y: 630
         width: 135
         height: 160
       alignment: 7
@@ -169,8 +175,8 @@ TextureImporter:
       name: WalkUpSword_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 320
+        x: 40
+        y: 430
         width: 135
         height: 160
       alignment: 7
@@ -182,6 +188,48 @@ TextureImporter:
       bones: []
       spriteID: 6799be68aad049820800000000000000
       internalID: 2923977084129483126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkUpSword_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 230
+        width: 135
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2036257c6473ec0a0800000000000000
+      internalID: -6859484405307383038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkUpSword_3
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 30
+        width: 135
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24eabc9b9d25ad360800000000000000
+      internalID: 7195154449756302914
       vertices: []
       indices: 
       edges: []
