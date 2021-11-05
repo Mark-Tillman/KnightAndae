@@ -6,7 +6,7 @@ public class Player_Combat : MonoBehaviour
 {
     public Animator animator;
     GameObject player;
-    float knockBack = 10000f;
+    float knockBack = 200f;
     float damage = 1f;
     Vector2 oppositeDirection;
 

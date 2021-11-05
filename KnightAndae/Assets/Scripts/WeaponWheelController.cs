@@ -52,7 +52,7 @@ public class WeaponWheelController : MonoBehaviour
                 break;
             case 4:
                 Debug.Log("Hammer");
-                player.changeWeapon(weaponID, 1, 200);
+                player.changeWeapon(weaponID, 0.5f, 500); //Hammer does 0.5 damage, 500 knockback
                 break;
             case 5:
                 Debug.Log("Magic");
