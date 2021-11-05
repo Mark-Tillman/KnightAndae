@@ -6,7 +6,8 @@ public class Player_Combat : MonoBehaviour
 {
     public Animator animator;
     GameObject player;
-    public float knockBack = 10000f;
+    float knockBack = 10000f;
+    float damage = 1f;
     Vector2 oppositeDirection;
 
 
@@ -22,6 +23,13 @@ public class Player_Combat : MonoBehaviour
             animator.SetTrigger("Attack");
         }
     }
+
+    public void setStats(float dam, float knock)
+    {
+        damage = dam;
+        knockBack = knock;
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log(other.name);
@@ -29,7 +37,7 @@ public class Player_Combat : MonoBehaviour
         {
             //Debug.Log("HIT");
             oppositeDirection = (other.transform.position - player.transform.position).normalized;
-            other.gameObject.GetComponent<EnemyAIv2>().startGetAttacked(knockBack, oppositeDirection, 1);
+            other.gameObject.GetComponent<EnemyAIv2>().startGetAttacked(knockBack, oppositeDirection, damage);
         }
     }
 }

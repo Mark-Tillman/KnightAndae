@@ -16,12 +16,15 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     float lastX;
     float lastY;
+
     int currentWeaponID;
+    Player_Combat combat;
 
     void Start()
     {
         //thisAnim = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
+        combat = GetComponentInChildren<Player_Combat>();
         currentWeaponID = 1;
     }
 
@@ -56,11 +59,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void changeWeapon(int nextWeaponID)
+    public void changeWeapon(int nextWeaponID, float damage, float knockback)
     {
         animator.SetLayerWeight(currentWeaponID, 0);
         animator.SetLayerWeight(nextWeaponID , 1);
         currentWeaponID = nextWeaponID;
+        combat.setStats(damage, knockback);
         Debug.Log(nextWeaponID);
     }
 

@@ -42,8 +42,8 @@ public class EnemyAIv2 : MonoBehaviour
     public float minYDistance = 1f;
     public bool canAttack = false;
 
-    public int maxHealth = 2;
-    public int totalHealth;
+    public float maxHealth;
+    public float totalHealth;
 
     Animator animator; //Animation control 
 
@@ -240,16 +240,17 @@ public class EnemyAIv2 : MonoBehaviour
         }
     }
 
-    public void startGetAttacked(float knockBack, Vector3 oppositeDirection, int damageTaken)
+    public void startGetAttacked(float knockBack, Vector3 oppositeDirection, float damageTaken)
     {
         StartCoroutine(GetAttacked(knockBack, oppositeDirection, damageTaken));
     }
 
-    IEnumerator GetAttacked(float knockBack, Vector3 oppositeDirection, int damageTaken)
+    IEnumerator GetAttacked(float knockBack, Vector3 oppositeDirection, float damageTaken)
     {
         stunned = true;
         rb.AddForce(knockBack * oppositeDirection, ForceMode2D.Impulse);
         totalHealth -= damageTaken;
+        //Debug.Log("Damaged by: -" + damageTaken);
         if (totalHealth <= 0)
         {
             Destroy(gameObject);
