@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     float lastX;
     float lastY;
+    float currentX;
+    float currentY;
 
     int currentWeaponID;
     Player_Combat combat;
@@ -33,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
         // Gives a value between -1 and 1
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
-
         AnimationUpdate();
     }
 
@@ -65,13 +66,13 @@ public class PlayerMovement : MonoBehaviour
         animator.SetLayerWeight(nextWeaponID , 1);
         currentWeaponID = nextWeaponID;
         combat.setStats(damage, knockback);
-        Debug.Log(nextWeaponID);
+        //Debug.Log(nextWeaponID);
     }
 
     void AnimationUpdate()
     {
-        
-
+        setCurrentXandY();
+        Debug.Log("CurrentX: " + animator.GetFloat("currentX") + " CurrentY: " + animator.GetFloat("currentY"));
         if (horizontal == 0f && vertical == 0f)
         {
             animator.SetFloat("lastX", lastX);
@@ -87,5 +88,27 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("xSpeed", Mathf.Abs(horizontal));
         animator.SetFloat("ySpeed", vertical);
+        //Debug.Log("LastX: " + animator.GetFloat("lastX") + " LastY: " + animator.GetFloat("lastY"));
+    }
+
+    void setCurrentXandY() //Keep track of the current direction being face in order to attack in the correct direction.
+    {
+        if(Mathf.Abs(horizontal) > 0)
+        {
+            currentX = 1;
+            currentY = 0;
+        }
+        else if(vertical < 0)
+        {
+            currentX = 0;
+            currentY = -1;
+        }
+        else if(vertical > 0)
+        {
+            currentX = 0;
+            currentY = 1;
+        }
+        animator.SetFloat("currentX", currentX);
+        animator.SetFloat("currentY", currentY);
     }
 }
