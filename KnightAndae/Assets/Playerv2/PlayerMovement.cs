@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     void AnimationUpdate()
     {
         setCurrentXandY();
-        Debug.Log("CurrentX: " + animator.GetFloat("currentX") + " CurrentY: " + animator.GetFloat("currentY"));
+        //Debug.Log("CurrentX: " + animator.GetFloat("currentX") + " CurrentY: " + animator.GetFloat("currentY"));
         if (horizontal == 0f && vertical == 0f)
         {
             animator.SetFloat("lastX", lastX);

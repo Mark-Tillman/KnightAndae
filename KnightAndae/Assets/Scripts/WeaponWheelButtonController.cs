@@ -8,31 +8,19 @@ public class WeaponWheelButtonController : MonoBehaviour
     public string itemName;
     public Image selectedItem;
     private bool selected = false;
+    WeaponWheelController wheelControl;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        wheelControl = GetComponentInParent<WeaponWheelController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (selected)
-        {
-            WeaponWheelController.weaponID = ID;
-        }
-    }
 
-    public void Selected()
-    {
-        selected = true;
-    }
-
-    public void Deselected()
-    {
-        selected = false;
-        WeaponWheelController.weaponID = 0;
     }
 
     public void HoverEnter()
@@ -43,5 +31,12 @@ public class WeaponWheelButtonController : MonoBehaviour
     public void HoverExit()
     {
         anim.SetBool("Hover", false);
+    }
+
+    public void Clicked()
+    {
+        Debug.Log("Clicked Something");
+        //WeaponWheelController.weaponID = ID;
+        wheelControl.updateWeapon(ID);
     }
 }
