@@ -7,7 +7,6 @@ public class WeaponWheelButtonController : MonoBehaviour
     private Animator anim;
     public string itemName;
     public Image selectedItem;
-    private bool selected = false;
     WeaponWheelController wheelControl;
 
     // Start is called before the first frame update
