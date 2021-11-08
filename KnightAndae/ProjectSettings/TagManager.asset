@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Hazard
+  - NPCTalkPrompt
   layers:
   - Default
   - TransparentFX
@@ -52,9 +53,15 @@ TagManager:
   - name: hazards
     uniqueID: 2554875011
     locked: 0
+  - name: NPC
+    uniqueID: 3022069367
+    locked: 0
   - name: player
     uniqueID: 2416549473
     locked: 0
   - name: enemy
     uniqueID: 192599551
+    locked: 0
+  - name: NPCTalkPrompt
+    uniqueID: 3475996343
     locked: 0
