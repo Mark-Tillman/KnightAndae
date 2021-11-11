@@ -65,3 +65,9 @@ TagManager:
   - name: NPCTalkPrompt
     uniqueID: 3475996343
     locked: 0
+  - name: projectile
+    uniqueID: 519174445
+    locked: 0
+  - name: enemyHealth
+    uniqueID: 4205546041
+    locked: 0

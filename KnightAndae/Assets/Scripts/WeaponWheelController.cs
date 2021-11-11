@@ -35,27 +35,27 @@ public class WeaponWheelController : MonoBehaviour
                 break;
             case 1:
                 //Debug.Log("Sword");
-                player.changeWeapon(weaponID, 1, 200); //Sword does 1 damage, 200 knockback
+                player.changeWeapon(weaponID, 1, 200, 0.2f); //Sword does 1 damage, 200 knockback
                 weaponWheelSelected = false;
                 break;
             case 2:
                 //Debug.Log("Spear");
-                player.changeWeapon(weaponID, 0.75f, 75); //Spear does 0.75 damage, 75 knockback
+                player.changeWeapon(weaponID, 0.75f, 75, 0.3f); //Spear does 0.75 damage, 75 knockback
                 weaponWheelSelected = false;
                 break;
             case 3:
                 //Debug.Log("Bow");
-                player.changeWeapon(weaponID, 1, 200);
+                player.changeWeapon(weaponID, 1, 200, 0.4f);
                 weaponWheelSelected = false;
                 break;
             case 4:
                 //Debug.Log("Hammer");
-                player.changeWeapon(weaponID, 0.5f, 500); //Hammer does 0.5 damage, 500 knockback
+                player.changeWeapon(weaponID, 0.5f, 500, 0.8f); //Hammer does 0.5 damage, 500 knockback
                 weaponWheelSelected = false;
                 break;
             case 5:
                 //Debug.Log("Magic");
-                player.changeWeapon(weaponID, 1, 200);
+                player.changeWeapon(weaponID, 1, 200, 1f);
                 weaponWheelSelected = false;
                 break;
         }

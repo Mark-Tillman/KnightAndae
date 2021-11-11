@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate()
-    {  
+    {
 
         if (horizontal != 0 && vertical != 0) // Check for diagonal movement
         {
@@ -60,12 +60,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void changeWeapon(int nextWeaponID, float damage, float knockback)
+    public void changeWeapon(int nextWeaponID, float damage, float knockback, float cooldown)
     {
         animator.SetLayerWeight(currentWeaponID, 0);
-        animator.SetLayerWeight(nextWeaponID , 1);
+        animator.SetLayerWeight(nextWeaponID, 1);
         currentWeaponID = nextWeaponID;
-        combat.setStats(damage, knockback);
+        combat.setStats(damage, knockback, cooldown);
+        combat.weaponID = currentWeaponID;
         //Debug.Log(nextWeaponID);
     }
 
@@ -93,17 +94,17 @@ public class PlayerMovement : MonoBehaviour
 
     void setCurrentXandY() //Keep track of the current direction being face in order to attack in the correct direction.
     {
-        if(Mathf.Abs(horizontal) > 0)
+        if (Mathf.Abs(horizontal) > 0)
         {
             currentX = 1;
             currentY = 0;
         }
-        else if(vertical < 0)
+        else if (vertical < 0)
         {
             currentX = 0;
             currentY = -1;
         }
-        else if(vertical > 0)
+        else if (vertical > 0)
         {
             currentX = 0;
             currentY = 1;
@@ -111,4 +112,10 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("currentX", currentX);
         animator.SetFloat("currentY", currentY);
     }
+
+    public void startBowAttack()
+    {
+        StartCoroutine(combat.ShootArrow(transform));
+    }
+
 }

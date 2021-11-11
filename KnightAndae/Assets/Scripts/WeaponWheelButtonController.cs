@@ -34,7 +34,7 @@ public class WeaponWheelButtonController : MonoBehaviour
 
     public void Clicked()
     {
-        Debug.Log("Clicked Something");
+        //Debug.Log("Clicked Something");
         //WeaponWheelController.weaponID = ID;
         wheelControl.updateWeapon(ID);
     }

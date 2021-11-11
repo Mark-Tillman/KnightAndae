@@ -8,8 +8,13 @@ public class Player_Combat : MonoBehaviour
     GameObject player;
     float knockBack = 200f;
     float damage = 1f;
+    float attackCooldown = 1f;
     Vector2 oppositeDirection;
-
+    public int weaponID;
+    bool attacking = false;
+    public GameObject arrowProjectile;
+    float arrowSpeed = 2000f;
+    Vector3 playerHeight = new Vector3(0, 1, 0);
 
     void Start()
     {
@@ -18,16 +23,23 @@ public class Player_Combat : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !attacking)
         {
             animator.SetTrigger("Attack");
+            StartCoroutine(Attack());
+
+            if(weaponID == 3)
+            {
+                //StartCoroutine(BowAttack());
+            }
         }
     }
 
-    public void setStats(float dam, float knock)
+    public void setStats(float dam, float knock, float cooldown)
     {
         damage = dam;
         knockBack = knock;
+        attackCooldown = cooldown;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -39,5 +51,21 @@ public class Player_Combat : MonoBehaviour
             oppositeDirection = (other.transform.position - player.transform.position).normalized;
             other.gameObject.GetComponent<EnemyAIv2>().startGetAttacked(knockBack, oppositeDirection, damage);
         }
+    }
+
+    IEnumerator Attack()
+    {
+        attacking = true;
+        yield return new WaitForSeconds(attackCooldown);
+        attacking = false;
+    }
+
+    public IEnumerator ShootArrow(Transform player)
+    {
+        GameObject arrow = Instantiate(arrowProjectile, player.position + playerHeight, player.rotation, player) as GameObject;
+        yield return new WaitForSeconds(0.2f);
+        arrow.GetComponent<Rigidbody2D>().simulated = true;
+        arrow.GetComponent<Rigidbody2D>().AddForce(Vector2.right * arrowSpeed * player.localScale.x);
+        arrow.transform.parent = null;
     }
 }
