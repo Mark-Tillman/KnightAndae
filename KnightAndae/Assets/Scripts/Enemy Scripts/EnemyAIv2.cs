@@ -27,23 +27,33 @@ public class EnemyAIv2 : MonoBehaviour
     Transform player; //Player position reference
     bool playerDetected = false; //Bool for if the player is detected or not
     float playerDistance = 0f; //Stores distance from enemy to player
-    float playerYDistance = 0f;
+    float playerYDistance = 0f; //Distance from player in Y direction
     public float detectRange = 10f; //Range between enemy and player in which player can be detected
     bool firstDetected = false; //Bool for if the player has just been detected
 
     bool checkLastPosition = false; //Bool to tell the enemy to check the last known position or not
     bool chase = false; //Bool to tell the enemy to chase the player
     bool atHome = false; //Bool to tell the enemy if it is at home or not
-    bool stunned = false;
-    public float stunDuration = 0.5f;
-    
-    float playerHeight = 1f; //Player height gets added to player position so enemy tracks towards center of player instead of the bottom
-    public float minDistance = 2.5f; //Minimum distance that the enemy can get to the player
-    public float minYDistance = 1f;
-    public bool canAttack = false;
+    bool stunned = false; //Bool to tell if the enemy is stunned or not
+    public float stunDuration = 0.5f; //How long the enemy stays stunned for
 
-    public float maxHealth;
-    public float totalHealth;
+    public float playerHeight = 1f; //Player height gets added to player position so enemy tracks towards center of player instead of the bottom
+    public float minDistance = 2.5f; //Minimum distance that the enemy can get to the player
+    public float minYDistance = 1f; //Distance enemy can attack from, this is so it can be lined up on the Y axis
+    public bool canAttack = false; //Controls if the enemy can attack or not
+
+    public float maxHealth; //Max Health
+    public float totalHealth; // Current total health
+
+    public float spriteScale; //Scale of the sprite, this is used when flipping the sprite left or right to maintain scale
+    bool spriteFlipped = false; //Keeps track of if the enemy has been flipped so it only flips when it needs to and not constantly
+
+    float lastX;
+    float lastY;
+    float currentX;
+    float currentY;
+    float dirX; //Keep track of movement direction for animation
+    float dirY; //Keep track of movement direction for animation
 
     Animator animator; //Animation control 
 
@@ -54,37 +64,40 @@ public class EnemyAIv2 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); //Get rigidbody component from enemy
         animator = GetComponentInChildren<Animator>();
 
-        totalHealth = maxHealth;
+        totalHealth = maxHealth; //Set starting total health to max
 
         originalPosition = rb.transform.position; //Set original position to the starting position
 
         InvokeRepeating("UpdatePath", 0f, 0.2f); //Continuously update the enemy path
+
+        if (spriteScale > 0)
+            spriteFlipped = true;
     }
 
     void UpdatePath()
     {
-        if(seeker.IsDone() && playerDetected)
+        if (seeker.IsDone() && playerDetected)
         {
             //Start path towards player if detected
             seeker.StartPath(rb.position, new Vector2(player.position.x, player.position.y + playerHeight), OnPathComplete);
         }
-        else if(seeker.IsDone() && checkLastPosition)
+        else if (seeker.IsDone() && checkLastPosition)
         {
             //Start path towards lastKnownPosition is the player was detected but then lost
             seeker.StartPath(rb.position, lastKnownPosition, OnPathComplete);
         }
-        else if(seeker.IsDone())
+        else if (seeker.IsDone())
         {
             //Start path towards originalPosition if no where else to go
             seeker.StartPath(rb.position, originalPosition, OnPathComplete);
-            
+
         }
     }
 
     //When path is done being drawn, assign it to the enemy and set current waypoint at the start
     void OnPathComplete(Path p)
     {
-        if(!p.error)
+        if (!p.error)
         {
             path = p;
             currentWaypoint = 0;
@@ -94,58 +107,63 @@ public class EnemyAIv2 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         playerDistance = Vector2.Distance(rb.position, new Vector2(player.position.x, player.position.y + playerHeight)); //Always keep track of distance between enemy and player
-        playerYDistance = (rb.position.y - (player.position.y + playerHeight));
+        playerYDistance = (rb.position.y - (player.position.y + playerHeight)); //Calculate how far the enemy is in the Y direction
 
         detectPlayer(); //Attempt to detect the player
 
+        if (playerDetected)
+        {
+            //Change sprite orientation to be facing player if detected
+            if (rb.position.x < player.position.x && spriteFlipped)
+            {
+                sprite.localScale = new Vector3(-spriteScale, sprite.localScale.y, sprite.localScale.z);
+                spriteFlipped = false;
+            }
+            else if (rb.position.x > player.position.x && !spriteFlipped)
+            {
+                sprite.localScale = new Vector3(spriteScale, sprite.localScale.y, sprite.localScale.z);
+                spriteFlipped = true;
+            }
+        }
+
         if (!stunned)
         {
-            if (!stunned)
+            if ((chase || !atHome) && (playerDistance >= minDistance)) //If player is detected, chase will be true, and if the enemy is not at original position, atHome will be false
             {
-                if ((chase || !atHome) && (playerDistance >= minDistance)) //If player is detected, chase will be true, and if the enemy is not at original position, atHome will be false
-                {
-                    pathFind(); //Move
-                    animator.SetBool("Moving", true);
-                }
-                else
+                pathFind(); //Move
+                animator.SetBool("Moving", true);
+            }
+            else
+            {
+                animator.SetBool("Moving", false);
+            }
+
+            if (playerDistance <= minDistance) //When the enemy is close enough, it won't use A* pathfinding, but starting homing directly to player
+            {
+                if (Mathf.Abs(playerYDistance) < minYDistance) //if the enemy is with the Y range it is able to attack
                 {
                     animator.SetBool("Moving", false);
+                    canAttack = true; //Can attack if within distance
                 }
-
-                if (playerDistance <= minDistance)
+                else //If not within range, move up or down to get in range.
                 {
-                    if (Mathf.Abs(playerYDistance) <= minYDistance)
-                    {
-                        animator.SetBool("Moving", false);
-                        canAttack = true; //Can attack if within distance
-                    }
-                    else
-                    {
-                        animator.SetBool("Moving", true);
-                        canAttack = false;
-
-                        if (playerYDistance < 0f)
-                            rb.velocity = Vector2.up * speed * Time.deltaTime;
-                        else if (playerYDistance > 0f)
-                            rb.velocity = Vector2.down * speed * Time.deltaTime;
-
-
-                    }
-
-                    //Change sprite orientation to be facing player
-                    if (rb.position.x - player.position.x < 0f && sprite.localScale != new Vector3(-0.4f, 0.4f, 1f))
-                    {
-                        sprite.localScale = new Vector3(-0.4f, 0.4f, 1f);
-                    }
-                    else if (rb.position.x - player.position.x > 0f && sprite.localScale != new Vector3(0.4f, 0.4f, 1f))
-                    {
-                        sprite.localScale = new Vector3(0.4f, 0.4f, 1f);
-                    }
-                }
-                else
+                    animator.SetBool("Moving", true);
                     canAttack = false;
+
+                    if (playerYDistance < 0f)
+                        rb.velocity = Vector2.up * speed * Time.deltaTime;
+                    else if (playerYDistance > 0f)
+                        rb.velocity = Vector2.down * speed * Time.deltaTime;
+                }
             }
+            else //While the enemy is out of range, it can't attack
+                canAttack = false;
+
+            getDirection();
+            lastX = transform.position.x;
+            lastY = transform.position.y;
         }
     }
 
@@ -188,15 +206,6 @@ public class EnemyAIv2 : MonoBehaviour
             currentWaypoint++;
         }
 
-        //Change sprite orientation based on movement direction.
-        if (rb.velocity.x > 0f && sprite.localScale != new Vector3(-0.4f, 0.4f, 1f))
-        {
-            sprite.localScale = new Vector3(-0.4f, 0.4f, 1f);
-        }
-        else if (rb.velocity.x < 0f && sprite.localScale != new Vector3(0.4f, 0.4f, 1f))
-        {
-            sprite.localScale = new Vector3(0.4f, 0.4f, 1f);
-        }
     }
 
     void detectPlayer()
@@ -224,13 +233,13 @@ public class EnemyAIv2 : MonoBehaviour
             playerDetected = false; //Player no longer detected
         }
 
-        if(firstDetected && !playerDetected) //If the player was detected but is no longer detected
+        if (firstDetected && !playerDetected) //If the player was detected but is no longer detected
         {
             checkLastPosition = true; //The enemy should check the last known position
             firstDetected = false; //Enemies original detection is false now
         }
 
-        if(!playerDetected && !checkLastPosition && !atHome) //Player not detected, and Enemy not going to check the last position, and Enemy is not at home (original position)
+        if (!playerDetected && !checkLastPosition && !atHome) //Player not detected, and Enemy not going to check the last position, and Enemy is not at home (original position)
         {
             float distance = Vector2.Distance(rb.position, originalPosition); //Determine distance from enemy to original position
             if (distance <= 0.1f) //Enemy is at original position
@@ -257,5 +266,37 @@ public class EnemyAIv2 : MonoBehaviour
         }
         yield return new WaitForSeconds(stunDuration);
         stunned = false;
+    }
+
+    void getDirection()
+    {
+        
+        currentX = transform.position.x;
+        currentY = transform.position.y;
+
+        //Debug.Log("X vel: " + rb.velocity.x + " Y vel: " + rb.velocity.y);
+        if(Mathf.Abs(rb.velocity.x) > Mathf.Abs(rb.velocity.y))
+        {
+            dirX = 1;
+            dirY = 0;
+        }
+        else if(Mathf.Abs(rb.velocity.x) < Mathf.Abs(rb.velocity.y))
+        {
+            //Debug.Log(currentY > lastY);
+            if((currentY > lastY) && rb.velocity.y > 0)
+            {
+                dirX = 0;
+                dirY = 1;
+            }
+            else if((currentY < lastY) && rb.velocity.y < 0)
+            {
+                dirX = 0;
+                dirY = -1;
+            }
+            
+        }
+
+        animator.SetFloat("dirX", dirX);
+        animator.SetFloat("dirY", dirY);
     }
 }

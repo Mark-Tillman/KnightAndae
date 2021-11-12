@@ -53,6 +53,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        //Debug.Log(damage);
         if (isInvincible) return;
         
         currentHealth -= damage;

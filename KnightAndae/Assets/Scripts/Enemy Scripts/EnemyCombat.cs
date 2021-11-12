@@ -47,6 +47,10 @@ public class EnemyCombat : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        playerHealth.TakeDamage(attackDamage);
+        if (collision.tag == "Player")
+        {
+            Debug.Log("Damage by: " + collision);
+            playerHealth.TakeDamage(attackDamage);
+        }
     }
 }

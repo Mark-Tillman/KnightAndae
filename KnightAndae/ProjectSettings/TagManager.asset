@@ -71,3 +71,6 @@ TagManager:
   - name: enemyHealth
     uniqueID: 4205546041
     locked: 0
+  - name: UI
+    uniqueID: 3096899841
+    locked: 0
