@@ -11,6 +11,8 @@ public class EnemyCombat : MonoBehaviour
     public int attackDamage = 1;
     bool attacking = false;
     public float attackSpeed = 1.5f;
+    public float knockback = 1f;
+    public float stunTime = 0;
 
 
     // Start is called before the first frame update
@@ -27,7 +29,6 @@ public class EnemyCombat : MonoBehaviour
         //If within range
         if (enemyAi.canAttack && !attacking)
         {
-            
             StartCoroutine(Attack());
         }
         
@@ -49,8 +50,13 @@ public class EnemyCombat : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            collision.GetComponent<PlayerMovement>().startGetStunned(stunTime);
             Debug.Log("Damage by: " + collision);
-            playerHealth.TakeDamage(attackDamage);
+            Vector3 oppositeDirection = (collision.transform.position - transform.parent.position).normalized;
+            oppositeDirection.y = 0;
+            collision.GetComponent<Rigidbody2D>().AddForce(knockback * oppositeDirection, ForceMode2D.Impulse);
+            playerHealth.TakeDamage(attackDamage, knockback, oppositeDirection);
+ 
         }
     }
 }

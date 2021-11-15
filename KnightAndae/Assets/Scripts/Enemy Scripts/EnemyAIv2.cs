@@ -41,6 +41,7 @@ public class EnemyAIv2 : MonoBehaviour
     public float minDistance = 2.5f; //Minimum distance that the enemy can get to the player
     public float minYDistance = 1f; //Distance enemy can attack from, this is so it can be lined up on the Y axis
     public bool canAttack = false; //Controls if the enemy can attack or not
+    public float enemyHeight = 0f;
 
     public float maxHealth; //Max Health
     public float totalHealth; // Current total health
@@ -109,7 +110,7 @@ public class EnemyAIv2 : MonoBehaviour
     {
         
         playerDistance = Vector2.Distance(rb.position, new Vector2(player.position.x, player.position.y + playerHeight)); //Always keep track of distance between enemy and player
-        playerYDistance = (rb.position.y - (player.position.y + playerHeight)); //Calculate how far the enemy is in the Y direction
+        playerYDistance = ((rb.position.y + enemyHeight) - (player.position.y + playerHeight)); //Calculate how far the enemy is in the Y direction
 
         detectPlayer(); //Attempt to detect the player
 
@@ -214,8 +215,8 @@ public class EnemyAIv2 : MonoBehaviour
         LayerMask mask = LayerMask.GetMask("Enemy");
 
         //Cast a ray from the enemy to the direction of the player. ignore the enemy mask to avoid ray collision with self
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(player.transform.position.x - transform.position.x, (player.transform.position.y - transform.position.y) + playerHeight), detectRange, ~mask);
-        Debug.DrawRay(transform.position, new Vector2(player.transform.position.x - transform.position.x, (player.transform.position.y - transform.position.y) + playerHeight), Color.red); //Shows what the enemy sees (for testing purposes)
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + enemyHeight), new Vector2(player.transform.position.x - transform.position.x, (player.transform.position.y - transform.position.y - enemyHeight) + playerHeight), detectRange, ~mask);
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + enemyHeight), new Vector2(player.transform.position.x - transform.position.x, (player.transform.position.y - transform.position.y - enemyHeight) + playerHeight), Color.red); //Shows what the enemy sees (for testing purposes)
 
 
         //Check if enemy sees the player unobstructed and within range

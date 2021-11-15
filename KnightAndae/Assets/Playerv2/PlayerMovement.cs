@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     int currentWeaponID;
     Player_Combat combat;
 
+    public bool canMove = true;
+
     void Start()
     {
         //thisAnim = GetComponent<Animator>();
@@ -35,12 +37,14 @@ public class PlayerMovement : MonoBehaviour
         // Gives a value between -1 and 1
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
-        AnimationUpdate();
+        if(canMove)
+            AnimationUpdate();
     }
 
     void FixedUpdate()
     {
-
+        if(canMove)
+        { 
         if (horizontal != 0 && vertical != 0) // Check for diagonal movement
         {
             // limit movement speed diagonally, so you move at 70% speed
@@ -48,15 +52,16 @@ public class PlayerMovement : MonoBehaviour
             vertical *= moveLimiter;
         }
 
-        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+            body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
 
-        if (gameObject.GetComponent<Rigidbody2D>().velocity.x >= 0.01f)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-        else if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 0f)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            if (gameObject.GetComponent<Rigidbody2D>().velocity.x >= 0.01f)
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+            else if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 0f)
+            {
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
         }
     }
 
@@ -116,6 +121,17 @@ public class PlayerMovement : MonoBehaviour
     public void startBowAttack()
     {
         StartCoroutine(combat.ShootArrow(transform));
+    }
+
+    public void startGetStunned(float stunTime)
+    {
+        StartCoroutine(GetStunned(stunTime));
+    }
+    public IEnumerator GetStunned(float stunTime)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(stunTime);
+        canMove = true;
     }
 
 }

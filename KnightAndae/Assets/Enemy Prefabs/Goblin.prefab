@@ -78,6 +78,8 @@ MonoBehaviour:
   attackPoint: {fileID: 1222228872276137930}
   attackDamage: 1
   attackSpeed: 1.5
+  knockback: 10
+  stunTime: 0.1
 --- !u!1 &1222228873811361426
 GameObject:
   m_ObjectHideFlags: 0

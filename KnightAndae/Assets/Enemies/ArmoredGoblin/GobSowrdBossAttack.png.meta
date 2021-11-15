@@ -1,0 +1,492 @@
+fileFormatVersion: 2
+guid: 96f80a9936d32f94eb4f37ff83514269
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1541786755211534184
+    second: GobSowrdBossAttack_0
+  - first:
+      213: 4923908674592639302
+    second: GobSowrdBossAttack_1
+  - first:
+      213: -5883705870616066178
+    second: GobSowrdBossAttack_2
+  - first:
+      213: 5294967512999083339
+    second: GobSowrdBossAttack_3
+  - first:
+      213: 9040623866183942634
+    second: GobSowrdBossAttack_4
+  - first:
+      213: 1041664276153241568
+    second: GobSowrdBossAttack_5
+  - first:
+      213: 1754641450012209991
+    second: GobSowrdBossAttack_6
+  - first:
+      213: 6384844366480483703
+    second: GobSowrdBossAttack_7
+  - first:
+      213: 8105500257951869482
+    second: GobSowrdBossAttack_8
+  - first:
+      213: 2739274900783271579
+    second: GobSowrdBossAttack_9
+  - first:
+      213: 5958734094734047083
+    second: GobSowrdBossAttack_10
+  - first:
+      213: -5312600306851777494
+    second: GobSowrdBossAttack_11
+  - first:
+      213: -4521602108908425789
+    second: GobSowrdBossAttack_12
+  - first:
+      213: 6889414539470717956
+    second: GobSowrdBossAttack_13
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_0
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 1150
+        width: 58
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86f19c792e6856510800000000000000
+      internalID: 1541786755211534184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 1076
+        width: 58
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6490f8ff9dc355440800000000000000
+      internalID: 4923908674592639302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_2
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 986
+        width: 58
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e778c031fa0e85ea0800000000000000
+      internalID: -5883705870616066178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_3
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 887
+        width: 58
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4d3b8d26e08b7940800000000000000
+      internalID: 5294967512999083339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_4
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 800
+        width: 85
+        height: 64
+      alignment: 9
+      pivot: {x: 0.65882355, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae100dbc18fb67d70800000000000000
+      internalID: 9040623866183942634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 721
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.6979167, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef0453e32cb47e00800000000000000
+      internalID: 1041664276153241568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_6
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 631
+        width: 82
+        height: 79
+      alignment: 9
+      pivot: {x: 0.64634144, y: 0.18987341}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74377203a1db95810800000000000000
+      internalID: 1754641450012209991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_7
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 535
+        width: 58
+        height: 93
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31182796}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 775293a7f168b9850800000000000000
+      internalID: 6384844366480483703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_8
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 442
+        width: 58
+        height: 82
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.2195122}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2aee023a858c7070800000000000000
+      internalID: 8105500257951869482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_9
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 363
+        width: 71
+        height: 64
+      alignment: 9
+      pivot: {x: 0.4084507, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e845b420cd30620800000000000000
+      internalID: 2739274900783271579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_10
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 272
+        width: 59
+        height: 64
+      alignment: 9
+      pivot: {x: 0.4915254, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67b1a3a61da1b250800000000000000
+      internalID: 5958734094734047083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_11
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 191
+        width: 58
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a24f7741b2ad546b0800000000000000
+      internalID: -5312600306851777494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_12
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 110
+        width: 58
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd2bd2a6da0041c0800000000000000
+      internalID: -4521602108908425789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GobSowrdBossAttack_13
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 38
+        width: 58
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404409f950e1c9f50800000000000000
+      internalID: 6889414539470717956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -47,11 +47,11 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.tag == "Hazard")
         {
             //collision.gameObject.SendMessage("TakeDamage", 1);
-            TakeDamage(1);
+            TakeDamage(1, 0, new Vector3(0,0,0));
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, float knockback, Vector3 oppositeDirection)
     {
         //Debug.Log(damage);
         if (isInvincible) return;
@@ -61,6 +61,9 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
 
         StartCoroutine(BecomeTemporarilyInvincible());
+
+        //Apply knockback
+
     }
 
     private IEnumerator BecomeTemporarilyInvincible()
