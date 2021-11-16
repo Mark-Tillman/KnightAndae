@@ -8,7 +8,7 @@ public class Player_Combat : MonoBehaviour
     GameObject player;
     float knockBack = 200f;
     float damage = 1f;
-    float attackCooldown = 1f;
+    float attackCooldown = 0.1f;
     Vector2 oppositeDirection;
     public int weaponID;
     bool attacking = false;
@@ -27,11 +27,6 @@ public class Player_Combat : MonoBehaviour
         {
             animator.SetTrigger("Attack");
             StartCoroutine(Attack());
-
-            if(weaponID == 3)
-            {
-                //StartCoroutine(BowAttack());
-            }
         }
     }
 
@@ -47,7 +42,7 @@ public class Player_Combat : MonoBehaviour
         //Debug.Log(other.name);
         if (other.CompareTag("Enemy"))
         {
-            //Debug.Log("HIT");
+            Debug.Log("HIT");
             oppositeDirection = (other.transform.position - player.transform.position).normalized;
             other.gameObject.GetComponent<EnemyAIv2>().startGetAttacked(knockBack, oppositeDirection, damage);
         }

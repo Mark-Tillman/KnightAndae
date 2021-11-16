@@ -47,11 +47,11 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.tag == "Hazard")
         {
             //collision.gameObject.SendMessage("TakeDamage", 1);
-            TakeDamage(1, 0, new Vector3(0,0,0));
+            TakeDamage(1);
         }
     }
 
-    public void TakeDamage(int damage, float knockback, Vector3 oppositeDirection)
+    public void TakeDamage(int damage)
     {
         //Debug.Log(damage);
         if (isInvincible) return;

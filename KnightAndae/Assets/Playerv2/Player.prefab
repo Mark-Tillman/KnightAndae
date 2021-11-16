@@ -333,6 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 15
   animator: {fileID: 249924906140498681}
+  canMove: 1
 --- !u!50 &8729804849048277953
 Rigidbody2D:
   serializedVersion: 4
@@ -346,7 +347,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -437,8 +438,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06, y: 0.82}
-  m_Size: {x: 1.07, y: 1.7}
+  m_Offset: {x: 0.09, y: 1.03}
+  m_Size: {x: 0.8976092, y: 1.7}
   m_Direction: 0
 --- !u!61 &28139388314835411
 BoxCollider2D:

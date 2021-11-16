@@ -55,7 +55,7 @@ public class EnemyCombat : MonoBehaviour
             Vector3 oppositeDirection = (collision.transform.position - transform.parent.position).normalized;
             oppositeDirection.y = 0;
             collision.GetComponent<Rigidbody2D>().AddForce(knockback * oppositeDirection, ForceMode2D.Impulse);
-            playerHealth.TakeDamage(attackDamage, knockback, oppositeDirection);
+            playerHealth.TakeDamage(attackDamage);
  
         }
     }

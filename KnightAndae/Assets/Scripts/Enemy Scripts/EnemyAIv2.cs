@@ -141,7 +141,7 @@ public class EnemyAIv2 : MonoBehaviour
                 animator.SetBool("Moving", false);
             }
 
-            if (playerDistance <= minDistance) //When the enemy is close enough, it won't use A* pathfinding, but starting homing directly to player
+            if (playerDistance <= minDistance && playerDetected) //When the enemy is close enough, it won't use A* pathfinding, but starting homing directly to player
             {
                 if (Mathf.Abs(playerYDistance) < minYDistance) //if the enemy is with the Y range it is able to attack
                 {
