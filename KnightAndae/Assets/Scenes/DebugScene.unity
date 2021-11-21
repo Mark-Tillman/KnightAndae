@@ -38835,6 +38835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwordGoblin
       objectReference: {fileID: 0}
+    - target: {fileID: 6539381340760034798, guid: 978da085e76b3824fb93700f4f465945, type: 3}
+      propertyPath: minDistance
+      value: 3.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 978da085e76b3824fb93700f4f465945, type: 3}
 --- !u!1001 &1222228873231695691
@@ -39015,6 +39019,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4528533001311146003, guid: e314a4c331009aa4099ea8f1b16dc8a1, type: 3}
+      propertyPath: attackSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528533003127781104, guid: e314a4c331009aa4099ea8f1b16dc8a1, type: 3}
+      propertyPath: enemyHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528533003127781104, guid: e314a4c331009aa4099ea8f1b16dc8a1, type: 3}
+      propertyPath: minDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528533003127781104, guid: e314a4c331009aa4099ea8f1b16dc8a1, type: 3}
+      propertyPath: minYDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4528533003127781106, guid: e314a4c331009aa4099ea8f1b16dc8a1, type: 3}
       propertyPath: m_Name
       value: ArmoredGoblin
@@ -39025,11 +39045,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4528533003127781118, guid: e314a4c331009aa4099ea8f1b16dc8a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.5
+      value: -1.27
       objectReference: {fileID: 0}
     - target: {fileID: 4528533003127781118, guid: e314a4c331009aa4099ea8f1b16dc8a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.96
+      value: 1.61
       objectReference: {fileID: 0}
     - target: {fileID: 4528533003127781118, guid: e314a4c331009aa4099ea8f1b16dc8a1, type: 3}
       propertyPath: m_LocalPosition.z
