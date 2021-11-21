@@ -1,43 +1,25 @@
 fileFormatVersion: 2
-guid: 976a36c9495f46d4e9f5148c5e033f30
+guid: 9a0ff9c3293b29c4fa0c6768fc3d5397
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1601067535594692692
-    second: KnightHammerAttackNoHammer1_0
+      213: -1407640934532902168
+    second: UpAttack_0
   - first:
-      213: 7211266632838780350
-    second: KnightHammerAttackNoHammer1_1
+      213: -8084452742579723493
+    second: UpAttack_1
   - first:
-      213: 4308276317593241523
-    second: KnightHammerAttackNoHammer1_2
+      213: -9083836491040384835
+    second: UpAttack_2
   - first:
-      213: 4487486355140611095
-    second: KnightHammerAttackNoHammer1_3
+      213: 8220671023991184161
+    second: UpAttack_3
   - first:
-      213: -78873489604143344
-    second: KnightHammerAttackNoHammer1_4
+      213: -2922414782682613923
+    second: UpAttack_4
   - first:
-      213: 9061169246858972202
-    second: KnightHammerAttackNoHammer1_5
-  - first:
-      213: -8783067014595182223
-    second: AttackHammerSide_0
-  - first:
-      213: -1218180810858789166
-    second: AttackHammerSide_1
-  - first:
-      213: 7175913197004897712
-    second: AttackHammerSide_2
-  - first:
-      213: -7121087318065715705
-    second: AttackHammerSide_3
-  - first:
-      213: -988047190428928761
-    second: AttackHammerSide_4
-  - first:
-      213: -2614161644436831289
-    second: AttackHammerSide_5
+      213: 922511833914035770
+    second: UpAttack_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -82,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 13
+  spritePixelsToUnits: 12.8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -175,12 +157,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AttackHammerSide_0
+      name: UpAttack_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 201
-        width: 24
+        x: 14
+        y: 214
+        width: 27
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -189,113 +171,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1718a9cb5174c1680800000000000000
-      internalID: -8783067014595182223
+      spriteID: 8e21edd270e077ce0800000000000000
+      internalID: -1407640934532902168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackHammerSide_1
+      name: UpAttack_1
       rect:
         serializedVersion: 2
-        x: 5
-        y: 155
-        width: 21
-        height: 32
+        x: 19
+        y: 176
+        width: 27
+        height: 31
       alignment: 9
-      pivot: {x: 0.42857143, y: 0}
+      pivot: {x: 0.3148148, y: -0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d68098b107281fe0800000000000000
-      internalID: -1218180810858789166
+      spriteID: b136a1b50114ecf80800000000000000
+      internalID: -8084452742579723493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackHammerSide_2
+      name: UpAttack_2
       rect:
         serializedVersion: 2
-        x: 7
-        y: 112
-        width: 21
-        height: 32
+        x: 19
+        y: 139
+        width: 30
+        height: 31
       alignment: 9
-      pivot: {x: 0.42857143, y: -0}
+      pivot: {x: 0.28333333, y: -0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bdb3867807f59360800000000000000
-      internalID: 7175913197004897712
+      spriteID: db89ec1f6dabfe180800000000000000
+      internalID: -9083836491040384835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackHammerSide_3
+      name: UpAttack_3
       rect:
         serializedVersion: 2
-        x: 6
-        y: 76
-        width: 21
-        height: 32
+        x: 19
+        y: 97
+        width: 28
+        height: 31
       alignment: 9
-      pivot: {x: 0.42857143, y: 0}
+      pivot: {x: 0.30357143, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 706672830d0dc2d90800000000000000
-      internalID: -7121087318065715705
+      spriteID: 12b5758cdb0b51270800000000000000
+      internalID: 8220671023991184161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackHammerSide_4
+      name: UpAttack_4
       rect:
         serializedVersion: 2
-        x: 7
-        y: 37
-        width: 21
-        height: 32
-      alignment: 9
-      pivot: {x: 0.42857143, y: -0}
+        x: 14
+        y: 50
+        width: 27
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7053921b050c942f0800000000000000
-      internalID: -988047190428928761
+      spriteID: d573adf1d3f7177d0800000000000000
+      internalID: -2922414782682613923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackHammerSide_5
+      name: UpAttack_5
       rect:
         serializedVersion: 2
-        x: 7
-        y: 0
-        width: 21
-        height: 32
+        x: 9
+        y: 10
+        width: 32
+        height: 38
       alignment: 9
-      pivot: {x: 0.42857143, y: -0}
+      pivot: {x: 0.578125, y: -0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c344e5b5d1a8bbd0800000000000000
-      internalID: -2614161644436831289
+      spriteID: a3e4a8110ab6dcc00800000000000000
+      internalID: 922511833914035770
       vertices: []
       indices: 
       edges: []

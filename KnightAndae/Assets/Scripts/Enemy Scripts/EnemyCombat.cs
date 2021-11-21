@@ -51,7 +51,7 @@ public class EnemyCombat : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.GetComponent<PlayerMovement>().startGetStunned(stunTime);
-            Debug.Log("Damage by: " + collision);
+            //Debug.Log("Damage by: " + collision);
             Vector3 oppositeDirection = (collision.transform.position - transform.parent.position).normalized;
             oppositeDirection.y = 0;
             collision.GetComponent<Rigidbody2D>().AddForce(knockback * oppositeDirection, ForceMode2D.Impulse);

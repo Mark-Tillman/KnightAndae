@@ -8,7 +8,6 @@ public class Player_Combat : MonoBehaviour
     GameObject player;
     float knockBack = 200f;
     float damage = 1f;
-    float attackCooldown = 0.1f;
     Vector2 oppositeDirection;
     public int weaponID;
     bool attacking = false;
@@ -30,11 +29,10 @@ public class Player_Combat : MonoBehaviour
         }
     }
 
-    public void setStats(float dam, float knock, float cooldown)
+    public void setStats(float dam, float knock)
     {
         damage = dam;
         knockBack = knock;
-        attackCooldown = cooldown;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -42,7 +40,7 @@ public class Player_Combat : MonoBehaviour
         //Debug.Log(other.name);
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("HIT");
+            //Debug.Log("HIT");
             oppositeDirection = (other.transform.position - player.transform.position).normalized;
             other.gameObject.GetComponent<EnemyAIv2>().startGetAttacked(knockBack, oppositeDirection, damage);
         }
@@ -50,9 +48,11 @@ public class Player_Combat : MonoBehaviour
 
     IEnumerator Attack()
     {
+        player.GetComponent<PlayerMovement>().attacking = true;
         attacking = true;
-        yield return new WaitForSeconds(attackCooldown);
+        yield return new WaitForSeconds(player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
         attacking = false;
+        player.GetComponent<PlayerMovement>().attacking = false;
     }
 
     public IEnumerator ShootArrow(Transform player)

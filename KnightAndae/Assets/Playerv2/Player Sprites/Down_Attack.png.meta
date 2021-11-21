@@ -1,43 +1,25 @@
 fileFormatVersion: 2
-guid: 976a36c9495f46d4e9f5148c5e033f30
+guid: ba3f81d24d1c1794aa3fb1de91ba9dea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1601067535594692692
-    second: KnightHammerAttackNoHammer1_0
+      213: 2026539234730684376
+    second: Down_Attack_0
   - first:
-      213: 7211266632838780350
-    second: KnightHammerAttackNoHammer1_1
+      213: -7875735925207035238
+    second: Down_Attack_1
   - first:
-      213: 4308276317593241523
-    second: KnightHammerAttackNoHammer1_2
+      213: -7270593350633819933
+    second: Down_Attack_2
   - first:
-      213: 4487486355140611095
-    second: KnightHammerAttackNoHammer1_3
+      213: 4174209606902146584
+    second: Down_Attack_3
   - first:
-      213: -78873489604143344
-    second: KnightHammerAttackNoHammer1_4
+      213: -1214995068822230775
+    second: Down_Attack_4
   - first:
-      213: 9061169246858972202
-    second: KnightHammerAttackNoHammer1_5
-  - first:
-      213: -8783067014595182223
-    second: AttackHammerSide_0
-  - first:
-      213: -1218180810858789166
-    second: AttackHammerSide_1
-  - first:
-      213: 7175913197004897712
-    second: AttackHammerSide_2
-  - first:
-      213: -7121087318065715705
-    second: AttackHammerSide_3
-  - first:
-      213: -988047190428928761
-    second: AttackHammerSide_4
-  - first:
-      213: -2614161644436831289
-    second: AttackHammerSide_5
+      213: -2057826106446918003
+    second: Down_Attack_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -82,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 13
+  spritePixelsToUnits: 12.8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -175,12 +157,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AttackHammerSide_0
+      name: Down_Attack_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 201
-        width: 24
+        x: 17
+        y: 223
+        width: 27
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -189,113 +171,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1718a9cb5174c1680800000000000000
-      internalID: -8783067014595182223
+      spriteID: 8dfa38962b6bf1c10800000000000000
+      internalID: 2026539234730684376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackHammerSide_1
+      name: Down_Attack_1
       rect:
         serializedVersion: 2
-        x: 5
-        y: 155
-        width: 21
+        x: 21
+        y: 187
+        width: 23
         height: 32
       alignment: 9
-      pivot: {x: 0.42857143, y: 0}
+      pivot: {x: 0.41304347, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d68098b107281fe0800000000000000
-      internalID: -1218180810858789166
+      spriteID: a92904947e3c3b290800000000000000
+      internalID: -7875735925207035238
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackHammerSide_2
+      name: Down_Attack_2
       rect:
         serializedVersion: 2
-        x: 7
-        y: 112
-        width: 21
+        x: 23
+        y: 150
+        width: 29
         height: 32
       alignment: 9
-      pivot: {x: 0.42857143, y: -0}
+      pivot: {x: 0.25862068, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bdb3867807f59360800000000000000
-      internalID: 7175913197004897712
+      spriteID: 3e0772d6ed9a91b90800000000000000
+      internalID: -7270593350633819933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackHammerSide_3
+      name: Down_Attack_3
       rect:
         serializedVersion: 2
-        x: 6
-        y: 76
-        width: 21
-        height: 32
+        x: 20
+        y: 102
+        width: 25
+        height: 41
       alignment: 9
-      pivot: {x: 0.42857143, y: 0}
+      pivot: {x: 0.46, y: 0.2195122}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 706672830d0dc2d90800000000000000
-      internalID: -7121087318065715705
+      spriteID: 816ec658585cde930800000000000000
+      internalID: 4174209606902146584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackHammerSide_4
+      name: Down_Attack_4
       rect:
         serializedVersion: 2
-        x: 7
-        y: 37
-        width: 21
-        height: 32
+        x: 20
+        y: 50
+        width: 26
+        height: 45
       alignment: 9
-      pivot: {x: 0.42857143, y: -0}
+      pivot: {x: 0.48076922, y: 0.2888889}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7053921b050c942f0800000000000000
-      internalID: -988047190428928761
+      spriteID: 909eff61c68732fe0800000000000000
+      internalID: -1214995068822230775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackHammerSide_5
+      name: Down_Attack_5
       rect:
         serializedVersion: 2
-        x: 7
-        y: 0
-        width: 21
-        height: 32
+        x: 8
+        y: 15
+        width: 38
+        height: 35
       alignment: 9
-      pivot: {x: 0.42857143, y: -0}
+      pivot: {x: 0.6447368, y: 0.08571429}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c344e5b5d1a8bbd0800000000000000
-      internalID: -2614161644436831289
+      spriteID: d8ec4bb1f022173e0800000000000000
+      internalID: -2057826106446918003
       vertices: []
       indices: 
       edges: []
