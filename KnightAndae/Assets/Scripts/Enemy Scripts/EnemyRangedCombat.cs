@@ -57,4 +57,13 @@ public class EnemyRangedCombat : MonoBehaviour
         arrow.GetComponent<Rigidbody2D>().AddForce(Vector2.left * arrowSpeed * transform.parent.localScale.x);
         arrow.transform.parent = null;
     }
+
+    public void reset()
+    {
+        attacking = false;
+        if(gameObject.transform.Find("EnemyArrowProjectile(Clone)") != null)
+        {
+            Destroy(gameObject.transform.Find("EnemyArrowProjectile(Clone)").gameObject);
+        }
+    }
 }

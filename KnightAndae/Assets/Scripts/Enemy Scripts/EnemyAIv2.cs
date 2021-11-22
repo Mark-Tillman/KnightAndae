@@ -60,6 +60,8 @@ public class EnemyAIv2 : MonoBehaviour
 
     Animator animator; //Animation control 
 
+    public bool ranged;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Transform>(); //Find the player and get transform
@@ -318,5 +320,14 @@ public class EnemyAIv2 : MonoBehaviour
         chase = false;
         atHome = false;
         stunned = false;
+        canAttack = false;
+
+        
+        if(ranged)
+        {
+            GameObject attackPoint = transform.GetChild(0).Find("AttackPoint").gameObject;
+            EnemyRangedCombat rangeCom = attackPoint.GetComponent<EnemyRangedCombat>();
+            rangeCom.reset();
+        }
     }
 }
