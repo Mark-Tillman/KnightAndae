@@ -20,6 +20,24 @@ TextureImporter:
   - first:
       213: 9061169246858972202
     second: KnightHammerAttackNoHammer1_5
+  - first:
+      213: -8783067014595182223
+    second: AttackHammerSide_0
+  - first:
+      213: -1218180810858789166
+    second: AttackHammerSide_1
+  - first:
+      213: 7175913197004897712
+    second: AttackHammerSide_2
+  - first:
+      213: -7121087318065715705
+    second: AttackHammerSide_3
+  - first:
+      213: -988047190428928761
+    second: AttackHammerSide_4
+  - first:
+      213: -2614161644436831289
+    second: AttackHammerSide_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -157,127 +175,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KnightHammerAttackNoHammer1_0
+      name: AttackHammerSide_0
       rect:
         serializedVersion: 2
         x: 3
         y: 201
         width: 24
         height: 32
-      alignment: 9
-      pivot: {x: 0.5625, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4502888d072283610800000000000000
-      internalID: 1601067535594692692
+      spriteID: 1718a9cb5174c1680800000000000000
+      internalID: -8783067014595182223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KnightHammerAttackNoHammer1_1
+      name: AttackHammerSide_1
       rect:
         serializedVersion: 2
         x: 5
         y: 155
         width: 21
         height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb59bfeabc0931460800000000000000
-      internalID: 7211266632838780350
+      spriteID: 2d68098b107281fe0800000000000000
+      internalID: -1218180810858789166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KnightHammerAttackNoHammer1_2
+      name: AttackHammerSide_2
       rect:
         serializedVersion: 2
         x: 7
         y: 112
         width: 21
         height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.42857143, y: -0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b78f501c721acb30800000000000000
-      internalID: 4308276317593241523
+      spriteID: 0bdb3867807f59360800000000000000
+      internalID: 7175913197004897712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KnightHammerAttackNoHammer1_3
+      name: AttackHammerSide_3
       rect:
         serializedVersion: 2
         x: 6
         y: 76
         width: 21
         height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71c81947011c64e30800000000000000
-      internalID: 4487486355140611095
+      spriteID: 706672830d0dc2d90800000000000000
+      internalID: -7121087318065715705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KnightHammerAttackNoHammer1_4
+      name: AttackHammerSide_4
       rect:
         serializedVersion: 2
         x: 7
         y: 37
         width: 21
         height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.42857143, y: -0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01713f5aaf8c7eef0800000000000000
-      internalID: -78873489604143344
+      spriteID: 7053921b050c942f0800000000000000
+      internalID: -988047190428928761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KnightHammerAttackNoHammer1_5
+      name: AttackHammerSide_5
       rect:
         serializedVersion: 2
         x: 7
         y: 0
         width: 21
         height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.42857143, y: -0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2c09b00c6dbfbd70800000000000000
-      internalID: 9061169246858972202
+      spriteID: 7c344e5b5d1a8bbd0800000000000000
+      internalID: -2614161644436831289
       vertices: []
       indices: 
       edges: []

@@ -189,9 +189,11 @@ MonoBehaviour:
   minDistance: 2
   minYDistance: 0.5
   canAttack: 0
+  enemyHeight: 0
   maxHealth: 3
   totalHealth: 2
   spriteScale: -1
+  healthDrop: {fileID: 4457706256586899368, guid: 8c6ed7fa5355d3845b1c4eb83ac50cdb, type: 3}
 --- !u!50 &2657346987083748583
 Rigidbody2D:
   serializedVersion: 4

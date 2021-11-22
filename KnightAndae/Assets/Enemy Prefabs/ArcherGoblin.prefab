@@ -242,6 +242,7 @@ MonoBehaviour:
   maxHealth: 4
   totalHealth: 0
   spriteScale: 1
+  healthDrop: {fileID: 4457706256586899368, guid: 8c6ed7fa5355d3845b1c4eb83ac50cdb, type: 3}
 --- !u!70 &5255321001082466767
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

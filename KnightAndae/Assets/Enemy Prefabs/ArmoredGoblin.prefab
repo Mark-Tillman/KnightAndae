@@ -268,6 +268,7 @@ MonoBehaviour:
   maxHealth: 10
   totalHealth: 2
   spriteScale: 0.4
+  healthDrop: {fileID: 4457706256586899368, guid: 8c6ed7fa5355d3845b1c4eb83ac50cdb, type: 3}
 --- !u!50 &4528533002695986745
 Rigidbody2D:
   serializedVersion: 4

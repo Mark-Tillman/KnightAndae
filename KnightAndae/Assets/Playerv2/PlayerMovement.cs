@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     Player_Combat combat;
 
     public bool canMove = true;
+    public bool attacking = false;
 
     void Start()
     {
@@ -37,40 +38,43 @@ public class PlayerMovement : MonoBehaviour
         // Gives a value between -1 and 1
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
-        if(canMove)
+        if (canMove)
             AnimationUpdate();
     }
 
     void FixedUpdate()
     {
-        if(canMove)
-        { 
-        if (horizontal != 0 && vertical != 0) // Check for diagonal movement
+        if (canMove)
         {
-            // limit movement speed diagonally, so you move at 70% speed
-            horizontal *= moveLimiter;
-            vertical *= moveLimiter;
-        }
+            if (horizontal != 0 && vertical != 0) // Check for diagonal movement
+            {
+                // limit movement speed diagonally, so you move at 70% speed
+                horizontal *= moveLimiter;
+                vertical *= moveLimiter;
+            }
 
             body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
 
-            if (gameObject.GetComponent<Rigidbody2D>().velocity.x >= 0.01f)
+            if (!attacking)
             {
-                transform.localScale = new Vector3(1f, 1f, 1f);
-            }
-            else if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 0f)
-            {
-                transform.localScale = new Vector3(-1f, 1f, 1f);
+                if (gameObject.GetComponent<Rigidbody2D>().velocity.x >= 0.01f)
+                {
+                    transform.localScale = new Vector3(1f, 1f, 1f);
+                }
+                else if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 0f)
+                {
+                    transform.localScale = new Vector3(-1f, 1f, 1f);
+                }
             }
         }
     }
 
-    public void changeWeapon(int nextWeaponID, float damage, float knockback, float cooldown)
+    public void changeWeapon(int nextWeaponID, float damage, float knockback)
     {
         animator.SetLayerWeight(currentWeaponID, 0);
         animator.SetLayerWeight(nextWeaponID, 1);
         currentWeaponID = nextWeaponID;
-        combat.setStats(damage, knockback, cooldown);
+        combat.setStats(damage, knockback);
         combat.weaponID = currentWeaponID;
         //Debug.Log(nextWeaponID);
     }
@@ -99,23 +103,26 @@ public class PlayerMovement : MonoBehaviour
 
     void setCurrentXandY() //Keep track of the current direction being face in order to attack in the correct direction.
     {
-        if (Mathf.Abs(horizontal) > 0)
+        if (!attacking)
         {
-            currentX = 1;
-            currentY = 0;
+            if (Mathf.Abs(horizontal) > 0)
+            {
+                currentX = 1;
+                currentY = 0;
+            }
+            else if (vertical < 0)
+            {
+                currentX = 0;
+                currentY = -1;
+            }
+            else if (vertical > 0)
+            {
+                currentX = 0;
+                currentY = 1;
+            }
+            animator.SetFloat("currentX", currentX);
+            animator.SetFloat("currentY", currentY);
         }
-        else if (vertical < 0)
-        {
-            currentX = 0;
-            currentY = -1;
-        }
-        else if (vertical > 0)
-        {
-            currentX = 0;
-            currentY = 1;
-        }
-        animator.SetFloat("currentX", currentX);
-        animator.SetFloat("currentY", currentY);
     }
 
     public void startBowAttack()

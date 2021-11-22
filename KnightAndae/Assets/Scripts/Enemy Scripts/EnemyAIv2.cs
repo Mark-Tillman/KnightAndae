@@ -49,12 +49,14 @@ public class EnemyAIv2 : MonoBehaviour
     public float spriteScale; //Scale of the sprite, this is used when flipping the sprite left or right to maintain scale
     bool spriteFlipped = false; //Keeps track of if the enemy has been flipped so it only flips when it needs to and not constantly
 
-    float lastX;
-    float lastY;
-    float currentX;
-    float currentY;
-    float dirX; //Keep track of movement direction for animation
-    float dirY; //Keep track of movement direction for animation
+    float lastX; //Keep track of movement direction for animation
+    float lastY; //Keep track of movement direction for animation
+    float currentX; //Keep track of movement direction for animation
+    float currentY; //Keep track of movement direction for animation
+    float dirX; //calculated using lastX and currentX
+    float dirY; //calculated using lastY and currentY
+
+    public GameObject healthDrop; //Health item to drop upon death
 
     Animator animator; //Animation control 
 
@@ -263,6 +265,12 @@ public class EnemyAIv2 : MonoBehaviour
         //Debug.Log("Damaged by: -" + damageTaken);
         if (totalHealth <= 0)
         {
+            int randomNum = Random.Range(1, 4);
+
+            if (randomNum == 1)
+            {
+                Instantiate(healthDrop, gameObject.transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
         yield return new WaitForSeconds(stunDuration);
