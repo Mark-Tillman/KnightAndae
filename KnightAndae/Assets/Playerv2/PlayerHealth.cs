@@ -66,6 +66,19 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
+    public void heal(int heal)
+    {
+        if(currentHealth < maxHealth)
+        {
+            currentHealth += heal;
+            if(currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;
+            }
+            healthBar.SetHealth(currentHealth);
+        }
+    }
+
     private IEnumerator BecomeTemporarilyInvincible()
     {
         //Debug.Log("Player turned invincible!");
