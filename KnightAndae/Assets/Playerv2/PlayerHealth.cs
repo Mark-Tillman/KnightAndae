@@ -57,6 +57,10 @@ public class PlayerHealth : MonoBehaviour
         if (isInvincible) return;
         
         currentHealth -= damage;
+        if(currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
 
         healthBar.SetHealth(currentHealth);
 
@@ -71,7 +75,8 @@ public class PlayerHealth : MonoBehaviour
         if(currentHealth < maxHealth)
         {
             currentHealth += heal;
-            if(currentHealth > maxHealth)
+            StartCoroutine(BecomeTemporarilyInvincible());
+            if (currentHealth > maxHealth)
             {
                 currentHealth = maxHealth;
             }

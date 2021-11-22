@@ -52,7 +52,7 @@ public class EnemyCombat : MonoBehaviour
         {
             collision.GetComponent<PlayerMovement>().startGetStunned(stunTime);
             //Debug.Log("Damage by: " + collision);
-            Vector3 oppositeDirection = (collision.transform.position - transform.parent.position).normalized;
+            Vector3 oppositeDirection = new Vector3(collision.transform.position.x - transform.position.x, 0, 0).normalized;
             oppositeDirection.y = 0;
             collision.GetComponent<Rigidbody2D>().AddForce(knockback * oppositeDirection, ForceMode2D.Impulse);
             playerHealth.TakeDamage(attackDamage);
