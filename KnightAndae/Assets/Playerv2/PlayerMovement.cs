@@ -21,9 +21,11 @@ public class PlayerMovement : MonoBehaviour
 
     int currentWeaponID;
     Player_Combat combat;
+    public CheckpointManager checkpoints;
 
     public bool canMove = true;
     public bool attacking = false;
+
 
     void Start()
     {
@@ -139,6 +141,15 @@ public class PlayerMovement : MonoBehaviour
         canMove = false;
         yield return new WaitForSeconds(stunTime);
         canMove = true;
+    }
+
+    //Checkpoint System
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Checkpoint")
+        {
+            checkpoints.updateCheckpoint(collision.transform);
+        }
     }
 
 }

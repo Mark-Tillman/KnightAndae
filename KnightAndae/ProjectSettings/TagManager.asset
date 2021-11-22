@@ -8,6 +8,8 @@ TagManager:
   - Hazard
   - NPCTalkPrompt
   - HealthItem
+  - Checkpoint
+  - EnemyList
   layers:
   - Default
   - TransparentFX
@@ -53,6 +55,9 @@ TagManager:
     locked: 0
   - name: hazards
     uniqueID: 2554875011
+    locked: 0
+  - name: checkpoints
+    uniqueID: 320725575
     locked: 0
   - name: NPC
     uniqueID: 3022069367

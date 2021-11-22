@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
 
     public HealthBar healthBar;
-
+    public CheckpointManager checkpoints;
     private bool isInvincible = false;
 
     
@@ -32,15 +32,12 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // used for debugging health
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    TakeDamage(1);
-        //}
-        //else if (Input.GetKeyDown(KeyCode.H))
-        //{
-        //    TakeDamage(-1);
-        //}
+        if(currentHealth <= 0)
+        {
+            checkpoints.respawn();
+            currentHealth = maxHealth;
+            healthBar.SetHealth(currentHealth);
+        }
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -75,12 +72,12 @@ public class PlayerHealth : MonoBehaviour
         if(currentHealth < maxHealth)
         {
             currentHealth += heal;
-            StartCoroutine(BecomeTemporarilyInvincible());
             if (currentHealth > maxHealth)
             {
                 currentHealth = maxHealth;
             }
             healthBar.SetHealth(currentHealth);
+            //Debug.Log(currentHealth);
         }
     }
 

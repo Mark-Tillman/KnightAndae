@@ -271,7 +271,7 @@ public class EnemyAIv2 : MonoBehaviour
             {
                 Instantiate(healthDrop, gameObject.transform.position, Quaternion.identity);
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         yield return new WaitForSeconds(stunDuration);
         stunned = false;
@@ -307,5 +307,16 @@ public class EnemyAIv2 : MonoBehaviour
 
         animator.SetFloat("dirX", dirX);
         animator.SetFloat("dirY", dirY);
+    }
+
+    public void respawnEnemy()
+    {
+        totalHealth = maxHealth;
+        transform.position = originalPosition;
+        gameObject.SetActive(true);
+        checkLastPosition = false;
+        chase = false;
+        atHome = false;
+        stunned = false;
     }
 }
