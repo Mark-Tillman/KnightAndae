@@ -56,7 +56,7 @@ public class EnemyAIv2 : MonoBehaviour
     float dirX; //calculated using lastX and currentX
     float dirY; //calculated using lastY and currentY
 
-    public GameObject healthDrop; //Health item to drop upon death
+    public GameObject itemDrop; //item to drop upon death
 
     Animator animator; //Animation control 
 
@@ -270,9 +270,9 @@ public class EnemyAIv2 : MonoBehaviour
         {
             int randomNum = Random.Range(1, 4);
 
-            if (randomNum == 1)
+            if (randomNum == 1 || ranged)
             {
-                Instantiate(healthDrop, gameObject.transform.position, Quaternion.identity);
+                Instantiate(itemDrop, gameObject.transform.position, Quaternion.identity);
             }
             gameObject.SetActive(false);
         }

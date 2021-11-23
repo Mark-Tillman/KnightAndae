@@ -146,7 +146,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 192599551
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 2795058058563878030, guid: eb4f1c1f171944647a528f9aca0a3d13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -268,7 +268,8 @@ MonoBehaviour:
   maxHealth: 5
   totalHealth: 5
   spriteScale: -1
-  healthDrop: {fileID: 4457706256586899368, guid: 8c6ed7fa5355d3845b1c4eb83ac50cdb, type: 3}
+  itemDrop: {fileID: 4457706256586899368, guid: 8c6ed7fa5355d3845b1c4eb83ac50cdb, type: 3}
+  ranged: 0
 --- !u!50 &2262820580806077461
 Rigidbody2D:
   serializedVersion: 4

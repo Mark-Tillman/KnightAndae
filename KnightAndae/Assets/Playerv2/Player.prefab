@@ -336,7 +336,6 @@ MonoBehaviour:
   animator: {fileID: 249924906140498681}
   checkpoints: {fileID: 1469641109}
   canMove: 1
-  attacking: 0
 --- !u!50 &8729804849048277953
 Rigidbody2D:
   serializedVersion: 4
@@ -486,7 +485,7 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 0}
   checkpoints: {fileID: 1469641109}
-  invincibilityDurationSeconds: 1.5
+  invincibilityDurationSeconds: 1
   delayBetweenInvincibilityFlashes: 0.15
 --- !u!114 &1469641109
 MonoBehaviour:
@@ -515,7 +514,7 @@ GameObject:
   - component: {fileID: 2674481938716707260}
   m_Layer: 3
   m_Name: HitBox
-  m_TagString: Untagged
+  m_TagString: PlayerHitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,7 +594,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 249924906140498681}
   weaponID: 0
+  attacking: 0
   arrowProjectile: {fileID: 4038676278216826231, guid: 08c493b0889c27b498427495707230f9, type: 3}
+  arrowText: {fileID: 0}
 --- !u!1 &8919888662748355177
 GameObject:
   m_ObjectHideFlags: 0

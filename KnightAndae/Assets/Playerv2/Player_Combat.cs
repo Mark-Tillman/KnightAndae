@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Combat : MonoBehaviour
 {
@@ -14,10 +15,13 @@ public class Player_Combat : MonoBehaviour
     public bool attacking = false;
     public GameObject arrowProjectile;
     float arrowSpeed = 2000f;
+    int arrowCount = 10;
+    public Text arrowText;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        arrowText.text = arrowCount.ToString();
     }
 
     void Update()
@@ -90,11 +94,22 @@ public class Player_Combat : MonoBehaviour
 
     public IEnumerator ShootArrow(Transform player)
     {
-        Vector3 arrowPosition = new Vector3(player.localScale.x * 0.6f, 1, 0);
-        GameObject arrow = Instantiate(arrowProjectile, player.position + arrowPosition, player.rotation, player) as GameObject;
-        yield return new WaitForSeconds(0.2f);
-        arrow.GetComponent<Rigidbody2D>().simulated = true;
-        arrow.GetComponent<Rigidbody2D>().AddForce(Vector2.right * arrowSpeed * player.localScale.x);
-        arrow.transform.parent = null;
+        if (arrowCount > 0)
+        {
+            Vector3 arrowPosition = new Vector3(player.localScale.x * 0.6f, 1, 0);
+            GameObject arrow = Instantiate(arrowProjectile, player.position + arrowPosition, player.rotation, player) as GameObject;
+            yield return new WaitForSeconds(0.2f);
+            arrow.GetComponent<Rigidbody2D>().simulated = true;
+            arrow.GetComponent<Rigidbody2D>().AddForce(Vector2.right * arrowSpeed * player.localScale.x);
+            arrow.transform.parent = null;
+            arrowCount--;
+            arrowText.text = arrowCount.ToString();
+        }
+    }
+
+    public void addArrow(int num)
+    {
+        arrowCount += num;
+        arrowText.text = arrowCount.ToString();
     }
 }

@@ -22,8 +22,6 @@ public class HeartScript : MonoBehaviour
     {
         if (collision.transform.tag == "Player" && collision.transform.GetComponent<PlayerHealth>().currentHealth < collision.transform.GetComponent<PlayerHealth>().maxHealth)
         {
-            
-            //Debug.Log("Destroyed");
             Destroy(transform.parent.gameObject);
             Destroy(gameObject);
             collision.transform.GetComponent<PlayerHealth>().heal(healAmount);

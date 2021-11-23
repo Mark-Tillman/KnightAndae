@@ -43,28 +43,22 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "Hazard")
         {
-            //collision.gameObject.SendMessage("TakeDamage", 1);
             TakeDamage(1);
         }
     }
 
     public void TakeDamage(int damage)
     {
-        //Debug.Log(damage);
-        if (isInvincible) return;
-        
+        if (isInvincible) 
+            return;
+
         currentHealth -= damage;
         if(currentHealth < 0)
         {
             currentHealth = 0;
         }
-
         healthBar.SetHealth(currentHealth);
-
         StartCoroutine(BecomeTemporarilyInvincible());
-
-        //Apply knockback
-
     }
 
     public void heal(int heal)
@@ -77,16 +71,13 @@ public class PlayerHealth : MonoBehaviour
                 currentHealth = maxHealth;
             }
             healthBar.SetHealth(currentHealth);
-            //Debug.Log(currentHealth);
         }
     }
 
     private IEnumerator BecomeTemporarilyInvincible()
     {
-        //Debug.Log("Player turned invincible!");
         isInvincible = true;
         int timesLooped = 0;
-        // Flash on and off for roughly invincibilityDurationSeconds seconds
         for (float i = 0; i < invincibilityDurationSeconds; i += delayBetweenInvincibilityFlashes)
         {
             // TODO: add flashing logic here
@@ -103,7 +94,6 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForSeconds(delayBetweenInvincibilityFlashes);
         }
         player.GetComponent<SpriteRenderer>().enabled = true;
-        //Debug.Log("Player is no longer invincible!");
         isInvincible = false;
     }
 }

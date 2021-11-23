@@ -10,6 +10,7 @@ TagManager:
   - HealthItem
   - Checkpoint
   - EnemyList
+  - PlayerHitBox
   layers:
   - Default
   - TransparentFX
