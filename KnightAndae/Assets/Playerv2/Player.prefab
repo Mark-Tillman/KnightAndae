@@ -596,6 +596,7 @@ MonoBehaviour:
   weaponID: 0
   attacking: 0
   arrowProjectile: {fileID: 4038676278216826231, guid: 08c493b0889c27b498427495707230f9, type: 3}
+  arrowCount: 10
   arrowText: {fileID: 0}
 --- !u!1 &8919888662748355177
 GameObject:
