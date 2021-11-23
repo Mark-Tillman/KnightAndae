@@ -14,7 +14,6 @@ public class Player_Combat : MonoBehaviour
     public bool attacking = false;
     public GameObject arrowProjectile;
     float arrowSpeed = 2000f;
-    
 
     void Start()
     {
@@ -75,10 +74,8 @@ public class Player_Combat : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log(other.name);
         if (other.CompareTag("Enemy"))
         {
-            //Debug.Log("HIT");
             oppositeDirection = (other.transform.position - player.transform.position).normalized;
             other.gameObject.GetComponent<EnemyAIv2>().startGetAttacked(knockBack, oppositeDirection, damage);
         }

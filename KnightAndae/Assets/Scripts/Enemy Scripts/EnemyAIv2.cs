@@ -256,7 +256,8 @@ public class EnemyAIv2 : MonoBehaviour
 
     public void startGetAttacked(float knockBack, Vector3 oppositeDirection, float damageTaken)
     {
-        StartCoroutine(GetAttacked(knockBack, oppositeDirection, damageTaken));
+        if(!stunned)
+            StartCoroutine(GetAttacked(knockBack, oppositeDirection, damageTaken));
     }
 
     IEnumerator GetAttacked(float knockBack, Vector3 oppositeDirection, float damageTaken)

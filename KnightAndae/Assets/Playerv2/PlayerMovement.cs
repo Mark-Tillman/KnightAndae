@@ -76,9 +76,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetLayerWeight(currentWeaponID, 0);
         animator.SetLayerWeight(nextWeaponID, 1);
         currentWeaponID = nextWeaponID;
-        //combat.setStats(damage, knockback, cooldown);
-        //combat.weaponID = currentWeaponID;
-        //Debug.Log(nextWeaponID);
     }
 
     void AnimationUpdate()
@@ -105,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
 
     void setCurrentXandY() //Keep track of the current direction being face in order to attack in the correct direction.
     {
-        if (!combat.attacking)
+        if (/*!combat.attacking*/true)
         {
             if (Mathf.Abs(horizontal) > 0)
             {
