@@ -120,7 +120,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 192599551
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -1989403727458243495, guid: 3d46829e50351bd4daf5ab8759a0a3b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -232,7 +232,7 @@ MonoBehaviour:
   nextWaypointDistance: 1
   sprite: {fileID: 5255321000291863789}
   rb: {fileID: 5255321001082466766}
-  detectRange: 20
+  detectRange: 25
   stunDuration: 0.5
   playerHeight: 1
   minDistance: 15
@@ -243,6 +243,7 @@ MonoBehaviour:
   totalHealth: 0
   spriteScale: 1
   healthDrop: {fileID: 4457706256586899368, guid: 8c6ed7fa5355d3845b1c4eb83ac50cdb, type: 3}
+  ranged: 1
 --- !u!70 &5255321001082466767
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
