@@ -24,6 +24,7 @@ public class CheckpointManager : MonoBehaviour
 
     public void updateCheckpoint(Transform newCheckpoint)
     {
+        newCheckpoint.gameObject.GetComponent<Animator>().SetTrigger("raiseFlag");
 
         foreach (Transform child in currentCheckpoint.parent.GetChild(0))
             enemies.Remove(child.gameObject);
@@ -34,6 +35,8 @@ public class CheckpointManager : MonoBehaviour
             enemies.Add(child.gameObject);
 
         currentCheckpoint = newCheckpoint;
+
+        
 
     }
 

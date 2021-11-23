@@ -22,7 +22,7 @@ public class ArrowScript : MonoBehaviour
     {
         Vector2 oppositeDirection;
 
-        if (collision.tag != "Player")
+        if (collision.tag != "Player" && collision.isTrigger == false)
         {
             gameObject.GetComponent<Rigidbody2D>().simulated = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);

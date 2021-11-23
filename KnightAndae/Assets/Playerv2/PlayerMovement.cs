@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public CheckpointManager checkpoints;
 
     public bool canMove = true;
-    public bool attacking = false;
+    //public bool attacking = false;
 
 
     void Start()
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
             body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
 
-            if (!attacking)
+            if (!combat.attacking)
             {
                 if (gameObject.GetComponent<Rigidbody2D>().velocity.x >= 0.01f)
                 {
@@ -71,13 +71,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void changeWeapon(int nextWeaponID, float damage, float knockback)
+    public void changeWeapon(int nextWeaponID)
     {
         animator.SetLayerWeight(currentWeaponID, 0);
         animator.SetLayerWeight(nextWeaponID, 1);
         currentWeaponID = nextWeaponID;
-        combat.setStats(damage, knockback);
-        combat.weaponID = currentWeaponID;
+        //combat.setStats(damage, knockback, cooldown);
+        //combat.weaponID = currentWeaponID;
         //Debug.Log(nextWeaponID);
     }
 
@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     void setCurrentXandY() //Keep track of the current direction being face in order to attack in the correct direction.
     {
-        if (!attacking)
+        if (!combat.attacking)
         {
             if (Mathf.Abs(horizontal) > 0)
             {
@@ -125,11 +125,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("currentX", currentX);
             animator.SetFloat("currentY", currentY);
         }
-    }
-
-    public void startBowAttack()
-    {
-        StartCoroutine(combat.ShootArrow(transform));
     }
 
     public void startGetStunned(float stunTime)

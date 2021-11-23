@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class WeaponWheelController : MonoBehaviour
 {
     PlayerMovement player;
+    public Player_Combat combat;
     public Animator anim;
     private bool weaponWheelSelected = false;
     public Sprite noImage;
@@ -29,35 +30,7 @@ public class WeaponWheelController : MonoBehaviour
 
     public void updateWeapon(int weaponID)
     {
-        switch (weaponID)
-        {
-            case 0: // no weapon selected
-                break;
-            case 1:
-                //Debug.Log("Sword");
-                player.changeWeapon(weaponID, 1, 200); //Sword does 1 damage, 200 knockback
-                weaponWheelSelected = false;
-                break;
-            case 2:
-                //Debug.Log("Spear");
-                player.changeWeapon(weaponID, 0.75f, 75); //Spear does 0.75 damage, 75 knockback
-                weaponWheelSelected = false;
-                break;
-            case 3:
-                //Debug.Log("Bow");
-                player.changeWeapon(weaponID, 1, 200);
-                weaponWheelSelected = false;
-                break;
-            case 4:
-                //Debug.Log("Hammer");
-                player.changeWeapon(weaponID, 0.5f, 500); //Hammer does 0.5 damage, 500 knockback
-                weaponWheelSelected = false;
-                break;
-            case 5:
-                //Debug.Log("Magic");
-                player.changeWeapon(weaponID, 1, 200);
-                weaponWheelSelected = false;
-                break;
-        }
+        weaponWheelSelected = false;
+        player.changeWeapon(weaponID);
     }
 }

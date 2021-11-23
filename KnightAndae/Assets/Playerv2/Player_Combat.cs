@@ -8,12 +8,13 @@ public class Player_Combat : MonoBehaviour
     GameObject player;
     float knockBack = 200f;
     float damage = 1f;
+    float cooldown;
     Vector2 oppositeDirection;
     public int weaponID;
-    bool attacking = false;
+    public bool attacking = false;
     public GameObject arrowProjectile;
     float arrowSpeed = 2000f;
-    Vector3 playerHeight = new Vector3(0, 1, 0);
+    
 
     void Start()
     {
@@ -26,13 +27,50 @@ public class Player_Combat : MonoBehaviour
         {
             animator.SetTrigger("Attack");
             StartCoroutine(Attack());
+            if(weaponID == 3)
+                StartCoroutine(ShootArrow(player.transform));
         }
     }
 
-    public void setStats(float dam, float knock)
+    public void updateWeapon(int ID)
     {
-        damage = dam;
-        knockBack = knock;
+        Debug.Log("Updating Stats");
+        weaponID = ID;
+        switch (weaponID)
+        {
+            case 0: // no weapon selected
+                break;
+            case 1:
+                //Sword
+                damage = 1;
+                knockBack = 200;
+                cooldown = 0.3f;
+                break;
+            case 2:
+                //Spear
+                damage = 0.75f;
+                knockBack = 75;
+                cooldown = 0.2f;
+                break;
+            case 3:
+                //Bow
+                damage = 1;
+                knockBack = 200;
+                cooldown = 0.5f;
+                break;
+            case 4:
+                //Hammer
+                damage = 1;
+                knockBack = 500;
+                cooldown = 0.7f;
+                break;
+            case 5:
+                //Unarmed
+                damage = 0;
+                knockBack = 0;
+                cooldown = 0;
+                break;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -48,16 +86,15 @@ public class Player_Combat : MonoBehaviour
 
     IEnumerator Attack()
     {
-        player.GetComponent<PlayerMovement>().attacking = true;
         attacking = true;
-        yield return new WaitForSeconds(player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(cooldown);
         attacking = false;
-        player.GetComponent<PlayerMovement>().attacking = false;
     }
 
     public IEnumerator ShootArrow(Transform player)
     {
-        GameObject arrow = Instantiate(arrowProjectile, player.position + playerHeight, player.rotation, player) as GameObject;
+        Vector3 arrowPosition = new Vector3(player.localScale.x * 0.6f, 1, 0);
+        GameObject arrow = Instantiate(arrowProjectile, player.position + arrowPosition, player.rotation, player) as GameObject;
         yield return new WaitForSeconds(0.2f);
         arrow.GetComponent<Rigidbody2D>().simulated = true;
         arrow.GetComponent<Rigidbody2D>().AddForce(Vector2.right * arrowSpeed * player.localScale.x);
