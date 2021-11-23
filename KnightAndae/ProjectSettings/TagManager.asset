@@ -11,6 +11,8 @@ TagManager:
   - Checkpoint
   - EnemyList
   - PlayerHitBox
+  - Loot
+  - Projectile
   layers:
   - Default
   - TransparentFX
