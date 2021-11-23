@@ -15,7 +15,7 @@ public class Player_Combat : MonoBehaviour
     public bool attacking = false;
     public GameObject arrowProjectile;
     float arrowSpeed = 2000f;
-    int arrowCount = 10;
+    public int arrowCount = 10;
     public Text arrowText;
 
     void Start()
@@ -58,7 +58,7 @@ public class Player_Combat : MonoBehaviour
             case 3:
                 //Bow
                 damage = 1;
-                knockBack = 200;
+                knockBack = 0;
                 cooldown = 0.5f;
                 break;
             case 4:
@@ -110,6 +110,12 @@ public class Player_Combat : MonoBehaviour
     public void addArrow(int num)
     {
         arrowCount += num;
+        arrowText.text = arrowCount.ToString();
+    }
+
+    public void setArrow(int num)
+    {
+        arrowCount = num;
         arrowText.text = arrowCount.ToString();
     }
 }

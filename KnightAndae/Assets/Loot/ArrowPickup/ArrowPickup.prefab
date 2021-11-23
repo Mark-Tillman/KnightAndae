@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 6441048688194982314}
   m_Layer: 0
   m_Name: ArrowPickup
-  m_TagString: Untagged
+  m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef16397c7c422234aa21eed1d3e8ee44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combat: {fileID: 0}
   arrowAmount: 4
 --- !u!1001 &6441048687419573792
 PrefabInstance:
