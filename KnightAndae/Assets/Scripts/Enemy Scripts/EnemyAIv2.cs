@@ -59,6 +59,7 @@ public class EnemyAIv2 : MonoBehaviour
     public GameObject itemDrop; //item to drop upon death
 
     Animator animator; //Animation control 
+    bool chaseLock = false; //If this is true, the enemy will not stop chasing the player until the player or enemy is dead
 
     public bool ranged;
 
@@ -81,7 +82,7 @@ public class EnemyAIv2 : MonoBehaviour
 
     void UpdatePath()
     {
-        if (seeker.IsDone() && playerDetected)
+        if ((seeker.IsDone() && playerDetected) || (seeker.IsDone() && chaseLock))
         {
             //Start path towards player if detected
             seeker.StartPath(rb.position, new Vector2(player.position.x, player.position.y + playerHeight), OnPathComplete);
@@ -118,7 +119,7 @@ public class EnemyAIv2 : MonoBehaviour
 
         detectPlayer(); //Attempt to detect the player
 
-        if (playerDetected)
+        if (playerDetected || chaseLock)
         {
             //Change sprite orientation to be facing player if detected
             if (rb.position.x < player.position.x && spriteFlipped)
@@ -135,7 +136,7 @@ public class EnemyAIv2 : MonoBehaviour
 
         if (!stunned)
         {
-            if ((chase || !atHome) && (playerDistance >= minDistance)) //If player is detected, chase will be true, and if the enemy is not at original position, atHome will be false
+            if (((chase || !atHome || chaseLock) && (playerDistance >= minDistance))) //If player is detected, chase will be true, and if the enemy is not at original position, atHome will be false
             {
                 pathFind(); //Move
                 animator.SetBool("Moving", true);
@@ -216,7 +217,7 @@ public class EnemyAIv2 : MonoBehaviour
     void detectPlayer()
     {
         //Mask for the enemy to ignore - so that raycast doesn't collide with enemy casting it.
-        LayerMask mask = LayerMask.GetMask("Enemy");
+        LayerMask mask = LayerMask.GetMask("Enemy", "enemyIgnore");
 
         //Cast a ray from the enemy to the direction of the player. ignore the enemy mask to avoid ray collision with self
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + enemyHeight), new Vector2(player.transform.position.x - transform.position.x, (player.transform.position.y - transform.position.y - enemyHeight) + playerHeight), detectRange, ~mask);
@@ -224,7 +225,7 @@ public class EnemyAIv2 : MonoBehaviour
 
 
         //Check if enemy sees the player unobstructed and within range
-        if ((hit && hit.collider.gameObject.tag == "Player" && playerDistance <= detectRange))
+        if ((hit && (hit.collider.gameObject.tag == "Player" && playerDistance <= detectRange)))
         {
             playerDetected = true; //Player has been detected
             checkLastPosition = false; //Enemy does not need to check last known position while the player is detected
@@ -262,6 +263,7 @@ public class EnemyAIv2 : MonoBehaviour
 
     IEnumerator GetAttacked(float knockBack, Vector3 oppositeDirection, float damageTaken)
     {
+        chaseLock = true;
         stunned = true;
         rb.AddForce(knockBack * oppositeDirection, ForceMode2D.Impulse);
         totalHealth -= damageTaken;
@@ -319,11 +321,11 @@ public class EnemyAIv2 : MonoBehaviour
         gameObject.SetActive(true);
         checkLastPosition = false;
         chase = false;
-        atHome = false;
+        atHome = true;
         stunned = false;
         canAttack = false;
-
-        
+        chaseLock = false;
+        rb.velocity = Vector2.zero;
         if(ranged)
         {
             GameObject attackPoint = transform.GetChild(0).Find("AttackPoint").gameObject;

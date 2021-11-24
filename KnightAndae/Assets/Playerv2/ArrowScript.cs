@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArrowScript : MonoBehaviour
 {
     float damage = 1;
-    float knockback = 100;
+    float knockback = 1;
     // Start is called before the first frame update
     void Start()
     {

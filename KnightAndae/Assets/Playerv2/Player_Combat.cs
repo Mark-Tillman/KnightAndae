@@ -80,8 +80,19 @@ public class Player_Combat : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            float damageToDo = damage;
+            float knockbackToDo = knockBack;
+            int randomNum = Random.Range(1, 10);
+            if(randomNum == 1)
+            {
+                Debug.Log("CRITICAL");
+                damageToDo *= 3;
+                knockbackToDo *=3;
+            }
+                
+
             oppositeDirection = (other.transform.position - player.transform.position).normalized;
-            other.gameObject.GetComponent<EnemyAIv2>().startGetAttacked(knockBack, oppositeDirection, damage);
+            other.gameObject.GetComponent<EnemyAIv2>().startGetAttacked(knockbackToDo, oppositeDirection, damageToDo);
         }
     }
 

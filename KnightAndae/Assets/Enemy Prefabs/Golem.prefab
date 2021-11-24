@@ -259,13 +259,13 @@ MonoBehaviour:
   sprite: {fileID: 2262820580303319697}
   rb: {fileID: 2262820580806077461}
   detectRange: 10
-  stunDuration: 0.5
+  stunDuration: 0
   playerHeight: 1
   minDistance: 2.5
   minYDistance: 1
   canAttack: 0
   enemyHeight: 0.5
-  maxHealth: 5
+  maxHealth: 7
   totalHealth: 5
   spriteScale: -1
   itemDrop: {fileID: 4457706256586899368, guid: 8c6ed7fa5355d3845b1c4eb83ac50cdb, type: 3}
