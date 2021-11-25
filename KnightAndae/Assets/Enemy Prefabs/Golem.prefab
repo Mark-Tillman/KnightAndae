@@ -300,12 +300,12 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 2262820580806077463}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 286f64987869379478090c091823d459, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03459561, y: 1.5741094}
-  m_Size: {x: 2.4027693, y: 3.0757482}
+  m_Offset: {x: -0.03459561, y: 1.4476188}
+  m_Size: {x: 2.4027693, y: 2.5114048}
   m_Direction: 0
 --- !u!1001 &2262820579816523956
 PrefabInstance:
