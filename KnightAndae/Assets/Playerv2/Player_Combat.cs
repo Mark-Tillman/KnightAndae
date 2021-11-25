@@ -80,8 +80,8 @@ public class Player_Combat : MonoBehaviour
                 break;
             case 3:
                 //Spear
-                damage = 0.75f;
-                knockBack = 75;
+                damage = 0.9f;
+                knockBack = 150;
                 cooldown = 0.2f;
                 break;
             case 4:
