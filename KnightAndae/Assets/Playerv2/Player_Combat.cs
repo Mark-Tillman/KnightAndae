@@ -12,6 +12,8 @@ public class Player_Combat : MonoBehaviour
     float cooldown;
     Vector2 oppositeDirection;
     public int weaponID;
+    int tempID;
+    int weaponCount;
     public bool attacking = false;
     public GameObject arrowProjectile;
     float arrowSpeed = 2000f;
@@ -20,6 +22,9 @@ public class Player_Combat : MonoBehaviour
 
     void Start()
     {
+        weaponCount = GameObject.FindGameObjectsWithTag("WeaponWheelButton").Length;
+        weaponID = 1;
+        updateWeapon(weaponID);
         player = GameObject.FindWithTag("Player");
         arrowText.text = arrowCount.ToString();
     }
@@ -30,14 +35,32 @@ public class Player_Combat : MonoBehaviour
         {
             animator.SetTrigger("Attack");
             StartCoroutine(Attack());
-            if(weaponID == 3)
+            if (weaponID == 2)
                 StartCoroutine(ShootArrow(player.transform));
         }
+
+        if (Input.GetAxis("Mouse ScrollWheel") != 0 && !attacking)
+        {
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f) //Up
+            {
+                tempID = weaponID + 1;
+                if (tempID > weaponCount)
+                    tempID = 1;
+            }
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0f) //Down
+            {
+                tempID = weaponID - 1;
+                if (tempID < 1)
+                    tempID = weaponCount;
+            }
+            updateWeapon(tempID);
+            player.GetComponent<PlayerMovement>().changeWeapon(tempID);
+        }
+
     }
 
     public void updateWeapon(int ID)
     {
-        Debug.Log("Updating Stats");
         weaponID = ID;
         switch (weaponID)
         {
@@ -50,16 +73,16 @@ public class Player_Combat : MonoBehaviour
                 cooldown = 0.3f;
                 break;
             case 2:
-                //Spear
-                damage = 0.75f;
-                knockBack = 75;
-                cooldown = 0.2f;
-                break;
-            case 3:
                 //Bow
                 damage = 1;
                 knockBack = 0;
                 cooldown = 0.5f;
+                break;
+            case 3:
+                //Spear
+                damage = 0.75f;
+                knockBack = 75;
+                cooldown = 0.2f;
                 break;
             case 4:
                 //Hammer
@@ -83,13 +106,13 @@ public class Player_Combat : MonoBehaviour
             float damageToDo = damage;
             float knockbackToDo = knockBack;
             int randomNum = Random.Range(1, 10);
-            if(randomNum == 1)
+            if (randomNum == 1)
             {
-                Debug.Log("CRITICAL");
+                //Debug.Log("CRITICAL");
                 damageToDo *= 3;
-                knockbackToDo *=3;
+                knockbackToDo *= 3;
             }
-                
+
 
             oppositeDirection = (other.transform.position - player.transform.position).normalized;
             other.gameObject.GetComponent<EnemyAIv2>().startGetAttacked(knockbackToDo, oppositeDirection, damageToDo);

@@ -13,6 +13,8 @@ TagManager:
   - PlayerHitBox
   - Loot
   - Projectile
+  - WeaponWheel
+  - WeaponWheelButton
   layers:
   - Default
   - TransparentFX

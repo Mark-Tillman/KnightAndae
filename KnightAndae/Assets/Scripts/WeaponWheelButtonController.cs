@@ -8,12 +8,13 @@ public class WeaponWheelButtonController : MonoBehaviour
     public string itemName;
     public Image selectedItem;
     WeaponWheelController wheelControl;
-    public Player_Combat combat;
+    Player_Combat combat;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        combat = GameObject.FindGameObjectWithTag("PlayerHitBox").GetComponent<Player_Combat>();
         anim = GetComponent<Animator>();
         wheelControl = GetComponentInParent<WeaponWheelController>();
     }
@@ -21,7 +22,7 @@ public class WeaponWheelButtonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void HoverEnter()
@@ -38,7 +39,7 @@ public class WeaponWheelButtonController : MonoBehaviour
 
     public void Clicked()
     {
-        
+        //Debug.Log(ID);
         wheelControl.updateWeapon(ID);
         combat.updateWeapon(ID);
         combat.attacking = false;

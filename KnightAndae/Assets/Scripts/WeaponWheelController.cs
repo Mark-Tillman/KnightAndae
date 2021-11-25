@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class WeaponWheelController : MonoBehaviour
 {
     PlayerMovement player;
-    public Player_Combat combat;
+    Player_Combat combat;
     public Animator anim;
     private bool weaponWheelSelected = false;
     public Sprite noImage;
@@ -12,6 +12,7 @@ public class WeaponWheelController : MonoBehaviour
 
     void Start()
     {
+        combat = GameObject.FindGameObjectWithTag("PlayerHitBox").GetComponent<Player_Combat>();
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
@@ -25,7 +26,9 @@ public class WeaponWheelController : MonoBehaviour
         }
         
         // animate it
-        anim.SetBool("OpenWeaponWheel", weaponWheelSelected);    
+        anim.SetBool("OpenWeaponWheel", weaponWheelSelected);  
+
+        
     }
 
     public void updateWeapon(int weaponID)

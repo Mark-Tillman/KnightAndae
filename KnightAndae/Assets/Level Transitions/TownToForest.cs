@@ -22,20 +22,20 @@ public class TownToForest : MonoBehaviour
         if (GameObject.Find("ArmoredGoblin") != null)
         {
             levelChange.SetActive(false);
-            Debug.Log("Boss exists");
+            //Debug.Log("Boss exists");
         }
 
         else
         {
             levelChange.SetActive(true);
-            Debug.Log("Boss is ded");
+            //Debug.Log("Boss is ded");
         }
 
     }
    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("On to the next Level");
+        //Debug.Log("On to the next Level");
         SceneManager.LoadScene("PlainsScene");
     }
 }
