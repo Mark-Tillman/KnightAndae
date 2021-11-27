@@ -18,6 +18,7 @@ public class LordeCombat : MonoBehaviour
     public GameObject teleport3;
     public GameObject teleport4;
     public GameObject teleport5;
+    public int nextTeleport = 1;
 
     public GameObject skullProjectile;
     float arrowSpeed = 2000f;
