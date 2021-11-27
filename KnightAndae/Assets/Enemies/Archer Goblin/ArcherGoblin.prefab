@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 192599551
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -1989403727458243495, guid: 3d46829e50351bd4daf5ab8759a0a3b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -242,6 +242,9 @@ MonoBehaviour:
   maxHealth: 4
   totalHealth: 0
   spriteScale: 1
+  itemDrop: {fileID: 0}
+  ranged: 1
+  Lorde: 0
 --- !u!70 &1126894053767127746
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

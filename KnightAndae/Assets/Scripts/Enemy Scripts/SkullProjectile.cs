@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyArrowScript : MonoBehaviour
+public class SkullProjectile : MonoBehaviour
 {
+    Animator animator;
     int damage = 1;
     public float knockback = 100;
     public float stunTime = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponentInParent<Animator>();
         StartCoroutine(DestroyArrow());
     }
 
@@ -39,6 +39,7 @@ public class EnemyArrowScript : MonoBehaviour
             oppositeDirection.y = 0;
             collision.GetComponent<Rigidbody2D>().AddForce(knockback * oppositeDirection, ForceMode2D.Impulse);
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            animator.SetTrigger("Collision");
         }
     }
 
