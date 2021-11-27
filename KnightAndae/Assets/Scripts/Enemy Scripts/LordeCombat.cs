@@ -13,6 +13,11 @@ public class LordeCombat : MonoBehaviour
     public float attackSpeed = 1.5f;
     public float knockback = 1f;
     public float stunTime = 0;
+    public GameObject teleport1;
+    public GameObject teleport2;
+    public GameObject teleport3;
+    public GameObject teleport4;
+    public GameObject teleport5;
 
     public GameObject skullProjectile;
     float arrowSpeed = 2000f;
