@@ -7,7 +7,6 @@ public class TownToForest : MonoBehaviour
 {
     GameObject player;
     GameObject levelChange;
-    
 
     // Start is called before the first frame update
     void Start()

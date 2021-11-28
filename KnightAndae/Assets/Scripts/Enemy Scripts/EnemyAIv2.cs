@@ -263,6 +263,7 @@ public class EnemyAIv2 : MonoBehaviour
 
     IEnumerator GetAttacked(float knockBack, Vector3 oppositeDirection, float damageTaken)
     {
+        SoundManager.PlaySound("hit");
         chaseLock = true;
         stunned = true;
         rb.AddForce(knockBack * oppositeDirection, ForceMode2D.Impulse);

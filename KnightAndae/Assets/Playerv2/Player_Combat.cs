@@ -36,7 +36,14 @@ public class Player_Combat : MonoBehaviour
             animator.SetTrigger("Attack");
             StartCoroutine(Attack());
             if (weaponID == 2)
+            {
+                SoundManager.PlaySound("bow");
                 StartCoroutine(ShootArrow(player.transform));
+            }
+            else
+            {
+                SoundManager.PlaySound("swing");
+            }
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") != 0 && !attacking)
