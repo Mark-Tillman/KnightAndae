@@ -10,7 +10,6 @@ public class EnemyArrowScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponentInParent<Animator>();
         StartCoroutine(DestroyArrow());
     }
 

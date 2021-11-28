@@ -62,7 +62,6 @@ public class EnemyAIv2 : MonoBehaviour
     bool chaseLock = false; //If this is true, the enemy will not stop chasing the player until the player or enemy is dead
 
     public bool ranged;
-    public bool Lorde;
 
     void Start()
     {
