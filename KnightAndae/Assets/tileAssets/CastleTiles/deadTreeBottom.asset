@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: deadTreeBottom
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 589402374887794313, guid: 5d5ece5f4efde3844a5c8a736644f192, type: 3}
+  - {fileID: -1232953319718863526, guid: b15fb1f84fb5c344dae502a876fca4ef, type: 3}
+  - {fileID: 6077174897611935672, guid: 4ed741e5b747cbd4183ad17b3efababa, type: 3}
+  - {fileID: -5007111046075341446, guid: 7dd1abf4343905d4aba0d93c5f1a12d6, type: 3}
+  - {fileID: 6250348225034320584, guid: 410198d1d9a49f44fbb9539143212234, type: 3}
+  - {fileID: -3304393998881721676, guid: 96d115b0febd22f4097fc9e7f09abc8c, type: 3}
+  - {fileID: 4623594923301172517, guid: 1e538c506c202c0499180f469d6eeddb, type: 3}
+  - {fileID: 333028550240361064, guid: 92e69ebb5c6b9ae4bb7b19214402f40f, type: 3}
+  - {fileID: 7857188638112726694, guid: 6f7641c6edb06004fac8dd2f0124f998, type: 3}
+  - {fileID: 7167222983821020166, guid: a9e1e80886d86cb4e98ac438b1fcf2ea, type: 3}
+  - {fileID: 6410787709390425786, guid: 873464f4056de384ba222cb20c543487, type: 3}
+  - {fileID: 6206416944323011057, guid: 6477c72c7cc13ec42bbdaa272e94317e, type: 3}
+  - {fileID: 3865766742234383684, guid: 80dab69068a905d49aebb307889311ed, type: 3}
+  - {fileID: -7613844615467742825, guid: fb43ea84b84f8944480eda6d07ad5b77, type: 3}
+  - {fileID: -2757889899068850000, guid: 337270b4cec9b984e88b8feff7a10f47, type: 3}
+  - {fileID: -278895834963391388, guid: 2b466c9c9d083fe40a7c2cbc4168338a, type: 3}
+  - {fileID: -3588106108370297895, guid: baefb18bc39d4364ca214fda674dc543, type: 3}
+  - {fileID: 7743200759021864592, guid: f26d4a9c363e45148b2dc2d1b890ec43, type: 3}
+  m_MinSpeed: 7
+  m_MaxSpeed: 7
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
