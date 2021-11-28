@@ -22,6 +22,10 @@ public class WeaponWheelController : MonoBehaviour
         // if weapon wheel isn't active, activate it, and vice versa 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            if (weaponWheelSelected)
+                SoundManager.PlaySound("closewheel");
+            else
+                SoundManager.PlaySound("openwheel");
             weaponWheelSelected = !weaponWheelSelected;
         }
         

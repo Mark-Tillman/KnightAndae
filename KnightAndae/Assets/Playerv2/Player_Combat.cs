@@ -75,7 +75,7 @@ public class Player_Combat : MonoBehaviour
                 break;
             case 1:
                 //Sword
-                damage = 1;
+                damage = 1.2f;
                 knockBack = 200;
                 cooldown = 0.3f;
                 break;
@@ -87,13 +87,13 @@ public class Player_Combat : MonoBehaviour
                 break;
             case 3:
                 //Spear
-                damage = 1.5f;
+                damage = 1;
                 knockBack = 100;
                 cooldown = 0.5f;
                 break;
             case 4:
                 //Hammer
-                damage = 1;
+                damage = 0.7f;
                 knockBack = 500;
                 cooldown = 0.7f;
                 break;

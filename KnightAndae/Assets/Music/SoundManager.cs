@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip playerHit, playerDeath, playerSwing, playerBow, playerHealth, confirm, deconfirm, pause, hover;
+    public static AudioClip playerHit, playerDeath, playerSwing, playerBow, playerHealth, confirm, deconfirm, pause, hover, checkpoint, openwheel, closewheel;
     static AudioSource audiosource;
 
     // Start is called before the first frame update
@@ -19,6 +19,9 @@ public class SoundManager : MonoBehaviour
         pause = Resources.Load<AudioClip>("pause");
         confirm = Resources.Load<AudioClip>("confirm");
         deconfirm = Resources.Load<AudioClip>("deconfirm");
+        checkpoint = Resources.Load<AudioClip>("checkpoint");
+        openwheel = Resources.Load<AudioClip>("openwheel");
+        closewheel = Resources.Load<AudioClip>("closewheel");
 
         audiosource = GetComponent<AudioSource>();
     }
@@ -53,6 +56,15 @@ public class SoundManager : MonoBehaviour
                 break;
             case "pause":
                 audiosource.PlayOneShot(pause, 0.5f);
+                break;
+            case "checkpoint":
+                audiosource.PlayOneShot(checkpoint, 0.2f);
+                break;
+            case "openwheel":
+                audiosource.PlayOneShot(openwheel, 0.1f);
+                break;
+            case "closewheel":
+                audiosource.PlayOneShot(closewheel, 0.1f);
                 break;
         }
     }

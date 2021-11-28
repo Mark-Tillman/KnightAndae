@@ -24,6 +24,7 @@ public class ArrowPickupScript : MonoBehaviour
     {
         if (collision.transform.tag == "Player" && collision.isTrigger == false && on)
         {
+            SoundManager.PlaySound("health");
             Destroy(gameObject);
             combat.addArrow(arrowAmount);
             Debug.Log("Adding Arrows");

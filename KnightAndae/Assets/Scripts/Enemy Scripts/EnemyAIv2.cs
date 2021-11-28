@@ -279,6 +279,7 @@ public class EnemyAIv2 : MonoBehaviour
             }
             gameObject.SetActive(false);
         }
+
         yield return new WaitForSeconds(stunDuration);
         stunned = false;
     }

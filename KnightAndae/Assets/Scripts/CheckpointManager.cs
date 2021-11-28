@@ -33,6 +33,10 @@ public class CheckpointManager : MonoBehaviour
 
     public void updateCheckpoint(Transform newCheckpoint)
     {
+        if (currentCheckpoint != newCheckpoint)
+        {
+            SoundManager.PlaySound("checkpoint");
+        }
         newCheckpoint.gameObject.GetComponent<Animator>().SetTrigger("raiseFlag");
 
         foreach (Transform child in currentCheckpoint.parent.GetChild(0))

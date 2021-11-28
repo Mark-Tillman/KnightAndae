@@ -15,6 +15,7 @@ TagManager:
   - Projectile
   - WeaponWheel
   - WeaponWheelButton
+  - Music
   layers:
   - Default
   - TransparentFX
