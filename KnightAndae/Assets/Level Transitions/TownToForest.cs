@@ -14,21 +14,16 @@ public class TownToForest : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         levelChange = GameObject.Find("Level_Change");
+        levelChange.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("ArmoredGoblin") != null)
-        {
-            levelChange.SetActive(false);
-            //Debug.Log("Boss exists");
-        }
-
-        else
+        if (GameObject.Find("ArmoredGoblin") == null)
         {
             levelChange.SetActive(true);
-            //Debug.Log("Boss is ded");
+            //Debug.Log("Boss exists");
         }
 
     }
@@ -36,6 +31,7 @@ public class TownToForest : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("On to the next Level");
-        SceneManager.LoadScene("PlainsScene");
+        if (collision.tag == "Player")
+            SceneManager.LoadScene("PlainsScene");
     }
 }
