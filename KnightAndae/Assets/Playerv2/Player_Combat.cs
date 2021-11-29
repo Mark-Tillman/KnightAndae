@@ -119,6 +119,10 @@ public class Player_Combat : MonoBehaviour
                 damageToDo *= 3;
                 knockbackToDo *= 3;
             }
+            else if(randomNum > 1 && randomNum < 5)
+            {
+                damageToDo *= 1.3f;
+            }
 
 
             oppositeDirection = (other.transform.position - player.transform.position).normalized;

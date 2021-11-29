@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/DebugScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/MountainScene.unity
-    guid: 392bf20c50f120743b4f6b7c0ad54a61
-  - enabled: 1
-    path: Assets/Scenes/Win Scene.unity
-    guid: 1bba1d13b6d0af846a4eaf74096dac63
-  - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: c2825ef230754c34ca63c00921a49db1
   - enabled: 1
@@ -24,6 +18,27 @@ EditorBuildSettings:
     path: Assets/Scenes/PlainsScene.unity
     guid: 498d655140849bc4b87e1cb7d7ab590d
   - enabled: 1
+    path: Assets/Scenes/MountainScene.unity
+    guid: 392bf20c50f120743b4f6b7c0ad54a61
+  - enabled: 1
     path: Assets/Scenes/SwampScene.unity
     guid: 6462ebbc0c415a94ba506fe02eda55b1
+  - enabled: 1
+    path: Assets/Scenes/Castle1.unity
+    guid: 8b143af3a0db96049ba7d240242587a5
+  - enabled: 1
+    path: Assets/Scenes/Castle2.unity
+    guid: 811b6d38686b78544ab239c656717d10
+  - enabled: 1
+    path: Assets/Scenes/Castle3.unity
+    guid: 5e7be6499c242cf439b18c39147c8415
+  - enabled: 1
+    path: Assets/Scenes/Castle4.unity
+    guid: eb489533bd6f9cd4583af97109ebaabb
+  - enabled: 1
+    path: Assets/Scenes/Castle5.unity
+    guid: dd48ac8e247e0aa46b0b8e27a4573749
+  - enabled: 1
+    path: Assets/Scenes/Win Scene.unity
+    guid: 1bba1d13b6d0af846a4eaf74096dac63
   m_configObjects: {}

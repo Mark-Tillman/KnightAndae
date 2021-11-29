@@ -85,17 +85,17 @@ public class EnemyAIv2 : MonoBehaviour
         if ((seeker.IsDone() && playerDetected) || (seeker.IsDone() && chaseLock))
         {
             //Start path towards player if detected
-            seeker.StartPath(rb.position, new Vector2(player.position.x, player.position.y + playerHeight), OnPathComplete);
+            seeker.StartPath(new Vector2(transform.position.x, transform.position.y + enemyHeight), new Vector2(player.position.x, player.position.y + playerHeight), OnPathComplete);
         }
         else if (seeker.IsDone() && checkLastPosition)
         {
             //Start path towards lastKnownPosition is the player was detected but then lost
-            seeker.StartPath(rb.position, lastKnownPosition, OnPathComplete);
+            seeker.StartPath(new Vector2(transform.position.x, transform.position.y + enemyHeight), lastKnownPosition, OnPathComplete);
         }
         else if (seeker.IsDone())
         {
             //Start path towards originalPosition if no where else to go
-            seeker.StartPath(rb.position, originalPosition, OnPathComplete);
+            seeker.StartPath(new Vector2(transform.position.x, transform.position.y + enemyHeight), originalPosition, OnPathComplete);
 
         }
     }
@@ -114,7 +114,7 @@ public class EnemyAIv2 : MonoBehaviour
     void FixedUpdate()
     {
         
-        playerDistance = Vector2.Distance(rb.position, new Vector2(player.position.x, player.position.y + playerHeight)); //Always keep track of distance between enemy and player
+        playerDistance = Vector2.Distance(new Vector2(transform.position.x, transform.position.y + enemyHeight), new Vector2(player.position.x, player.position.y + playerHeight)); //Always keep track of distance between enemy and player
         playerYDistance = ((rb.position.y + enemyHeight) - (player.position.y + playerHeight)); //Calculate how far the enemy is in the Y direction
 
         detectPlayer(); //Attempt to detect the player
@@ -198,14 +198,14 @@ public class EnemyAIv2 : MonoBehaviour
 
 
         //Set direction to next way point and set a force at the correct speed
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - (new Vector2(transform.position.x, transform.position.y + enemyHeight))).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
         //Set the velocity so it moves along the path
         rb.velocity = force;
 
         //Calculate distance from current position to the current waypoint 
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        float distance = Vector2.Distance(new Vector2(transform.position.x, transform.position.y + enemyHeight), path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)
         {
             //When close enough to the waypoint, start moving to the next one
@@ -221,7 +221,7 @@ public class EnemyAIv2 : MonoBehaviour
 
         //Cast a ray from the enemy to the direction of the player. ignore the enemy mask to avoid ray collision with self
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + enemyHeight), new Vector2(player.transform.position.x - transform.position.x, (player.transform.position.y - transform.position.y - enemyHeight) + playerHeight), detectRange, ~mask);
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + enemyHeight), new Vector2(player.transform.position.x - transform.position.x, (player.transform.position.y - transform.position.y - enemyHeight) + playerHeight), Color.red); //Shows what the enemy sees (for testing purposes)
+        //Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + enemyHeight), new Vector2(player.transform.position.x - transform.position.x, (player.transform.position.y - transform.position.y - enemyHeight) + playerHeight), Color.red); //Shows what the enemy sees (for testing purposes)
 
 
         //Check if enemy sees the player unobstructed and within range
@@ -247,7 +247,7 @@ public class EnemyAIv2 : MonoBehaviour
 
         if (!playerDetected && !checkLastPosition && !atHome) //Player not detected, and Enemy not going to check the last position, and Enemy is not at home (original position)
         {
-            float distance = Vector2.Distance(rb.position, originalPosition); //Determine distance from enemy to original position
+            float distance = Vector2.Distance(new Vector2(transform.position.x, transform.position.y + enemyHeight), originalPosition); //Determine distance from enemy to original position
             if (distance <= 0.1f) //Enemy is at original position
             {
                 atHome = true; //Enemy is considered atHome and should no longer move

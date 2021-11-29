@@ -73,6 +73,8 @@ public class CheckpointManager : MonoBehaviour
 
         foreach (GameObject projectile in GameObject.FindGameObjectsWithTag("Projectile"))
             Destroy(projectile);
+
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
 }
