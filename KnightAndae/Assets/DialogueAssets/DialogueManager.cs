@@ -9,11 +9,13 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText; //Reference the dialogue text in the dialogue box
     public Animator animator; //Reference the dialogue box animator
     private Queue<string> sentences; //A queue to hold all of the sentences
+    public AudioSource audiosource;
 
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>(); //Create a queue for the sentences
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -52,12 +54,15 @@ public class DialogueManager : MonoBehaviour
 
      IEnumerator TypeSentence(string sentence)
      {
+        audiosource.Play();
         dialogueText.text = ""; //Start with just an empty string
-        foreach(char letter in sentence.ToCharArray()) //Add each character to the dialogue box at the specified rate
+        foreach (char letter in sentence.ToCharArray()) //Add each character to the dialogue box at the specified rate
         {
+            
             dialogueText.text += letter; 
             yield return new WaitForSeconds(0.02f); //Rate to display characters;
         }
+        audiosource.Stop();
      }
 
     void EndDialogue()

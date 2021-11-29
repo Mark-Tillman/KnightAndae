@@ -9,7 +9,6 @@ public class PlayerHealth : MonoBehaviour
 {
     GameObject player;
 
-
     public int maxHealth = 4;
     public int currentHealth;
 
@@ -51,10 +50,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isInvincible) 
             return;
-
+        SoundManager.PlaySound("hit");
         currentHealth -= damage;
-        if(currentHealth < 0)
+        if(currentHealth <= 0)
         {
+            SoundManager.PlaySound("death");
             currentHealth = 0;
         }
         healthBar.SetHealth(currentHealth);
@@ -63,6 +63,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void heal(int heal)
     {
+        SoundManager.PlaySound("health");
         if(currentHealth < maxHealth)
         {
             currentHealth += heal;

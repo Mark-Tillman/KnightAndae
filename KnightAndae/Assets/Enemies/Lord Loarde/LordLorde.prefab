@@ -181,7 +181,6 @@ MonoBehaviour:
   spriteScale: 0
   itemDrop: {fileID: 0}
   ranged: 0
-  Lorde: 1
 --- !u!114 &-3937429155612239425
 MonoBehaviour:
   m_ObjectHideFlags: 0

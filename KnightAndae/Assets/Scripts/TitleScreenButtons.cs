@@ -9,6 +9,7 @@ public class TitleScreenButtons : MonoBehaviour
 
     public void NewGame()
     {
+        SoundManager.PlaySound("confirm");
         Application.LoadLevel(startLevel);
     }
 

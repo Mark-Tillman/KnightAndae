@@ -43,5 +43,6 @@ public class WeaponWheelButtonController : MonoBehaviour
         wheelControl.updateWeapon(ID);
         combat.updateWeapon(ID);
         combat.attacking = false;
+        SoundManager.PlaySound("closewheel");
     }
 }

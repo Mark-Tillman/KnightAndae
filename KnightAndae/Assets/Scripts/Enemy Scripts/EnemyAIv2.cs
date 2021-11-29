@@ -62,7 +62,6 @@ public class EnemyAIv2 : MonoBehaviour
     bool chaseLock = false; //If this is true, the enemy will not stop chasing the player until the player or enemy is dead
 
     public bool ranged;
-    public bool Lorde;
 
     void Start()
     {
@@ -264,6 +263,7 @@ public class EnemyAIv2 : MonoBehaviour
 
     IEnumerator GetAttacked(float knockBack, Vector3 oppositeDirection, float damageTaken)
     {
+        SoundManager.PlaySound("hit");
         chaseLock = true;
         stunned = true;
         rb.AddForce(knockBack * oppositeDirection, ForceMode2D.Impulse);
@@ -279,6 +279,7 @@ public class EnemyAIv2 : MonoBehaviour
             }
             gameObject.SetActive(false);
         }
+
         yield return new WaitForSeconds(stunDuration);
         stunned = false;
     }
