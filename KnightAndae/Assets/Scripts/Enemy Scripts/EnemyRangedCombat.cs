@@ -15,7 +15,7 @@ public class EnemyRangedCombat : MonoBehaviour
     public float stunTime = 0;
 
     public GameObject arrowProjectile;
-    float arrowSpeed = 2000f;
+    float arrowSpeed = 1150f;
 
     // Start is called before the first frame update
     void Start()

@@ -238,7 +238,7 @@ MonoBehaviour:
   minDistance: 15
   minYDistance: 1
   canAttack: 0
-  enemyHeight: 1
+  enemyHeight: 0
   maxHealth: 4
   totalHealth: 0
   spriteScale: 1
@@ -257,8 +257,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08300632, y: 1.0005401}
-  m_Size: {x: 1.1278005, y: 1.9851472}
+  m_Offset: {x: -0.08300632, y: 0.7343364}
+  m_Size: {x: 1.1278005, y: 1.4324331}
   m_Direction: 0
 --- !u!50 &5255321001082466766
 Rigidbody2D:

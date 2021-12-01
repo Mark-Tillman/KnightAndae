@@ -264,7 +264,7 @@ MonoBehaviour:
   minDistance: 2.5
   minYDistance: 1
   canAttack: 0
-  enemyHeight: 0.5
+  enemyHeight: 1
   maxHealth: 7
   totalHealth: 5
   spriteScale: -1
@@ -304,8 +304,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03459561, y: 1.4476188}
-  m_Size: {x: 2.4027693, y: 2.5114048}
+  m_Offset: {x: -0.03459561, y: 1.3933011}
+  m_Size: {x: 2.4027693, y: 2.4027693}
   m_Direction: 0
 --- !u!1001 &2262820579816523956
 PrefabInstance:
