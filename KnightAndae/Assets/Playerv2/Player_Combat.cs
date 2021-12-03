@@ -63,7 +63,6 @@ public class Player_Combat : MonoBehaviour
             updateWeapon(tempID);
             player.GetComponent<PlayerMovement>().changeWeapon(tempID);
         }
-
     }
 
     public void updateWeapon(int ID)
@@ -76,7 +75,7 @@ public class Player_Combat : MonoBehaviour
             case 1:
                 //Sword
                 damage = 1.2f;
-                knockBack = 200;
+                knockBack = 150;
                 cooldown = 0.3f;
                 break;
             case 2:
