@@ -86,16 +86,19 @@ public class EnemyAIv2 : MonoBehaviour
         {
             //Start path towards player if detected
             seeker.StartPath(new Vector2(transform.position.x, transform.position.y + enemyHeight), new Vector2(player.position.x, player.position.y + playerHeight), OnPathComplete);
+            Debug.Log(gameObject.name + "Chasing Player");
         }
         else if (seeker.IsDone() && checkLastPosition)
         {
             //Start path towards lastKnownPosition is the player was detected but then lost
             seeker.StartPath(new Vector2(transform.position.x, transform.position.y + enemyHeight), lastKnownPosition, OnPathComplete);
+            Debug.Log(gameObject.name + "Checking last position");
         }
-        else if (seeker.IsDone())
+        else if (seeker.IsDone() && !atHome)
         {
             //Start path towards originalPosition if no where else to go
             seeker.StartPath(new Vector2(transform.position.x, transform.position.y + enemyHeight), originalPosition, OnPathComplete);
+            Debug.Log(gameObject.name + "Going Home");
 
         }
     }
@@ -248,7 +251,7 @@ public class EnemyAIv2 : MonoBehaviour
         if (!playerDetected && !checkLastPosition && !atHome) //Player not detected, and Enemy not going to check the last position, and Enemy is not at home (original position)
         {
             float distance = Vector2.Distance(new Vector2(transform.position.x, transform.position.y + enemyHeight), originalPosition); //Determine distance from enemy to original position
-            if (distance <= 0.1f) //Enemy is at original position
+            if (distance <= 1f) //Enemy is at original position
             {
                 atHome = true; //Enemy is considered atHome and should no longer move
             }
@@ -278,6 +281,7 @@ public class EnemyAIv2 : MonoBehaviour
                 Instantiate(itemDrop, gameObject.transform.position, Quaternion.identity);
             }
             gameObject.SetActive(false);
+            CancelInvoke();
         }
 
         yield return new WaitForSeconds(stunDuration);
@@ -318,10 +322,11 @@ public class EnemyAIv2 : MonoBehaviour
 
     public void respawnEnemy()
     {
+        gameObject.SetActive(true);
         totalHealth = maxHealth;
         transform.position = originalPosition;
-        gameObject.SetActive(true);
         checkLastPosition = false;
+        firstDetected = false;
         chase = false;
         atHome = true;
         stunned = false;
@@ -334,5 +339,7 @@ public class EnemyAIv2 : MonoBehaviour
             EnemyRangedCombat rangeCom = attackPoint.GetComponent<EnemyRangedCombat>();
             rangeCom.reset();
         }
+        InvokeRepeating("UpdatePath", 0f, 0.2f); //Continuously update the enemy path
+        path = null;
     }
 }
