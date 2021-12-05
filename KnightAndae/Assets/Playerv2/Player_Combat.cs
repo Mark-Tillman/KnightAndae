@@ -141,10 +141,39 @@ public class Player_Combat : MonoBehaviour
         if (arrowCount > 0)
         {
             Vector3 arrowPosition = new Vector3(player.localScale.x * 0.6f, 1, 0);
-            GameObject arrow = Instantiate(arrowProjectile, player.position + arrowPosition, player.rotation, player) as GameObject;
+            Quaternion arrowRot = player.rotation;
+            Vector2 arrowDirection = Vector2.right;
+            float dirX = player.GetComponent<PlayerMovement>().currentX;
+            float dirY = player.GetComponent<PlayerMovement>().currentY;
+
+            if(dirY == 1){
+                if(player.localScale.x > 0)
+                {
+                    arrowRot = Quaternion.Euler(0,0,90);
+                    arrowDirection = Vector2.up;
+                }
+                else
+                {
+                    arrowRot = Quaternion.Euler(0,0,-90);
+                    arrowDirection = Vector2.down;
+                }
+            }
+            else if(dirY == -1){
+                if(player.localScale.x > 0)
+                {
+                    arrowRot = Quaternion.Euler(0,0,-90);
+                    arrowDirection = Vector2.down;
+                }
+                else
+                {
+                    arrowRot = Quaternion.Euler(0,0,90);
+                    arrowDirection = Vector2.up;
+                }
+            }
+            GameObject arrow = Instantiate(arrowProjectile, player.position + arrowPosition, arrowRot, player) as GameObject;
             yield return new WaitForSeconds(0.2f);
             arrow.GetComponent<Rigidbody2D>().simulated = true;
-            arrow.GetComponent<Rigidbody2D>().AddForce(Vector2.right * arrowSpeed * player.localScale.x);
+            arrow.GetComponent<Rigidbody2D>().AddForce(arrowDirection * arrowSpeed * player.localScale.x);
             arrow.transform.parent = null;
             arrowCount--;
             arrowText.text = arrowCount.ToString();

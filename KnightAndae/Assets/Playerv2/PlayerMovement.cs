@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     float lastX;
     float lastY;
-    float currentX;
-    float currentY;
+    public float currentX;
+    public float currentY;
 
     int currentWeaponID;
     Player_Combat combat;
@@ -135,7 +135,6 @@ public class PlayerMovement : MonoBehaviour
         canMove = true;
     }
 
-    //Checkpoint System
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Checkpoint")
