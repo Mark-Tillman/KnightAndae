@@ -140,6 +140,7 @@ public class Player_Combat : MonoBehaviour
     {
         if (arrowCount > 0)
         {
+            string arrowLayer = "projectileFront";
             Vector3 arrowPosition = new Vector3(player.localScale.x * 0.6f, 1, 0);
             Quaternion arrowRot = player.rotation;
             Vector2 arrowDirection = Vector2.right;
@@ -147,14 +148,17 @@ public class Player_Combat : MonoBehaviour
             float dirY = player.GetComponent<PlayerMovement>().currentY;
 
             if(dirY == 1){
+                arrowLayer = "projectileBehind";
                 if(player.localScale.x > 0)
                 {
                     arrowRot = Quaternion.Euler(0,0,90);
+                    arrowPosition -= new Vector3(0.6f, 0, 0);
                     arrowDirection = Vector2.up;
                 }
                 else
                 {
                     arrowRot = Quaternion.Euler(0,0,-90);
+                    arrowPosition += new Vector3(0.6f, 0, 0);
                     arrowDirection = Vector2.down;
                 }
             }
@@ -162,15 +166,18 @@ public class Player_Combat : MonoBehaviour
                 if(player.localScale.x > 0)
                 {
                     arrowRot = Quaternion.Euler(0,0,-90);
+                    arrowPosition -= new Vector3(0.6f, 0.2f, 0);
                     arrowDirection = Vector2.down;
                 }
                 else
                 {
                     arrowRot = Quaternion.Euler(0,0,90);
+                    arrowPosition += new Vector3(0.6f, -0.2f, 0);
                     arrowDirection = Vector2.up;
                 }
             }
             GameObject arrow = Instantiate(arrowProjectile, player.position + arrowPosition, arrowRot, player) as GameObject;
+            arrow.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingLayerName = arrowLayer;
             yield return new WaitForSeconds(0.2f);
             arrow.GetComponent<Rigidbody2D>().simulated = true;
             arrow.GetComponent<Rigidbody2D>().AddForce(arrowDirection * arrowSpeed * player.localScale.x);
