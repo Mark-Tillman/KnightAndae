@@ -18181,7 +18181,7 @@ GameObject:
   - component: {fileID: 1430079139}
   m_Layer: 0
   m_Name: Checkpoints
-  m_TagString: Untagged
+  m_TagString: CheckpointList
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67725,6 +67725,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1585167624 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1469641109, guid: 36bbd93a2b65dac43be485cf38fc1892, type: 3}
+  m_PrefabInstance: {fileID: 1585167621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc5fe9efab85f6419e355950d57f5b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1635469717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2657346987083748577, guid: 6d496b5d61e7574489390ee01f0634ac, type: 3}
@@ -67770,6 +67781,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 81076700, guid: e758f41557ff959479a2596f6f55f3cb, type: 3}
+      propertyPath: checkpointManager
+      value: 
+      objectReference: {fileID: 1585167624}
     - target: {fileID: 8002656056278838575, guid: e758f41557ff959479a2596f6f55f3cb, type: 3}
       propertyPath: m_IsActive
       value: 1

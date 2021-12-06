@@ -1056,7 +1056,7 @@ GameObject:
   - component: {fileID: 415302561}
   m_Layer: 0
   m_Name: Checkpoints
-  m_TagString: Untagged
+  m_TagString: CheckpointList
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84701,6 +84701,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 81076700, guid: e758f41557ff959479a2596f6f55f3cb, type: 3}
+      propertyPath: checkpointManager
+      value: 
+      objectReference: {fileID: 1970286544}
     - target: {fileID: 8002656056278838575, guid: e758f41557ff959479a2596f6f55f3cb, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -142350,6 +142354,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36bbd93a2b65dac43be485cf38fc1892, type: 3}
+--- !u!114 &1970286544 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1469641109, guid: 36bbd93a2b65dac43be485cf38fc1892, type: 3}
+  m_PrefabInstance: {fileID: 1970286543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc5fe9efab85f6419e355950d57f5b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1986816202
 PrefabInstance:
   m_ObjectHideFlags: 0

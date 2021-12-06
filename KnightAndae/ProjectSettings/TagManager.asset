@@ -16,6 +16,7 @@ TagManager:
   - WeaponWheel
   - WeaponWheelButton
   - Music
+  - CheckpointList
   layers:
   - Default
   - TransparentFX

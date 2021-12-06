@@ -10,12 +10,13 @@ public class CheckpointManager : MonoBehaviour
     List<GameObject> chests = new List<GameObject>();
     int lastArrowCount;
     Player_Combat combat;
-    // Start is called before the first frame update
+    
+    int checkpointNumber;
     void Start()
     {
         combat = GameObject.FindGameObjectWithTag("PlayerHitBox").GetComponent<Player_Combat>();
         currentCheckpoint = firstCheckpoint;
-
+        checkpointNumber = int.Parse(currentCheckpoint.transform.parent.name);;
         foreach (Transform child in currentCheckpoint.parent.GetChild(0))
             enemies.Add(child.gameObject);
 
@@ -23,6 +24,11 @@ public class CheckpointManager : MonoBehaviour
             chests.Add(child.gameObject);
 
         lastArrowCount = combat.arrowCount;
+
+        if(PlayerPrefs.GetInt("loadFromSave") == 1)
+        {
+            loadFromSave();
+        }
     }
 
     // Update is called once per frame
@@ -36,6 +42,7 @@ public class CheckpointManager : MonoBehaviour
         if (currentCheckpoint != newCheckpoint)
         {
             SoundManager.PlaySound("checkpoint");
+            
         }
         newCheckpoint.gameObject.GetComponent<Animator>().SetTrigger("raiseFlag");
 
@@ -53,7 +60,7 @@ public class CheckpointManager : MonoBehaviour
 
         currentCheckpoint = newCheckpoint;
         lastArrowCount = combat.arrowCount;
-        
+        checkpointNumber = int.Parse(currentCheckpoint.transform.parent.name);
 
     }
 
@@ -66,6 +73,7 @@ public class CheckpointManager : MonoBehaviour
         
         foreach(GameObject chest in chests)
             chest.GetComponent<Chest>().reset();
+
         combat.setArrow(lastArrowCount);
 
         foreach (GameObject loot in GameObject.FindGameObjectsWithTag("Loot"))
@@ -75,6 +83,24 @@ public class CheckpointManager : MonoBehaviour
             Destroy(projectile);
 
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
+    public int getLastArrowCount()
+    {
+        return lastArrowCount;
+    }
+    public int getCheckpointNumber()
+    {
+        return checkpointNumber;
+    }
+
+    void loadFromSave()
+    {
+        Debug.Log("Loading From Save");
+        currentCheckpoint = GameObject.FindGameObjectWithTag("CheckpointList").transform.GetChild(PlayerPrefs.GetInt("checkpointNumber") - 1).GetChild(2);
+        lastArrowCount = PlayerPrefs.GetInt("arrowCount");
+
+        respawn();
     }
 
 }

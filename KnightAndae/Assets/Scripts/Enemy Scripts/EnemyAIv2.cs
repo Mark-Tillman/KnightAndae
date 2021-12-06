@@ -86,19 +86,19 @@ public class EnemyAIv2 : MonoBehaviour
         {
             //Start path towards player if detected
             seeker.StartPath(new Vector2(transform.position.x, transform.position.y + enemyHeight), new Vector2(player.position.x, player.position.y + playerHeight), OnPathComplete);
-            Debug.Log(gameObject.name + "Chasing Player");
+            //Debug.Log(gameObject.name + "Chasing Player");
         }
         else if (seeker.IsDone() && checkLastPosition)
         {
             //Start path towards lastKnownPosition is the player was detected but then lost
             seeker.StartPath(new Vector2(transform.position.x, transform.position.y + enemyHeight), lastKnownPosition, OnPathComplete);
-            Debug.Log(gameObject.name + "Checking last position");
+            //Debug.Log(gameObject.name + "Checking last position");
         }
         else if (seeker.IsDone() && !atHome)
         {
             //Start path towards originalPosition if no where else to go
             seeker.StartPath(new Vector2(transform.position.x, transform.position.y + enemyHeight), originalPosition, OnPathComplete);
-            Debug.Log(gameObject.name + "Going Home");
+            //Debug.Log(gameObject.name + "Going Home");
 
         }
     }
