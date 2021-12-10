@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: dd61c6f4282029242b70223e620d9173
+guid: 80711dd95e1069d4f8e6bc2029d5e8ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1634046518752851818
-    second: LordeAttack_0
+      213: -1366827452776229842
+    second: LordeDisappear_0
   - first:
-      213: 2525571374894867116
-    second: LordeAttack_1
+      213: -2886222473492513600
+    second: LordeDisappear_1
   - first:
-      213: 4129363416842850906
-    second: LordeAttack_2
+      213: 7687581912567959648
+    second: LordeDisappear_2
   - first:
-      213: 321342031607449722
-    second: LordeAttack_3
+      213: 3092161106424780793
+    second: LordeDisappear_3
   - first:
-      213: -2003563623678797830
-    second: LordeAttack_4
+      213: -7825457864962602154
+    second: LordeDisappear_4
   - first:
-      213: 3860031731216069236
-    second: LordeAttack_5
+      213: -7348486750590471644
+    second: LordeDisappear_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,6 +106,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -119,18 +131,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -157,127 +157,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LordeAttack_0
+      name: LordeDisappear_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 253
-        width: 47
+        y: 241
+        width: 25
         height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 698c5474953b259e0800000000000000
-      internalID: -1634046518752851818
+      spriteID: e2455086cad080de0800000000000000
+      internalID: -1366827452776229842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_1
+      name: LordeDisappear_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 206
-        width: 47
+        y: 192
+        width: 25
         height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca2e08fc8c1ac0320800000000000000
-      internalID: 2525571374894867116
+      spriteID: 0ccbab4c3f312f7d0800000000000000
+      internalID: -2886222473492513600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_2
+      name: LordeDisappear_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 157
-        width: 47
+        x: 1
+        y: 145
+        width: 25
         height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a52596936227e4930800000000000000
-      internalID: 4129363416842850906
+      spriteID: 060d458d407cfaa60800000000000000
+      internalID: 7687581912567959648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_3
+      name: LordeDisappear_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 109
-        width: 47
+        y: 94
+        width: 25
         height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a784d5d00e2a57400800000000000000
-      internalID: 321342031607449722
+      spriteID: 9f75ab0b42099ea20800000000000000
+      internalID: 3092161106424780793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_4
+      name: LordeDisappear_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 61
-        width: 47
+        y: 47
+        width: 25
         height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af71bb5ef79e134e0800000000000000
-      internalID: -2003563623678797830
+      spriteID: 65b0e1a6883666390800000000000000
+      internalID: -7825457864962602154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_5
+      name: LordeDisappear_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 13
-        width: 47
+        x: 1
+        y: 0
+        width: 25
         height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 472bed08866919530800000000000000
-      internalID: 3860031731216069236
+      spriteID: 422f36afb3ee40a90800000000000000
+      internalID: -7348486750590471644
       vertices: []
       indices: 
       edges: []

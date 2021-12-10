@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: dd61c6f4282029242b70223e620d9173
+guid: 2b10065c410e0304cbd6521cc35e4342
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1634046518752851818
-    second: LordeAttack_0
+      213: -7960565513682931637
+    second: LordeWeapons_0
   - first:
-      213: 2525571374894867116
-    second: LordeAttack_1
+      213: 2915384078741303955
+    second: LordeWeapons_1
   - first:
-      213: 4129363416842850906
-    second: LordeAttack_2
+      213: -2707771960881341721
+    second: LordeWeapons_2
   - first:
-      213: 321342031607449722
-    second: LordeAttack_3
+      213: 3461728047545479405
+    second: LordeWeapons_3
   - first:
-      213: -2003563623678797830
-    second: LordeAttack_4
+      213: 7764168091444900076
+    second: LordeWeapons_4
   - first:
-      213: 3860031731216069236
-    second: LordeAttack_5
+      213: -6509280882550723794
+    second: LordeWeapons_5
+  - first:
+      213: -5837611618912693760
+    second: LordeWeapons_6
+  - first:
+      213: 2044983851578406075
+    second: LordeWeapons_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,7 +70,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,6 +112,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -119,18 +137,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -157,13 +163,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LordeAttack_0
+      name: LordeWeapons_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 253
-        width: 47
-        height: 43
+        x: 22
+        y: 113
+        width: 5
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 698c5474953b259e0800000000000000
-      internalID: -1634046518752851818
+      spriteID: b4034b997d3668190800000000000000
+      internalID: -7960565513682931637
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_1
+      name: LordeWeapons_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 206
-        width: 47
-        height: 43
+        x: 21
+        y: 103
+        width: 6
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +198,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca2e08fc8c1ac0320800000000000000
-      internalID: 2525571374894867116
+      spriteID: 392743d8f56857820800000000000000
+      internalID: 2915384078741303955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_2
+      name: LordeWeapons_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 157
-        width: 47
-        height: 43
+        x: 20
+        y: 92
+        width: 7
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +219,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a52596936227e4930800000000000000
-      internalID: 4129363416842850906
+      spriteID: 7ea97ea7fbf0c6ad0800000000000000
+      internalID: -2707771960881341721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_3
+      name: LordeWeapons_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 109
-        width: 47
-        height: 43
+        x: 19
+        y: 80
+        width: 8
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +240,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a784d5d00e2a57400800000000000000
-      internalID: 321342031607449722
+      spriteID: de074f671578a0030800000000000000
+      internalID: 3461728047545479405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_4
+      name: LordeWeapons_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 61
-        width: 47
-        height: 43
+        x: 19
+        y: 65
+        width: 9
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +261,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af71bb5ef79e134e0800000000000000
-      internalID: -2003563623678797830
+      spriteID: ce0fefa2ebddfbb60800000000000000
+      internalID: 7764168091444900076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_5
+      name: LordeWeapons_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 13
-        width: 47
-        height: 43
+        x: 18
+        y: 50
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,8 +282,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 472bed08866919530800000000000000
-      internalID: 3860031731216069236
+      spriteID: e2ba25466836aa5a0800000000000000
+      internalID: -6509280882550723794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordeWeapons_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 35
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 002140e5923acfea0800000000000000
+      internalID: -5837611618912693760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordeWeapons_7
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 22
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb4bdbc6afd316c10800000000000000
+      internalID: 2044983851578406075
       vertices: []
       indices: 
       edges: []

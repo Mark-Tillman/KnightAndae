@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: dd61c6f4282029242b70223e620d9173
+guid: bcb581b6bdce9fa4e8af251539596ce0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1634046518752851818
-    second: LordeAttack_0
+      213: 4090069023606872376
+    second: LordeTrails(1)_0
   - first:
-      213: 2525571374894867116
-    second: LordeAttack_1
+      213: 3079354577198379001
+    second: LordeTrails(1)_1
   - first:
-      213: 4129363416842850906
-    second: LordeAttack_2
+      213: 7912091367523522395
+    second: LordeTrails(1)_2
   - first:
-      213: 321342031607449722
-    second: LordeAttack_3
+      213: -7488671246029629583
+    second: LordeTrails(1)_3
   - first:
-      213: -2003563623678797830
-    second: LordeAttack_4
+      213: 1825455401184800519
+    second: LordeTrails(1)_4
   - first:
-      213: 3860031731216069236
-    second: LordeAttack_5
+      213: -4521221035748159655
+    second: LordeTrails(1)_5
+  - first:
+      213: 1154812299349485476
+    second: LordeTrails(1)_6
+  - first:
+      213: 7773847079562999833
+    second: LordeTrails(1)_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,7 +70,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,6 +112,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -119,18 +137,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -157,127 +163,173 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LordeAttack_0
+      name: LordeTrails(1)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 253
-        width: 47
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 7
+        y: 289
+        width: 8
+        height: 13
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 698c5474953b259e0800000000000000
-      internalID: -1634046518752851818
+      spriteID: 8399aea5b18d2c830800000000000000
+      internalID: 4090069023606872376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_1
+      name: LordeTrails(1)_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 206
-        width: 47
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 6
+        y: 258
+        width: 18
+        height: 21
+      alignment: 9
+      pivot: {x: 0, y: 0.45238096}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca2e08fc8c1ac0320800000000000000
-      internalID: 2525571374894867116
+      spriteID: 9ffe16f3ca01cba20800000000000000
+      internalID: 3079354577198379001
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_2
+      name: LordeTrails(1)_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 157
-        width: 47
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 32
+        y: 266
+        width: 26
+        height: 37
+      alignment: 9
+      pivot: {x: 0, y: 0.47297296}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a52596936227e4930800000000000000
-      internalID: 4129363416842850906
+      spriteID: b579cafbd256dcd60800000000000000
+      internalID: 7912091367523522395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_3
+      name: LordeTrails(1)_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 109
-        width: 47
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 3
+        y: 176
+        width: 46
+        height: 80
+      alignment: 9
+      pivot: {x: 0, y: 0.46875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a784d5d00e2a57400800000000000000
-      internalID: 321342031607449722
+      spriteID: 177d8bcad25e21890800000000000000
+      internalID: -7488671246029629583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_4
+      name: LordeTrails(1)_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 61
-        width: 47
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 11
+        y: 1
+        width: 36
+        height: 53
+      alignment: 9
+      pivot: {x: 0, y: 0.4811321}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af71bb5ef79e134e0800000000000000
-      internalID: -2003563623678797830
+      spriteID: 70f20f40402555910800000000000000
+      internalID: 1825455401184800519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LordeAttack_5
+      name: LordeTrails(1)_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 13
-        width: 47
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1
+        y: 58
+        width: 57
+        height: 113
+      alignment: 9
+      pivot: {x: 0, y: 0.48230088}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 472bed08866919530800000000000000
-      internalID: 3860031731216069236
+      spriteID: 95f05352c656141c0800000000000000
+      internalID: -4521221035748159655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordeTrails(1)_6
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 162
+        width: 68
+        height: 143
+      alignment: 9
+      pivot: {x: 0, y: 0.45804197}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34, y: -71.5}
+        - {x: -34, y: 71.5}
+        - {x: 34, y: 71.5}
+        - {x: 34, y: -71.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a76af4faa7b60010800000000000000
+      internalID: 1154812299349485476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordeTrails(1)_7
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 106
+        width: 78
+        height: 188
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9187f833bb042eb60800000000000000
+      internalID: 7773847079562999833
       vertices: []
       indices: 
       edges: []
