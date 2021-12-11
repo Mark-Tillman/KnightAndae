@@ -24,7 +24,6 @@ public class MainMenu : MonoBehaviour
     public void Settings()
     {
         Debug.Log("Settings");
-
     }
 
     public void QuitGame()

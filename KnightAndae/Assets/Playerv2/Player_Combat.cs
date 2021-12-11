@@ -63,6 +63,31 @@ public class Player_Combat : MonoBehaviour
             updateWeapon(tempID);
             player.GetComponent<PlayerMovement>().changeWeapon(tempID);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !attacking)
+        {
+            tempID = 1;
+            updateWeapon(tempID);
+            player.GetComponent<PlayerMovement>().changeWeapon(tempID);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !attacking)
+        {
+            tempID = 2;
+            updateWeapon(tempID);
+            player.GetComponent<PlayerMovement>().changeWeapon(tempID);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !attacking)
+        {
+            tempID = 3;
+            updateWeapon(tempID);
+            player.GetComponent<PlayerMovement>().changeWeapon(tempID);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4) && !attacking)
+        {
+            tempID = 4;
+            updateWeapon(tempID);
+            player.GetComponent<PlayerMovement>().changeWeapon(tempID);
+        }
     }
 
     public void updateWeapon(int ID)
