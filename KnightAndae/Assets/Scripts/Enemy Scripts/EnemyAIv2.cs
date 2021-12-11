@@ -25,7 +25,7 @@ public class EnemyAIv2 : MonoBehaviour
     public Rigidbody2D rb; //Reference to enemy rigid body
 
     Transform player; //Player position reference
-    bool playerDetected = false; //Bool for if the player is detected or not
+    public bool playerDetected = false; //Bool for if the player is detected or not
     float playerDistance = 0f; //Stores distance from enemy to player
     float playerYDistance = 0f; //Distance from player in Y direction
     public float detectRange = 10f; //Range between enemy and player in which player can be detected

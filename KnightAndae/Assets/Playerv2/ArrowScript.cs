@@ -22,14 +22,14 @@ public class ArrowScript : MonoBehaviour
     {
         Vector2 oppositeDirection;
 
-        if (collision.tag != "Player" && collision.isTrigger == false)
+        if (collision.tag != "Player" && !collision.isTrigger)
         {
             gameObject.GetComponent<Rigidbody2D>().simulated = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             gameObject.transform.parent = collision.transform;
         }
 
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") && !collision.isTrigger)
         {
             //Debug.Log("HIT");
             oppositeDirection = (collision.transform.position - gameObject.transform.position).normalized;
