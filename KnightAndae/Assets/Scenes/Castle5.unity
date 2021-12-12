@@ -938,6 +938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 2109536207}
   teleportPoints: {fileID: 2000074716}
+  player: {fileID: 908701426}
   ai: {fileID: 664736214}
   spriteAnimator: {fileID: 1187010850}
   shootCooldown: 0.35
@@ -985,7 +986,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 10
   m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -1012,14 +1013,14 @@ MonoBehaviour:
   rb: {fileID: 664736213}
   playerDetected: 0
   detectRange: 30
-  stunDuration: 0
+  stunDuration: 0.2
   playerHeight: 1
   minDistance: 2.5
   minYDistance: 1
   canAttack: 0
   enemyHeight: 2.4
-  maxHealth: 15
-  totalHealth: 15
+  maxHealth: 25
+  totalHealth: 25
   spriteScale: 1
   itemDrop: {fileID: 4457706256586899368, guid: 8c6ed7fa5355d3845b1c4eb83ac50cdb, type: 3}
   ranged: 0
@@ -60784,8 +60785,8 @@ MonoBehaviour:
   attackPoint: {fileID: 2109536207}
   attackDamage: 1
   attackSpeed: 1.5
-  knockback: 10
-  stunTime: 1
+  knockback: 1
+  stunTime: 0.5
   projectile: {fileID: 9105835753565716901, guid: fcc60a9fa92b5fe4cb0e4a08985ff9fb, type: 3}
 --- !u!1001 &2132428595
 PrefabInstance:

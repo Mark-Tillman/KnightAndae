@@ -12,7 +12,7 @@ public class LordCombat : MonoBehaviour
     public float knockback = 10f;
     public float stunTime = 1;
     public GameObject projectile;
-    float projectileSpeed = 1500f;
+    float projectileSpeed = 700f;
     GameObject player;
 
 

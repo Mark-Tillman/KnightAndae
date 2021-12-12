@@ -11,6 +11,7 @@ public class LordLoarde : MonoBehaviour
     bool canTeleport = false;
     public GameObject attackPoint;
     public GameObject teleportPoints;
+    public GameObject player;
 
     public EnemyAIv2 ai;
 
@@ -19,6 +20,7 @@ public class LordLoarde : MonoBehaviour
     public Animator spriteAnimator;
     int currentTeleportPoint;
     public float shootCooldown = 0.1f;
+    int hits = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -32,19 +34,17 @@ public class LordLoarde : MonoBehaviour
     {
         currentHealth = ai.totalHealth;
 
-        if(currentHealth == ai.maxHealth)
-        {
-            shootingPhase = false;
-            canTeleport = false;
-            ai.speed = 350;
-            canTrailAttack = true;
-            
-        }
-        if(currentHealth <= 12)
+        if(currentHealth <= 13)
         {
             shootingPhase = true;
             canTeleport = true;
             ai.speed = 0;
+            shootCooldown = 0.35f;
+        }
+        if(currentHealth <= 7)
+        {
+            ai.speed = 400;
+            shootCooldown = 0.1f;
         }
             
 
@@ -59,17 +59,21 @@ public class LordLoarde : MonoBehaviour
             StartCoroutine(ShootCoolDown());
             attackPoint.GetComponent<LordCombat>().shootProjectile();
         }
-            
 
+        if(Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 2.3f)) < 4.5 && canTrailAttack)
+        {
+            StartCoroutine(StartTrailAttack(player.GetComponent<CapsuleCollider2D>()));
+            StartCoroutine(TrailAttackCooldown());
+        }
         lastHealth = currentHealth;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    IEnumerator StartTrailAttack(Collider2D other)
     {
-        if(other.name == "Player" && canTrailAttack)
-        {
-
-            Vector3 direction = other.transform.position - transform.position;
+        canTrailAttack = false;
+        spriteAnimator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.3f);
+        Vector3 direction = other.transform.position - transform.position;
             if(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
             {
                 if(direction.x > 0)
@@ -84,22 +88,14 @@ public class LordLoarde : MonoBehaviour
                 else if(direction.y < 0)
                     attackPoint.transform.eulerAngles = new Vector3(0,0,-90);
             }
-             
-            if(canAttack)
-            {
-                spriteAnimator.SetTrigger("Attack");
-                attackPoint.GetComponent<Animator>().SetTrigger("TrailAttack");
-                StartCoroutine(TrailAttackCooldown());
-            }
-                
-        }
+        attackPoint.GetComponent<Animator>().SetTrigger("TrailAttack");
     }
 
     IEnumerator TrailAttackCooldown()
     {
-        canAttack = false;
-        yield return new WaitForSeconds(1.5f);
-        canAttack = true;
+        canTrailAttack = false;
+        yield return new WaitForSeconds(0.75f);
+        canTrailAttack = true;
     }
 
     IEnumerator Teleport()
@@ -127,5 +123,12 @@ public class LordLoarde : MonoBehaviour
         }
     }
 
+    public void reset()
+    {
+        shootingPhase = false;
+        canTeleport = false;
+        ai.speed = 350;
+        canTrailAttack = true;
+    }
 
 }

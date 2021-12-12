@@ -5,8 +5,8 @@ using UnityEngine;
 public class MagicBallScript : MonoBehaviour
 {
     int damage = 1;
-    public float knockback = 100;
-    public float stunTime = 0.5f;
+    public float knockback = 1f;
+    public float stunTime = 0.25f;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +32,6 @@ public class MagicBallScript : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("HIT");
             collision.GetComponent<PlayerMovement>().startGetStunned(stunTime);
             oppositeDirection = (collision.transform.position - gameObject.transform.position).normalized;
             collision.GetComponent<Rigidbody2D>().AddForce(knockback * oppositeDirection, ForceMode2D.Impulse);

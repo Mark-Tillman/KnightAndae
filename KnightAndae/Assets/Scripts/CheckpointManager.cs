@@ -74,7 +74,7 @@ public class CheckpointManager : MonoBehaviour
 
             if(enemy.name == "Lord Loarde")
             {
-                Debug.Log("reset lord");
+                GameObject.Find("Lord Loarde").GetComponent<LordLoarde>().reset();
             }
         }
             
