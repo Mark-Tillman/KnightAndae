@@ -31,20 +31,64 @@ public class Player_Combat : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0) && !attacking)
         {
-            animator.SetTrigger("Attack");
-            StartCoroutine(Attack());
-            if (weaponID == 2)
+            if(Input.mousePosition.y > ((float)Screen.height / Screen.width) * Input.mousePosition.x && Input.mousePosition.y > ((float)-Screen.height / Screen.width) * Input.mousePosition.x + Screen.height)
             {
-                SoundManager.PlaySound("bow");
-                StartCoroutine(ShootArrow(player.transform));
-            }
-            else
+                //UP
+            animator.SetFloat("currentX", 0);
+            animator.SetFloat("currentY", 1);
+            attack();
+        }
+        else if(Input.mousePosition.y < ((float)Screen.height / Screen.width) * Input.mousePosition.x && Input.mousePosition.y > ((float)-Screen.height / Screen.width) * Input.mousePosition.x + Screen.height)
             {
-                SoundManager.PlaySound("swing");
+                //RIGHT
+            animator.SetFloat("currentX", 1);
+            animator.SetFloat("currentY", 0);
+            attack();
+        }
+        else if(Input.mousePosition.y > ((float)Screen.height / Screen.width) * Input.mousePosition.x && Input.mousePosition.y < ((float)-Screen.height / Screen.width) * Input.mousePosition.x + Screen.height)
+            {
+                //LEFT
+            animator.SetFloat("currentX", -1);
+            animator.SetFloat("currentY", 0);
+            attack();
+        }
+        else if(Input.mousePosition.y < ((float)Screen.height / Screen.width) * Input.mousePosition.x && Input.mousePosition.y < ((float)-Screen.height / Screen.width) * Input.mousePosition.x + Screen.height)
+            {
+                //DOWN
+            animator.SetFloat("currentX", 0);
+            animator.SetFloat("currentY", -1);
+            attack();
             }
         }
+
+        if(Input.GetKey(KeyCode.UpArrow) && !attacking)
+        {
+            animator.SetFloat("currentX", 0);
+            animator.SetFloat("currentY", 1);
+            attack();
+        }
+        if(Input.GetKey(KeyCode.DownArrow) && !attacking)
+        {
+            animator.SetFloat("currentX", 0);
+            animator.SetFloat("currentY", -1);
+            attack();
+        }
+        if(Input.GetKey(KeyCode.RightArrow) && !attacking)
+        {
+            animator.SetFloat("currentX", 1);
+            animator.SetFloat("currentY", 0);
+            attack();
+        }
+        if(Input.GetKey(KeyCode.LeftArrow) && !attacking)
+        {
+            animator.SetFloat("currentX", -1);
+            animator.SetFloat("currentY", 0);
+            attack();
+        }
+
 
         if (Input.GetAxis("Mouse ScrollWheel") != 0 && !attacking)
         {
@@ -90,6 +134,20 @@ public class Player_Combat : MonoBehaviour
         }
     }
 
+    void attack()
+    {
+        animator.SetTrigger("Attack");
+            StartCoroutine(Attack());
+            if (weaponID == 2)
+            {
+                SoundManager.PlaySound("bow");
+                StartCoroutine(ShootArrow(player.transform));
+            }
+            else
+            {
+                SoundManager.PlaySound("swing");
+            }
+    }
     public void updateWeapon(int ID)
     {
         weaponID = ID;
@@ -169,10 +227,11 @@ public class Player_Combat : MonoBehaviour
             Vector3 arrowPosition = new Vector3(player.localScale.x * 0.6f, 1, 0);
             Quaternion arrowRot = player.rotation;
             Vector2 arrowDirection = Vector2.right;
-            float dirX = player.GetComponent<PlayerMovement>().currentX;
-            float dirY = player.GetComponent<PlayerMovement>().currentY;
+            float dirX = animator.GetFloat("currentX");
+            float dirY = animator.GetFloat("currentY");
 
             if(dirY == 1){
+                Debug.Log("SHOOT UP");
                 arrowLayer = "projectileBehind";
                 if(player.localScale.x > 0)
                 {

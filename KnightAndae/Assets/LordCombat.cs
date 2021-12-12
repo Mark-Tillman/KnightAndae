@@ -11,19 +11,24 @@ public class LordCombat : MonoBehaviour
     public float attackSpeed = 4f;
     public float knockback = 10f;
     public float stunTime = 1;
+    public GameObject projectile;
+    float projectileSpeed = 1500f;
+    GameObject player;
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+            shootProjectile();
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -37,5 +42,18 @@ public class LordCombat : MonoBehaviour
             playerHealth.TakeDamage(attackDamage);
  
         }
+    }
+
+    public void shootProjectile()
+    {
+        Vector2 playerDirection = (new Vector2(player.transform.position.x, (player.transform.position.y)) - new Vector2(gameObject.transform.position.x, gameObject.transform.position.y)).normalized;
+        GameObject ball= Instantiate(projectile, transform) as GameObject;
+        if(ball != null)
+        {
+            ball.GetComponent<Rigidbody2D>().simulated = true;
+            ball.GetComponent<Rigidbody2D>().AddForce(playerDirection * projectileSpeed * transform.parent.localScale.x);
+            ball.transform.parent = null;
+        }
+        
     }
 }

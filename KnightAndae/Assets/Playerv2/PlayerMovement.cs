@@ -38,8 +38,22 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Gives a value between -1 and 1
-        horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
-        vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+        //horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
+        //vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+
+        if(Input.GetKey(KeyCode.W))
+            vertical = 1;
+        else if(Input.GetKey(KeyCode.S))
+            vertical = -1;
+        else
+            vertical = 0;
+        if(Input.GetKey(KeyCode.D))
+            horizontal = 1;
+        else if(Input.GetKey(KeyCode.A))
+            horizontal = -1;
+        else 
+            horizontal = 0;
+
         if (canMove)
             AnimationUpdate();
     }
@@ -60,13 +74,18 @@ public class PlayerMovement : MonoBehaviour
             if (!combat.attacking)
             {
                 if (gameObject.GetComponent<Rigidbody2D>().velocity.x >= 0.01f)
-                {
                     transform.localScale = new Vector3(1f, 1f, 1f);
-                }
-                else if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 0f)
-                {
+
+                if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 0f)
                     transform.localScale = new Vector3(-1f, 1f, 1f);
-                }
+            }
+            else if (combat.attacking)
+            {
+                if(Input.GetKey(KeyCode.RightArrow) || (Input.mousePosition.y < ((float)Screen.height / Screen.width) * Input.mousePosition.x && Input.mousePosition.y > ((float)-Screen.height / Screen.width) * Input.mousePosition.x + Screen.height))
+                    transform.localScale = new Vector3(1f, 1f, 1f);
+
+                if(Input.GetKey(KeyCode.LeftArrow) || (Input.mousePosition.y > ((float)Screen.height / Screen.width) * Input.mousePosition.x && Input.mousePosition.y < ((float)-Screen.height / Screen.width) * Input.mousePosition.x + Screen.height))
+                    transform.localScale = new Vector3(-1f, 1f, 1f);
             }
         }
     }
@@ -80,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
     void AnimationUpdate()
     {
-        setCurrentXandY();
+        //setCurrentXandY();
         //Debug.Log("CurrentX: " + animator.GetFloat("currentX") + " CurrentY: " + animator.GetFloat("currentY"));
         if (horizontal == 0f && vertical == 0f)
         {

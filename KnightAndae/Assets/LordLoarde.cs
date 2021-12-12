@@ -5,6 +5,10 @@ using UnityEngine;
 public class LordLoarde : MonoBehaviour
 {
     bool canAttack = true;
+    bool canTrailAttack = true;
+    bool canShoot = false;
+    bool shootingPhase = false;
+    bool canTeleport = false;
     public GameObject attackPoint;
     public GameObject teleportPoints;
 
@@ -14,6 +18,7 @@ public class LordLoarde : MonoBehaviour
     float lastHealth;
     public Animator spriteAnimator;
     int currentTeleportPoint;
+    public float shootCooldown = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,20 +32,41 @@ public class LordLoarde : MonoBehaviour
     {
         currentHealth = ai.totalHealth;
 
-        if(lastHealth > currentHealth)
+        if(currentHealth == ai.maxHealth)
         {
+            shootingPhase = false;
+            canTeleport = false;
+            ai.speed = 350;
+            canTrailAttack = true;
+            
+        }
+        if(currentHealth <= 12)
+        {
+            shootingPhase = true;
+            canTeleport = true;
+            ai.speed = 0;
+        }
+            
+
+        if(lastHealth > currentHealth && canTeleport)
+        {
+            //Debug.Log("Teleporting");
             StartCoroutine(Teleport());
         }
 
-        if(ai.playerDetected)
-            Debug.Log("Shoot");
+        if(ai.playerDetected && canShoot && shootingPhase)
+        {
+            StartCoroutine(ShootCoolDown());
+            attackPoint.GetComponent<LordCombat>().shootProjectile();
+        }
+            
 
         lastHealth = currentHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.name == "Player")
+        if(other.name == "Player" && canTrailAttack)
         {
 
             Vector3 direction = other.transform.position - transform.position;
@@ -87,6 +113,19 @@ public class LordLoarde : MonoBehaviour
             yield return new WaitForSeconds(0.3f);
             transform.position = teleportPoints.transform.GetChild(randomNum).transform.position;
             currentTeleportPoint = randomNum;
+            canShoot = true;
+            canTrailAttack = false;
         }
     }
+
+    IEnumerator ShootCoolDown()
+    {
+        {
+            canShoot = false;
+            yield return new WaitForSeconds(shootCooldown);
+            canShoot = true;
+        }
+    }
+
+
 }

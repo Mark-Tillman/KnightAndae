@@ -69,7 +69,15 @@ public class CheckpointManager : MonoBehaviour
         transform.position = currentCheckpoint.position;
         
         foreach (GameObject enemy in enemies)
+        {
             enemy.GetComponent<EnemyAIv2>().respawnEnemy();
+
+            if(enemy.name == "Lord Loarde")
+            {
+                Debug.Log("reset lord");
+            }
+        }
+            
         
         foreach(GameObject chest in chests)
             chest.GetComponent<Chest>().reset();
@@ -100,7 +108,7 @@ public class CheckpointManager : MonoBehaviour
         currentCheckpoint = GameObject.FindGameObjectWithTag("CheckpointList").transform.GetChild(PlayerPrefs.GetInt("checkpointNumber") - 1).GetChild(2);
         lastArrowCount = PlayerPrefs.GetInt("arrowCount");
 
-        respawn();
+        //respawn();
     }
 
 }
