@@ -1019,8 +1019,8 @@ MonoBehaviour:
   minYDistance: 1
   canAttack: 0
   enemyHeight: 2.4
-  maxHealth: 25
-  totalHealth: 25
+  maxHealth: 20
+  totalHealth: 20
   spriteScale: 1
   itemDrop: {fileID: 4457706256586899368, guid: 8c6ed7fa5355d3845b1c4eb83ac50cdb, type: 3}
   ranged: 0
@@ -1164,11 +1164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8490104650791471, guid: f7690089c828c7b499d7b04402782c6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.204987
+      value: 33.69
       objectReference: {fileID: 0}
     - target: {fileID: 8490104650791471, guid: f7690089c828c7b499d7b04402782c6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.518171
+      value: 13.33
       objectReference: {fileID: 0}
     - target: {fileID: 8490104650791471, guid: f7690089c828c7b499d7b04402782c6c, type: 3}
       propertyPath: m_LocalPosition.z
