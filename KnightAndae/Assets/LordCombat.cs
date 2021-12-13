@@ -9,8 +9,8 @@ public class LordCombat : MonoBehaviour
     public int attackDamage = 1;
     bool attacking = false;
     public float attackSpeed = 4f;
-    public float knockback = 10f;
-    public float stunTime = 1;
+    public float knockback = 1000f;
+    public float stunTime = 1f;
     public GameObject projectile;
     float projectileSpeed = 700f;
     GameObject player;
@@ -35,9 +35,7 @@ public class LordCombat : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.GetComponent<PlayerMovement>().startGetStunned(stunTime);
-            //Debug.Log("Damage by: " + collision);
-            Vector3 oppositeDirection = new Vector3(collision.transform.position.x - transform.position.x, 0, 0).normalized;
-            oppositeDirection.y = 0;
+            Vector2 oppositeDirection = (collision.transform.position - gameObject.transform.position).normalized;
             collision.GetComponent<Rigidbody2D>().AddForce(knockback * oppositeDirection, ForceMode2D.Impulse);
             playerHealth.TakeDamage(attackDamage);
         }

@@ -39,12 +39,12 @@ public class LordLoarde : MonoBehaviour
             shootingPhase = true;
             canTeleport = true;
             ai.speed = 0;
-            shootCooldown = 0.35f;
+            shootCooldown = 0.5f;
         }
         if(currentHealth <= 7)
         {
             ai.speed = 400;
-            shootCooldown = 0.1f;
+            shootCooldown = 0.25f;
         }
             
 
@@ -72,7 +72,7 @@ public class LordLoarde : MonoBehaviour
     {
         canTrailAttack = false;
         spriteAnimator.SetTrigger("Attack");
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.8f);
         Vector3 direction = other.transform.position - transform.position;
             if(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
             {
@@ -94,7 +94,7 @@ public class LordLoarde : MonoBehaviour
     IEnumerator TrailAttackCooldown()
     {
         canTrailAttack = false;
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(1f);
         canTrailAttack = true;
     }
 
