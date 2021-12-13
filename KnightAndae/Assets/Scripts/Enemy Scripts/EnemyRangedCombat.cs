@@ -53,9 +53,12 @@ public class EnemyRangedCombat : MonoBehaviour
     {
         GameObject arrow = Instantiate(arrowProjectile, transform) as GameObject;
         yield return new WaitForSeconds(0.8f);
+        if(arrow != null)
+        {
         arrow.GetComponent<Rigidbody2D>().simulated = true;
         arrow.GetComponent<Rigidbody2D>().AddForce(Vector2.left * arrowSpeed * transform.parent.localScale.x);
         arrow.transform.parent = null;
+        }
     }
 
     public void reset()
