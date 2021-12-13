@@ -13,9 +13,9 @@ public class CheckPosition : MonoBehaviour
             sceneName = SceneManager.GetActiveScene().name;
             if (sceneName == "Castle5")
             {
+                MusicManager curManager = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>();
                 if (transform.position.y > -50 && MusicManager.GetMusic() != "boss")
                 {
-                    MusicManager curManager = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>();
                     curManager.SwitchMusic("boss");
                     playing = true;
                 }

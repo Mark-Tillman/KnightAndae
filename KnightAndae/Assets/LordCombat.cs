@@ -40,7 +40,6 @@ public class LordCombat : MonoBehaviour
             oppositeDirection.y = 0;
             collision.GetComponent<Rigidbody2D>().AddForce(knockback * oppositeDirection, ForceMode2D.Impulse);
             playerHealth.TakeDamage(attackDamage);
- 
         }
     }
 

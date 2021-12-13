@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
-    public static AudioClip musicForest, musicTown, musicMountain, musicSwamp, musicCastle, musicBoss, musicTitle;
-    static AudioSource audiosource;
+    public static AudioClip musicForest, musicTown, musicMountain, musicSwamp, musicCastle, musicBoss, musicTitle, musicVictory;
+    public static AudioSource audiosource;
     string sceneName;
     static string musicName;
 
@@ -20,6 +20,7 @@ public class MusicManager : MonoBehaviour
         musicCastle = Resources.Load<AudioClip>("castle");
         musicBoss = Resources.Load<AudioClip>("boss");
         musicTitle = Resources.Load<AudioClip>("title");
+        musicVictory = Resources.Load<AudioClip>("victory");
 
         audiosource = GetComponent<AudioSource>();
         // this switch is mainly for debugging purpose, simply doing PlayMusic("title"); would work too
@@ -93,8 +94,15 @@ public class MusicManager : MonoBehaviour
                 case "Castle1":
                     SwitchMusic("castle");
                     break;
+                case "Win Scene":
+                    SwitchMusic("victory");
+                    break;
             }
             sceneName = curSceneName;
+        }
+        if (!audiosource.isPlaying && musicName != "victory")
+        {
+            PlayMusic(musicName);
         }
     }
     public static void PlayMusic(string clip)
@@ -122,6 +130,9 @@ public class MusicManager : MonoBehaviour
                 break;
             case "boss":
                 audiosource.PlayOneShot(musicBoss, 0.2f);
+                break;
+            case "victory":
+                audiosource.PlayOneShot(musicVictory, 0.3f);
                 break;
         }
     }
