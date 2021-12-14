@@ -29,6 +29,7 @@ public class CheckpointManager : MonoBehaviour
         {
             loadFromSave();
         }
+        PlayerPrefs.SetInt("loadFromSave", 0);
     }
 
     // Update is called once per frame
@@ -107,7 +108,7 @@ public class CheckpointManager : MonoBehaviour
         Debug.Log("Loading From Save");
         currentCheckpoint = GameObject.FindGameObjectWithTag("CheckpointList").transform.GetChild(PlayerPrefs.GetInt("checkpointNumber") - 1).GetChild(2);
         lastArrowCount = PlayerPrefs.GetInt("arrowCount");
-
+        transform.position = currentCheckpoint.position;
         //respawn();
     }
 
