@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Player_Combat : MonoBehaviour
 {
     public Animator animator;
@@ -32,7 +32,7 @@ public class Player_Combat : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0) && !attacking)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Space)) && !attacking)
         {
             if(Input.mousePosition.y > ((float)Screen.height / Screen.width) * Input.mousePosition.x && Input.mousePosition.y > ((float)-Screen.height / Screen.width) * Input.mousePosition.x + Screen.height)
             {
@@ -120,13 +120,13 @@ public class Player_Combat : MonoBehaviour
             updateWeapon(tempID);
             player.GetComponent<PlayerMovement>().changeWeapon(tempID);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !attacking)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !attacking && SceneManager.GetActiveScene().buildIndex > 2)
         {
             tempID = 3;
             updateWeapon(tempID);
             player.GetComponent<PlayerMovement>().changeWeapon(tempID);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4) && !attacking)
+        if (Input.GetKeyDown(KeyCode.Alpha4) && !attacking && SceneManager.GetActiveScene().buildIndex > 3)
         {
             tempID = 4;
             updateWeapon(tempID);
@@ -231,7 +231,7 @@ public class Player_Combat : MonoBehaviour
             float dirY = animator.GetFloat("currentY");
 
             if(dirY == 1){
-                Debug.Log("SHOOT UP");
+                //Debug.Log("SHOOT UP");
                 arrowLayer = "projectileBehind";
                 if(player.localScale.x > 0)
                 {

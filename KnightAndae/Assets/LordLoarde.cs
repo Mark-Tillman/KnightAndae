@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LordLoarde : MonoBehaviour
 {
-    bool canAttack = true;
     bool canTrailAttack = true;
     bool canShoot = false;
     bool shootingPhase = false;
@@ -20,7 +19,6 @@ public class LordLoarde : MonoBehaviour
     public Animator spriteAnimator;
     int currentTeleportPoint;
     public float shootCooldown = 0.1f;
-    int hits = 0;
 
     // Start is called before the first frame update
     void Start()

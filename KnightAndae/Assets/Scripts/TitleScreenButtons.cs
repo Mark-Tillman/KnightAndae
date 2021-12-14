@@ -10,7 +10,7 @@ public class TitleScreenButtons : MonoBehaviour
     public void NewGame()
     {
         SoundManager.PlaySound("confirm");
-        Application.LoadLevel(startLevel);
+        //Application.LoadLevel(startLevel);
     }
 
     //public void LevelSelect()

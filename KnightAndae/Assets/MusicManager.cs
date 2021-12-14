@@ -161,7 +161,7 @@ public class MusicManager : MonoBehaviour
     }
     public static void setVolume(float nVolume)
     {
-        Debug.Log(nVolume);
+        //Debug.Log(nVolume);
         audiosource.volume = nVolume;
     }
 }

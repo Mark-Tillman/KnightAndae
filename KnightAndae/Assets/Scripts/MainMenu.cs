@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        Debug.Log("Start game");
         PlayerPrefs.SetInt("loadFromSave", 0);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -15,20 +14,18 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-        Debug.Log("Load game");
-        Debug.Log("Checkpoint: " + PlayerPrefs.GetInt("checkpointNumber") + " Arrows: " + PlayerPrefs.GetInt("arrowCount") + " Scene: " + PlayerPrefs.GetInt("sceneNumber"));
+        //Debug.Log("Checkpoint: " + PlayerPrefs.GetInt("checkpointNumber") + " Arrows: " + PlayerPrefs.GetInt("arrowCount") + " Scene: " + PlayerPrefs.GetInt("sceneNumber"));
         PlayerPrefs.SetInt("loadFromSave", 1);
         SceneManager.LoadScene(PlayerPrefs.GetInt("sceneNumber"));
     }
 
     public void Settings()
     {
-        Debug.Log("Settings");
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quit game");
+
         Application.Quit();
     }
 }

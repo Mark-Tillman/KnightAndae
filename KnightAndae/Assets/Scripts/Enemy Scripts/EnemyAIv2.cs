@@ -15,7 +15,7 @@ public class EnemyAIv2 : MonoBehaviour
 
     Path path; //Stores the path that the enemy is to follow
     int currentWaypoint = 0; //Current waypoint in path the enemy is following
-    bool reachedEndOfPath = false; //Bool for if the end of the path has been reached
+    //bool reachedEndOfPath = false; //Bool for if the end of the path has been reached
 
     Vector3 originalPosition; //Save original position to pathfind home
     Vector3 lastKnownPosition; //Save last known position of player
@@ -181,14 +181,14 @@ public class EnemyAIv2 : MonoBehaviour
         if (path == null)
         {
             //Do nothing if there is no path
-            Debug.Log("No Path");
+            //Debug.Log("No Path");
             return;
         }
 
         if (currentWaypoint >= path.vectorPath.Count)
         {
             //Check if the end of the path has been reached
-            reachedEndOfPath = true;
+            //reachedEndOfPath = true;
             checkLastPosition = false;
             chase = false;
             return;
@@ -196,7 +196,7 @@ public class EnemyAIv2 : MonoBehaviour
         else
         {
             //Not done with path yet
-            reachedEndOfPath = false;
+            //reachedEndOfPath = false;
         }
 
 

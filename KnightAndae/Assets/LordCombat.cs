@@ -7,7 +7,6 @@ public class LordCombat : MonoBehaviour
     PlayerHealth playerHealth;
     public GameObject attackPoint;
     public int attackDamage = 1;
-    bool attacking = false;
     public float attackSpeed = 4f;
     public float knockback = 1000f;
     public float stunTime = 1f;
